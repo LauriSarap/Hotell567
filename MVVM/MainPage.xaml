@@ -5,34 +5,36 @@
              Title="Home"
              BackgroundColor="White">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
 
+    <StackLayout
+        Spacing="25"
+        Padding="30,0"
+        VerticalOptions="Start">
+
+        <!-- Navigation Bar -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+            <Button x:Name="HomeBtn" Text="Home" Clicked="HomeBtn_Clicked"/>
+            <Button x:Name="LoginPageBtn" Text="Login" Clicked="LoginBtn_Clicked" />
+        </StackLayout>
+
+        <!-- Page Content -->
+
+        <StackLayout VerticalOptions="Start">
             <Label
-                x:Name="lblText"
+                x:Name="WelcomeLabel"
                 Text="Welcome!"
-                FontSize="32"
-                TextColor="Black"
-                HorizontalOptions="Center" />
+                Style="{DynamicResource baseTitleStyle}" />
 
             <Label
                 Text="Welcome to .NET Multi-platform App UI"
-                FontSize="18"
-                TextColor="Black"
+                Style="{DynamicResource baseTextStyle}"
                 HorizontalOptions="Center" />
 
             <Button
-                x:Name="CounterBtn"
                 Text="See available listings"
-                Clicked="OnCounterClicked"
-                BackgroundColor="Black"
-                HorizontalOptions="Center"
-                TextColor="White"/>
-
-        </VerticalStackLayout>
-    </ScrollView>
-
+                Clicked="SeeAvailableListings"
+                Style="{DynamicResource baseButtonStyle}"
+                HorizontalOptions="Center" />
+        </StackLayout>
+    </StackLayout>
 </ContentPage>

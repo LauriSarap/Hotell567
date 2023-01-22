@@ -9,6 +9,52 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Color x:Key="textColor">Black</Color>
+            <Color x:Key="placeHolderTextColor">DarkGray</Color>
+            <x:Double x:Key="textFontSize">22</x:Double>
+            <x:Double x:Key="titleFontSize">32</x:Double>
+            <Color x:Key="backgroundColor">LightGray</Color>
+            <Color x:Key="designColor">LightBlue</Color>
+
+
+            <!-- Overall view styling -->
+            <Style x:Key="baseApplicationStyle" TargetType="View">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource backgroundColor}"/>
+            </Style>
+
+            <!-- Label/Text styling -->
+            <Style x:Key="baseTextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource textColor}"/>
+                <Setter Property="FontSize" Value="{StaticResource textFontSize}"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="baseTitleStyle" TargetType="Label" BasedOn="{StaticResource baseTextStyle}">
+                <Setter Property="FontSize" Value="{StaticResource titleFontSize}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+            <!-- Button styling -->
+            <Style x:Key="baseButtonStyle" TargetType="Button" BasedOn="{StaticResource baseApplicationStyle}">
+                <Setter Property="TextColor" Value="{DynamicResource textColor}"/>
+                <Setter Property="FontSize" Value="{StaticResource textFontSize}"/>
+            </Style>
+
+            <!-- Box styling -->
+            <Style x:Key="baseBoxStyle" TargetType="BoxView" BasedOn="{StaticResource baseApplicationStyle}">
+                <Setter Property="BackgroundColor" Value="{DynamicResource designColor}"/>
+            </Style>
+
+            <!-- Entry styling -->
+            <Style x:Key="baseEntryStyle" TargetType="Entry" BasedOn="{StaticResource baseApplicationStyle}">
+                <Setter Property="PlaceholderColor" Value="{StaticResource placeHolderTextColor}"/>
+                <Setter Property="FontSize" Value="{StaticResource textFontSize}"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

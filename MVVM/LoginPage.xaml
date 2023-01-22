@@ -4,7 +4,7 @@
              x:Class="Hotell567.MVVM.LoginPage"
              Title="LoginPage"
              BackgroundColor="White">
-    <VerticalStackLayout>
+    <VerticalStackLayout VerticalOptions="Center">
 
         <Border Stroke="Gray"
                 StrokeThickness="2"

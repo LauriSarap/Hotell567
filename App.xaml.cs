@@ -1,4 +1,6 @@
-﻿namespace Hotell567;
+﻿using Hotell567.MVVM;
+
+namespace Hotell567;
 
 public partial class App : Application
 {
@@ -6,6 +8,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
-	}
+		MainPage = new MainPage();
+    }
 }
