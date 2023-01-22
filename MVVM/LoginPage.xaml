@@ -6,17 +6,30 @@
              BackgroundColor="White">
     <VerticalStackLayout>
 
-        <Frame BorderColor="Gray"
-               BackgroundColor="LightBlue"
-               WidthRequest="600"
-               Padding="0">
-            <Label 
-                Text="Einloggen!"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" 
-                TextColor="Black"/>
+        <Border Stroke="Gray"
+                StrokeThickness="2"
+                Background="White"
+                Padding="16,16"
+                HorizontalOptions="Center">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="5" />
+            </Border.StrokeShape>
 
-        </Frame>
+            <VerticalStackLayout>
+                <Label Text=".NET MAUI"
+                       TextColor="Black"
+                       FontSize="18"
+                       FontAttributes="Bold" />
+                <Label Text=".NET MAUI"
+                       TextColor="Black"
+                       FontSize="18"
+                       FontAttributes="Bold" />
+                <Label Text=".NET MAUI"
+                       TextColor="Black"
+                       FontSize="18"
+                       FontAttributes="Bold" />
+            </VerticalStackLayout>
+        </Border>
 
     </VerticalStackLayout>
 </ContentPage>
