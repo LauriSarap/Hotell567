@@ -5,9 +5,18 @@
              Title="LoginPage"
              BackgroundColor="White">
     <VerticalStackLayout>
-        <Label 
-            Text="Einloggen!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+
+        <Frame BorderColor="Gray"
+               BackgroundColor="LightBlue"
+               WidthRequest="600"
+               Padding="0">
+            <Label 
+                Text="Einloggen!"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                TextColor="Black"/>
+
+        </Frame>
+
     </VerticalStackLayout>
 </ContentPage>
