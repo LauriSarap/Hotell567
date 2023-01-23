@@ -1,6 +1,4 @@
-﻿using Windows.Networking.NetworkOperators;
-using Windows.UI.ApplicationSettings;
-
+﻿
 namespace Hotell567.MVVM;
 
 public partial class MainPage : ContentPage
