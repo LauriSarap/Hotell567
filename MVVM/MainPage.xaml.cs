@@ -1,5 +1,4 @@
-﻿
-namespace Hotell567.MVVM;
+﻿namespace Hotell567.MVVM;
 
 public partial class MainPage : ContentPage
 {
@@ -38,7 +37,7 @@ public partial class MainPage : ContentPage
 
     private void SeeAvailableListings(object sender, EventArgs e)
     {
-        DisplayAlert("See Available Listings", "This feature is not yet implemented", "OK");
+        Shell.Current.GoToAsync("//LoginPage");
     }
 
     private string text;
