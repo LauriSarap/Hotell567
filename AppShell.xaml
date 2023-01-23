@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Name="Shell"
+    x:Class="Hotell567.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Hotell567.MVVM"
+    FlyoutBehavior="Locked"
+    FlyoutBackgroundColor="LightGray">
+    
+    <FlyoutItem Title="Home">
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage"/>
+    </FlyoutItem>    
+
+    <FlyoutItem Title="Login">
+        <ShellContent ContentTemplate="{DataTemplate local:LoginPage}" Route="LoginPage"/>
+    </FlyoutItem>
+
+</Shell>
+
