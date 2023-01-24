@@ -61,6 +61,9 @@
 	  <MauiXaml Update="AppShell.xaml">
 	    <SubType></SubType>
 	  </MauiXaml>
+	  <MauiXaml Update="MVVM\RoomsPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<!-- Database -->

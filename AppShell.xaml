@@ -16,5 +16,9 @@
         <ShellContent ContentTemplate="{DataTemplate local:LoginPage}" Route="LoginPage"/>
     </FlyoutItem>
 
+    <FlyoutItem Title="Rooms">
+        <ShellContent ContentTemplate="{DataTemplate local:RoomsPage}" Route="RoomsPage"/>
+    </FlyoutItem>
+
 </Shell>
 
