@@ -11,6 +11,7 @@ namespace Hotell567.MVVM;
 public partial class LoginPage : ContentPage
 {
 	public ObservableCollection<User> Users { get; set; } = new ObservableCollection<User>();
+	public UserRepository userRepository;
 	public LoginPage()
 	{
 		InitializeComponent();
@@ -27,8 +28,8 @@ public partial class LoginPage : ContentPage
 			}
 		}
 
-		UserRepository repository = new UserRepository();
-		foreach(var user in repository.List())
+		userRepository = new UserRepository();
+		foreach(var user in userRepository.List())
 		{
 			Users.Add(user);
 		}
@@ -42,19 +43,21 @@ public partial class LoginPage : ContentPage
     {
         if (!string.IsNullOrWhiteSpace(usernameEntry.Text))
 		{
-			User newUser = new User();
+			//User newUser = new User();
 			
-			newUser.username = usernameEntry.Text;
+			//newUser.username = usernameEntry.Text;
 
-            //UserRepository.SaveUser(newUser); 
-            //UserRepository.SaveUser(new User
-            //{
-            //    username = usernameEntry.Text
-            //});
+			// UserRepository.SaveUser(newUser); 
+
+            userRepository.SaveUser(new User
+            {
+                username = usernameEntry.Text,
+				password = passwordEntry.Text
+            });
 
             usernameEntry.Text = string.Empty;
 
-            //collectionView.ItemsSource = UserRepository.List();
+            collectionView.ItemsSource = userRepository.List();
         }
     }
 
