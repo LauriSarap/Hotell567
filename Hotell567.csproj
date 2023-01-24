@@ -63,4 +63,9 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<!-- Database -->
+	<ItemGroup>
+		<EmbeddedResource Include="hoteldatabase.db" />
+	</ItemGroup>
+
 </Project>

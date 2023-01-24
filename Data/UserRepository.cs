@@ -13,7 +13,7 @@ namespace Hotell567.Data
         private readonly SQLiteConnection _database;
 
         public static string DbPath { get; } =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HotelAppDB.db");
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "hoteldatabase.db");
         public UserRepository()
         {
             _database = new SQLiteConnection(DbPath);
