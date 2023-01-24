@@ -51,6 +51,7 @@
 	  <PackageReference Include="Dapper" Version="2.0.123" />
 	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 	  <PackageReference Include="System.Data.SQLite.Core" Version="1.0.117" />
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -70,4 +71,7 @@
     <EmbeddedResource Include="hoteldatabase.db" />
   </ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="CommunityToolkit.Mvvm" />
+	</ItemGroup>
 </Project>
