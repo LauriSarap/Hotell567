@@ -17,6 +17,11 @@
             </Border.StrokeShape>
 
             <VerticalStackLayout>
+                <Entry x:Name="usernameEntry"
+                   Placeholder="Enter name" />
+                <Entry x:Name="passwordEntry"
+                   Placeholder="Enter password" />
+                <Button Text="Login" />
                 <Border Padding="20" VerticalOptions="Center" WidthRequest="1000" BackgroundColor="LightCoral" HeightRequest="300" StrokeThickness="0">
                     <CollectionView x:Name="collectionView" ItemsSource="{Binding Users}" HorizontalOptions="Start" WidthRequest="500">
                         <CollectionView.ItemTemplate>
