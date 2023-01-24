@@ -69,14 +69,14 @@
                         </StackLayout>
 
                         <Button Text="Learn more"
-                            TextColor="Black"
-                            BorderWidth="2"                          
-                            BorderColor="Gray"
-                            BackgroundColor="White"
-                            CornerRadius="20"
-                            VerticalOptions="Center"
-                            HorizontalOptions="EndAndExpand"
-                            Margin="5"/>
+                                TextColor="Black"
+                                BorderWidth="2"                          
+                                BorderColor="Gray"
+                                BackgroundColor="White"
+                                CornerRadius="20"
+                                VerticalOptions="Center"
+                                HorizontalOptions="EndAndExpand"
+                                Margin="5"/>
 
                     </StackLayout>
                 </Grid>
