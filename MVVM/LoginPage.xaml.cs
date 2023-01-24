@@ -52,7 +52,8 @@ public partial class LoginPage : ContentPage
             userRepository.SaveUser(new User
             {
                 username = usernameEntry.Text,
-				password = passwordEntry.Text
+				password = passwordEntry.Text,
+				email = emailEntry.Text
             });
 
             usernameEntry.Text = string.Empty;

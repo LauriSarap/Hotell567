@@ -21,6 +21,8 @@
                    Placeholder="Enter name" />
                 <Entry x:Name="passwordEntry"
                    Placeholder="Enter password" />
+                <Entry x:Name="emailEntry"
+                   Placeholder="Enter Email" />
                 <Button Text="Login" Clicked="OnButtonClicked"/>
                 <!--<Button Text="Update database" Clicked="Button_clicked"/>-->
                 <!--<Button Text="Delete database" Clicked="Button_clicked_1"/>-->
