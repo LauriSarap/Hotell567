@@ -3,6 +3,8 @@ using System.IO;
 using Hotell567.Data;
 using System.Collections.ObjectModel;
 using Hotell567.Models;
+using Hotell567.Data;
+using System;
 
 namespace Hotell567.MVVM;
 
@@ -34,4 +36,44 @@ public partial class LoginPage : ContentPage
 		BindingContext = this;
 
 	}
+
+	// Adds to database
+    void OnButtonClicked(object sender, EventArgs e)
+    {
+        if (!string.IsNullOrWhiteSpace(usernameEntry.Text))
+		{
+			User newUser = new User();
+			
+			newUser.username = usernameEntry.Text;
+
+            //UserRepository.SaveUser(newUser); 
+            //UserRepository.SaveUser(new User
+            //{
+            //    username = usernameEntry.Text
+            //});
+
+            usernameEntry.Text = string.Empty;
+
+            //collectionView.ItemsSource = UserRepository.List();
+        }
+    }
+
+	void Button_Clicked(System.Object sender, EventArgs e)
+	{
+
+	}
+
+    void Button_Clicked_1(System.Object sender, EventArgs e)
+    {
+
+    }
+
+    User lastSelection;
+
+    private void collectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+		lastSelection = e.CurrentSelection[0] as User;
+
+		usernameEntry.Text = lastSelection.username;
+    }
 }

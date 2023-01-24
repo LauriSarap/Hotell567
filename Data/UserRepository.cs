@@ -24,5 +24,20 @@ namespace Hotell567.Data
         {
             return _database.Table<User>().ToList();
         }
+
+        public int SaveUser(User user)
+        {
+            return _database.Insert(user);
+        }
+
+        public int UpdateUser(User user)
+        {
+            return _database.Update(user);
+        }
+
+        public int DeleteUser(User user)
+        {
+            return _database.Delete(user);
+        }
     }
 }
