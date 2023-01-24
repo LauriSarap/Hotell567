@@ -20,5 +20,7 @@
         <ShellContent ContentTemplate="{DataTemplate local:RoomsPage}" Route="RoomsPage"/>
     </FlyoutItem>
 
+    <MenuItem Text="Information"/>
+
 </Shell>
 

@@ -1,22 +1,14 @@
-﻿using Hotell567.Models;
-using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SQLite;
 
 namespace Hotell567.Data
 {
-    public class UserRepository
+    public class UserDatabase
     {
         private readonly SQLiteConnection _database;
 
-        public static string DbPath { get; } =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "hoteldatabase.db");
-        public UserRepository()
+        public UserDatabase(string dbPath)
         {
-            _database = new SQLiteConnection(DbPath);
+            _database = new SQLiteConnection(dbPath);
             _database.CreateTable<User>();
         } 
 

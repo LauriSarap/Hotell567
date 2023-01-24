@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:Hotell567.MVVM"
+             xmlns:data="clr-namespace:Hotell567.Data"
              x:Class="Hotell567.MVVM.RoomsPage" Padding="50"
              Title="Rooms"
              BackgroundColor="White">
@@ -13,23 +14,23 @@
         <!--Data, which is displayed in the CollectionView-->
         <CollectionView.ItemsSource>
                 
-            <x:Array Type="{x:Type model:Room}">
-                <model:Room
+            <x:Array Type="{x:Type data:Room}">
+                <data:Room
                     RoomNumber="1"
                     Description="Description.."/>
-                <model:Room
+                <data:Room
                     RoomNumber="2"
                     Description="Description.."/>
-                <model:Room
+                <data:Room
                     RoomNumber="3"
                     Description="Description.."/>
-                <model:Room
+                <data:Room
                     RoomNumber="4"
                     Description="Description.."/>
-                <model:Room
+                <data:Room
                     RoomNumber="5"
                     Description="Description.."/>
-                <model:Room
+                <data:Room
                     RoomNumber="6"
                     Description="Description.."/>
             </x:Array>
@@ -47,7 +48,7 @@
         <CollectionView.ItemTemplate>
 
             <!--Create a template for displaying a room-->
-            <DataTemplate x:DataType="model:Room">
+            <DataTemplate x:DataType="data:Room">
 
                 <Frame Background="White">
                 <Grid ColumnDefinitions="*, 20">

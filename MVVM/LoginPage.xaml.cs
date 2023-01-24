@@ -2,48 +2,37 @@ using System.Reflection;
 using System.IO;
 using Hotell567.Data;
 using System.Collections.ObjectModel;
-using Hotell567.Models;
-using Hotell567.Data;
 using System;
+using Hotell567.Logic;
 
 namespace Hotell567.MVVM;
 
 public partial class LoginPage : ContentPage
 {
 	public ObservableCollection<User> Users { get; set; } = new ObservableCollection<User>();
-	public UserRepository userRepository;
-	public LoginPage()
+    public LoginPage()
 	{
 		InitializeComponent();
-
-		// TODO only do this when app first runs
-		var assembly = IntrospectionExtensions.GetTypeInfo(typeof(App)).Assembly;
-		using (Stream stream = assembly.GetManifestResourceStream("Hotell567.hoteldatabase.db"))
-		{
-			using (MemoryStream memoryStream = new MemoryStream())
-			{
-				stream.CopyTo(memoryStream);
-
-				File.WriteAllBytes(UserRepository.DbPath, memoryStream.ToArray()); 
-			}
-		}
-
-		userRepository = new UserRepository();
-		foreach(var user in userRepository.List())
+        
+        //AppManager.userDatabase = new UserDatabase();
+		foreach(var user in AppManager.userDatabase.List())
 		{
 			Users.Add(user);
 		}
 
-		BindingContext = this;
+        BindingContext = this;
 
-	}
 
-	// Adds to database
-    void OnButtonClicked(object sender, EventArgs e)
+    }
+
+    // Adds to database
+    private void LoginBtnClicked(object sender, EventArgs e)
     {
-        if (!string.IsNullOrWhiteSpace(usernameEntry.Text))
-		{
-			userRepository.SaveUser(new User
+        //TODO Check if user exists, if does, log in, if doesn't, show registration fields and create new user.
+
+        if (AppManager.userFactory.CheckIfAccountFieldsAreValid(usernameEntry.Text, passwordEntry.Text, emailEntry.Text) == true)
+        {
+            AppManager.userDatabase.SaveUser(new User
             {
                 username = usernameEntry.Text,
 				password = passwordEntry.Text,
@@ -51,24 +40,25 @@ public partial class LoginPage : ContentPage
             });
 
             usernameEntry.Text = string.Empty;
+            passwordEntry.Text = string.Empty;
+            emailEntry.Text = string.Empty;
 
-            collectionView.ItemsSource = userRepository.List();
+            collectionView.ItemsSource = AppManager.userDatabase.List();
+        }
+        else
+        {
+            DisplayAlert("Error", "Please enter a valid username, password and email", "OK");
         }
     }
 
-	// Update
-	void Button_Clicked(System.Object sender, EventArgs e)
+    // Update
+    private void UpdateBtnClicked(System.Object sender, EventArgs e)
 	{
-		if(lastSelection != null)
+		if (lastSelection != null)
 		{
-			userRepository.UpdateUser(lastSelection);
+            AppManager.userDatabase.UpdateUser(lastSelection);
 		}
 	}
-
-    void Button_Clicked_1(System.Object sender, EventArgs e)
-    {
-
-    }
 
     User lastSelection;
 

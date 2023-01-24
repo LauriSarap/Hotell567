@@ -1,10 +1,8 @@
-﻿using Hotell567.MVVM;
-
-namespace Hotell567;
+﻿namespace Hotell567;
 
 public partial class App : Application
 {
-	public App()
+    public App()
 	{
 		InitializeComponent();
 

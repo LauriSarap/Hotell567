@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Hotell567.MVVM;
+﻿namespace Hotell567.Data;
 
 public class Room
 {
