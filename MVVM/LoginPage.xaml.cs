@@ -43,13 +43,7 @@ public partial class LoginPage : ContentPage
     {
         if (!string.IsNullOrWhiteSpace(usernameEntry.Text))
 		{
-			//User newUser = new User();
-			
-			//newUser.username = usernameEntry.Text;
-
-			// UserRepository.SaveUser(newUser); 
-
-            userRepository.SaveUser(new User
+			userRepository.SaveUser(new User
             {
                 username = usernameEntry.Text,
 				password = passwordEntry.Text,
@@ -62,9 +56,13 @@ public partial class LoginPage : ContentPage
         }
     }
 
+	// Update
 	void Button_Clicked(System.Object sender, EventArgs e)
 	{
-
+		if(lastSelection != null)
+		{
+			userRepository.UpdateUser(lastSelection);
+		}
 	}
 
     void Button_Clicked_1(System.Object sender, EventArgs e)
