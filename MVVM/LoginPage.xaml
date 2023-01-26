@@ -20,17 +20,17 @@
                 <Entry x:Name="usernameEntry"
                    Placeholder="Enter name" 
                    Style="{DynamicResource baseTextStyle}"/>
-                <Entry x:Name="passwordEntry"
-                   Placeholder="Enter password" 
-                   Style="{DynamicResource baseTextStyle}"/>
                 <Entry x:Name="emailEntry"
                    Placeholder="Enter Email" 
+                   Style="{DynamicResource baseTextStyle}"/>
+                <Entry x:Name="passwordEntry"
+                   Placeholder="Enter password" 
                    Style="{DynamicResource baseTextStyle}"/>
                 <Button Text="Login" 
                         Clicked="LoginBtnClicked"
                         Style="{DynamicResource baseButtonStyle}"/>
-                <!--<Button Text="Update database" Clicked="Button_clicked"/>-->
-                <!--<Button Text="Delete database" Clicked="Button_clicked_1"/>-->
+                <Button Text="Update database" Clicked="Button_Clicked"/>
+                <Button Text="Delete database" Clicked="Button_Clicked_1"/>
                 <Border Padding="20" VerticalOptions="Center" WidthRequest="1000" BackgroundColor="LightCoral" HeightRequest="300" StrokeThickness="0">
                     <CollectionView x:Name="collectionView" ItemsSource="{Binding Users}" HorizontalOptions="Start" WidthRequest="500" SelectionMode="Single" SelectionChanged="collectionView_SelectionChanged">
                         <CollectionView.ItemTemplate>

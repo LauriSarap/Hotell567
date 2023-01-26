@@ -68,4 +68,31 @@ public partial class LoginPage : ContentPage
 
 		usernameEntry.Text = lastSelection.username;
     }
+
+    // Update
+    void Button_Clicked(System.Object sender, System.EventArgs e)
+    {
+        if (lastSelection != null)
+        {
+            lastSelection.first_name = usernameEntry.Text;
+            lastSelection.password = passwordEntry.Text;
+            lastSelection.email = emailEntry.Text;
+            AppManager.userDatabase.UpdateUser(lastSelection);
+        }
+    }
+
+    // Delete
+    void Button_Clicked_1(System.Object sender, System.EventArgs e)
+    {
+        if (lastSelection != null)
+        {
+            AppManager.userDatabase.DeleteUser(lastSelection);
+
+            AppManager.userDatabase.List();
+
+            usernameEntry.Text = "";
+            emailEntry.Text = "";
+            passwordEntry.Text = "";
+        }
+    }
 }
