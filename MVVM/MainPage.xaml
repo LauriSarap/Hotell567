@@ -11,12 +11,6 @@
         Padding="30,0"
         VerticalOptions="Start">
 
-        <!-- Navigation Bar -->
-        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-            <Button x:Name="HomeBtn" Text="Home" Clicked="HomeBtn_Clicked"/>
-            <Button x:Name="LoginPageBtn" Text="Login" Clicked="LoginBtn_Clicked" />
-        </StackLayout>-->
-
         <!-- Page Content -->
         <StackLayout VerticalOptions="Start">
             <Label

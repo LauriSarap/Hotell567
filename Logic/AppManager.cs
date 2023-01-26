@@ -8,7 +8,7 @@ namespace Hotell567.Logic
         public static UserDatabase userDatabase;
         public static UserFactory userFactory;
 
-        public static string DbPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "hoteldatabase.db");
+        public static string DbPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "hoteldatabase.db");
 
         static AppManager()
         {

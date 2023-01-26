@@ -1,10 +1,14 @@
 ﻿using Hotell567.Models;
+using Hotell567.Data;
+using System.Collections.ObjectModel;
 
 namespace Hotell567.MVVM;
 
 public partial class RoomsPage : ContentPage
 {
-	public RoomsPage(RoomViewModel viewModel)
+    public ObservableCollection<Room> Rooms { get; set; } = new ObservableCollection<Room>();
+
+    public RoomsPage(RoomViewModel viewModel)
 	{
 		InitializeComponent();
 		BindingContext = viewModel;
