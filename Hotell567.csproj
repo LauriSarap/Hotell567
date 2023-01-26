@@ -71,11 +71,11 @@
   <ItemGroup>
     <EmbeddedResource Include="hoteldatabase.db" />
   </ItemGroup>
-	
-	<!-- Connection String -->
-	<configuration>
-		<add name="Default" connectionString="Data Source=.\hoteldatabase.db;Version=3" providerName="System.Data.SqlClient"/>
-	</configuration>
+
+  <!-- Connection String -->
+  <configuration>
+    <add name="Default" connectionString="Data Source=.\hoteldatabase.db;Version=3" providerName="System.Data.SqlClient"/>
+  </configuration>
 
   <ItemGroup>
 	  <None Remove="CommunityToolkit.Mvvm" />
