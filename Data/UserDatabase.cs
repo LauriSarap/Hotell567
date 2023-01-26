@@ -1,20 +1,22 @@
-﻿using SQLite;
+﻿using System.Data.Entity;
+using System.Data.SQLite;
 
 namespace Hotell567.Data
 {
     public class UserDatabase
     {
-        private readonly SQLiteConnection _database;
 
-        public UserDatabase(string dbPath)
+        public UserDatabase()
         {
-            _database = new SQLiteConnection(dbPath);
-            _database.CreateTable<User>();
+            
         } 
 
         public List<User> List()
         {
-            return _database.Table<User>().ToList();
+            using (SQLiteConnection conn = new SQLiteConnection(LoadConnectionString())
+            {
+                return conn.Table<User>().ToList();
+            }
         }
 
         public int SaveUser(User user)

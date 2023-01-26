@@ -1,5 +1,5 @@
 ﻿using Hotell567.Data;
-using System.Reflection;
+using System.Data.SQLite;
 
 namespace Hotell567.Logic
 {
@@ -8,13 +8,11 @@ namespace Hotell567.Logic
         public static UserDatabase userDatabase;
         public static UserFactory userFactory;
 
-        public static string DbPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "hoteldatabase.db");
-
         static AppManager()
         {
             // This piece of code has to be the first that accesses the .db file!
 
-            var assembly = IntrospectionExtensions.GetTypeInfo(typeof(App)).Assembly;
+            /*var assembly = IntrospectionExtensions.GetTypeInfo(typeof(App)).Assembly;
             
             using (Stream stream = assembly.GetManifestResourceStream("Hotell567.hoteldatabase.db"))
             {
@@ -24,7 +22,7 @@ namespace Hotell567.Logic
 
                     File.WriteAllBytes(DbPath, memoryStream.ToArray());
                 }
-            }
+            }*/
 
             // User logic setup
             userDatabase = new UserDatabase(DbPath);
