@@ -1,4 +1,4 @@
-﻿using SQLite;
+﻿using System.Data.SQLite;
 
 namespace Hotell567.Data
 {
