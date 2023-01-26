@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:Hotell567.MVVM"
-             xmlns:data="clr-namespace:Hotell567.Data"
+             xmlns:data="using:Hotell567.Data"
              x:Class="Hotell567.MVVM.RoomsPage" Padding="50"
              Title="Rooms"
              BackgroundColor="White">
@@ -14,26 +14,26 @@
 
         <!--Data, which is displayed in the CollectionView-->
         <CollectionView.ItemsSource>
-                
+
             <x:Array Type="{x:Type data:Room}">
                 <data:Room
-                    RoomNumber="1"
-                    Description="Description.."/>
+                    room_number="1"
+                    room_description="Description.."/>
                 <data:Room
-                    RoomNumber="2"
-                    Description="Description.."/>
+                    room_number="2"
+                    room_description="Description.."/>
                 <data:Room
-                    RoomNumber="3"
-                    Description="Description.."/>
+                    room_number="3"
+                    room_description="Description.."/>
                 <data:Room
-                    RoomNumber="4"
-                    Description="Description.."/>
+                    room_number="4"
+                    room_description="Description.."/>
                 <data:Room
-                    RoomNumber="5"
-                    Description="Description.."/>
+                    room_number="5"
+                    room_description="Description.."/>
                 <data:Room
-                    RoomNumber="6"
-                    Description="Description.."/>
+                    room_number="6"
+                    room_description="Description.."/>
             </x:Array>
 
         </CollectionView.ItemsSource>
@@ -57,14 +57,14 @@
 
                             <StackLayout Orientation="Vertical">
 
-                                <Label Text="{Binding RoomNumber, StringFormat='Room number: {0:F0}'}"
+                                <Label Text="{Binding room_number, StringFormat='Room number: {0:F0}'}"
                                        TextColor="Black"
                                        FontSize="20"/>
 
-                                <Image Source="{Binding Image}"
+                                <Image Source="{Binding room_image_name}"
                                        HorizontalOptions="Start"/>
 
-                                <Label Text="{Binding Description}"
+                                <Label Text="{Binding room_description}"
                                        TextColor="Black"
                                        FontSize="20"/>
 
@@ -80,14 +80,10 @@
                                     HorizontalOptions="EndAndExpand"
                                     Margin="5"
                                     Clicked="TapGestureRecognizer_Tapped"/>
-
                         </StackLayout>
                     </Grid>
                 </Frame>
-
             </DataTemplate>
-
         </CollectionView.ItemTemplate>
     </CollectionView>
-
 </ContentPage>

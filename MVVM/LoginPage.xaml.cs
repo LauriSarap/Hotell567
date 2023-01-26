@@ -13,16 +13,18 @@ public partial class LoginPage : ContentPage
     public LoginPage()
 	{
 		InitializeComponent();
-        
-        //AppManager.userDatabase = new UserDatabase();
-		foreach(var user in AppManager.userDatabase.List())
-		{
-			Users.Add(user);
-		}
+
+        UpdateUserList();
 
         BindingContext = this;
+    }
 
-
+    private void UpdateUserList()
+    {
+        foreach (var user in AppManager.userDatabase.List())
+        {
+            Users.Add(user);
+        }
     }
 
     // Adds to database
@@ -52,12 +54,13 @@ public partial class LoginPage : ContentPage
     }
 
     // Update
-    private void UpdateBtnClicked(System.Object sender, EventArgs e)
+    private void UpdateBtnClicked(object sender, EventArgs e)
 	{
 		if (lastSelection != null)
 		{
             AppManager.userDatabase.UpdateUser(lastSelection);
-		}
+            UpdateUserList();
+        }
 	}
 
     User lastSelection;
@@ -78,6 +81,7 @@ public partial class LoginPage : ContentPage
             lastSelection.password = passwordEntry.Text;
             lastSelection.email = emailEntry.Text;
             AppManager.userDatabase.UpdateUser(lastSelection);
+            UpdateUserList();
         }
     }
 
@@ -93,6 +97,8 @@ public partial class LoginPage : ContentPage
             usernameEntry.Text = "";
             emailEntry.Text = "";
             passwordEntry.Text = "";
+
+            UpdateUserList();
         }
     }
 }
