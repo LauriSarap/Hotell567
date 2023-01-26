@@ -6,30 +6,45 @@ namespace Hotell567.Data
     {
         private readonly SQLiteConnection _database;
 
-        public UserDatabase(string dbPath)
+        public static List<User> LoadUsers()
         {
-            _database = new SQLiteConnection(dbPath);
-            _database.CreateTable<User>();
-        } 
 
-        public List<User> List()
-        {
-            return _database.Table<User>().ToList();
         }
 
-        public int SaveUser(User user)
+        public static void SavePerson(User user)
         {
-            return _database.Insert(user);
+
         }
 
-        public int UpdateUser(User user)
+        private static string LoadConnectionString(string id = "Default")
         {
-            return _database.Update(user);
+
         }
 
-        public int DeleteUser(User user)
-        {
-            return _database.Delete(user);
-        }
+        //public UserDatabase(string dbPath)
+        //{
+        //    _database = new SQLiteConnection(dbPath);
+        //    _database.CreateTable<User>();
+        //} 
+
+        //public List<User> List()
+        //{
+        //    return _database.Table<User>().ToList();
+        //}
+
+        //public int SaveUser(User user)
+        //{
+        //    return _database.Insert(user);
+        //}
+
+        //public int UpdateUser(User user)
+        //{
+        //    return _database.Update(user);
+        //}
+
+        //public int DeleteUser(User user)
+        //{
+        //    return _database.Delete(user);
+        //}
     }
 }
