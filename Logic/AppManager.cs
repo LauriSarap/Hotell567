@@ -25,7 +25,7 @@ namespace Hotell567.Logic
             }*/
 
             // User logic setup
-            userDatabase = new UserDatabase(DbPath);
+            userDatabase = new UserDatabase();
             userFactory = new UserFactory();
 
             // Room logic setup
