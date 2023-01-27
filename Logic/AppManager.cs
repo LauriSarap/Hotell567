@@ -1,28 +1,26 @@
 ﻿using Hotell567.Data;
-using System.Data.SQLite;
+using System.Diagnostics;
 
 namespace Hotell567.Logic
 {
     public static class AppManager
     {
+        public static bool isInitialized = false;
+
+        public static string dbFile = "hoteldatabase.db";
+        public static string solutionFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\"));
+        public static string dbFilePath = Path.Combine(solutionFolder, dbFile);
+        public static string connectionString = $"Data Source={dbFilePath}";
+
         public static UserDatabase userDatabase;
         public static UserFactory userFactory;
 
         static AppManager()
         {
-            // This piece of code has to be the first that accesses the .db file!
+            Debug.WriteLine("AppManager created");
 
-            /*var assembly = IntrospectionExtensions.GetTypeInfo(typeof(App)).Assembly;
-            
-            using (Stream stream = assembly.GetManifestResourceStream("Hotell567.hoteldatabase.db"))
-            {
-                using (MemoryStream memoryStream = new MemoryStream())
-                {
-                    stream.CopyTo(memoryStream);
+            Debug.WriteLine("dbPatch is: " + dbFilePath);
 
-                    File.WriteAllBytes(DbPath, memoryStream.ToArray());
-                }
-            }*/
 
             // User logic setup
             userDatabase = new UserDatabase();

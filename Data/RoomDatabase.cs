@@ -4,7 +4,7 @@ namespace Hotell567.Data
 {
     public class RoomDatabase
     {
-        private readonly SQLiteConnection _database;
+        /*private readonly SQLiteConnection _database;
 
         public RoomDatabase(string dbPath)
         {
@@ -30,6 +30,6 @@ namespace Hotell567.Data
         public int DeleteRoom(Room room)
         {
             return _database.Delete(room);
-        }
+        }*/
     }
 }

@@ -8,32 +8,6 @@ public partial class MainPage : ContentPage
         TypewriterEffect();
     }
 
-    private void HomeBtn_Clicked(object sender, EventArgs e)
-    {
-        NavigateToPage("Home");
-    }
-
-    private void LoginBtn_Clicked(object sender, EventArgs e)
-    {
-        NavigateToPage("LoginPage");
-    }
-
-    private void NavigateToPage(string page)
-    {
-        switch (page)
-        {
-            case "Home":
-                var homePage = new NavigationPage(new MainPage());
-                Application.Current.MainPage = homePage;
-                break;
-            case "LoginPage":
-                Application.Current.MainPage = new NavigationPage(new LoginPage());
-                break;
-            default:
-                break;
-        }
-    }
-
 
     private void SeeAvailableListings(object sender, EventArgs e)
     {

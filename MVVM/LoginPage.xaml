@@ -7,45 +7,58 @@
 
     <VerticalStackLayout VerticalOptions="Center">
 
-        <Border Stroke="Gray"
+        <Border Stroke="Black"
                 StrokeThickness="2"
                 Background="White"
-                Padding="16,200,16,16"
-                HorizontalOptions="Center">
+                Padding="50,50,50,50"
+                HorizontalOptions="Center"
+                WidthRequest="500"
+                HeightRequest="500">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="5" />
             </Border.StrokeShape>
 
-            <VerticalStackLayout>
+            <VerticalStackLayout VerticalOptions="Center" Spacing="10">
+                <Label Text="Login to Your Account"
+                       Style="{DynamicResource baseTitleStyle}"
+                       HorizontalOptions="Start"
+                       Padding="10"/>
+
                 <Entry x:Name="usernameEntry"
-                   Placeholder="Enter name" 
-                   Style="{DynamicResource baseTextStyle}"/>
+                       Placeholder="Enter name" 
+                       Style="{DynamicResource baseTextStyle}"/>
+
                 <Entry x:Name="emailEntry"
-                   Placeholder="Enter Email" 
-                   Style="{DynamicResource baseTextStyle}"/>
+                       Placeholder="Enter Email" 
+                       Style="{DynamicResource baseTextStyle}"
+                       IsVisible="False"/>
+
                 <Entry x:Name="passwordEntry"
-                   Placeholder="Enter password" 
-                   Style="{DynamicResource baseTextStyle}"/>
-                <Button Text="Login" 
+                       Placeholder="Enter password" 
+                       Style="{DynamicResource baseTextStyle}"/>
+
+                <Button Text="Login"
+                        x:Name="loginBtn"
                         Clicked="LoginBtnClicked"
+                        FontSize="16"
+                        WidthRequest="160"
+                        HorizontalOptions="Start"
+                        TranslationX="10"
                         Style="{DynamicResource baseButtonStyle}"/>
-                <Button Text="Update database" Clicked="Button_Clicked"/>
-                <Button Text="Delete database" Clicked="Button_Clicked_1"/>
-                <Border Padding="20" VerticalOptions="Center" WidthRequest="1000" BackgroundColor="LightCoral" HeightRequest="300" StrokeThickness="0">
-                    <CollectionView x:Name="collectionView" ItemsSource="{Binding Users}" HorizontalOptions="Start" WidthRequest="500" SelectionMode="Single" SelectionChanged="collectionView_SelectionChanged">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <HorizontalStackLayout Spacing="5">
-                                    <Label Text="User:" Style="{DynamicResource baseTextStyle}"/>
-                                    <Label Text="{Binding first_name}" Style="{DynamicResource baseTextStyle}"/>
-                                    <Label Text="{Binding last_name}" Style="{DynamicResource baseTextStyle}"/>
-                                    <Label Text="{Binding id}" Style="{DynamicResource baseTextStyle}"/>
-                                    <Label Text="{Binding username}" Style="{DynamicResource baseTextStyle}"/>
-                                </HorizontalStackLayout>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-                </Border>
+
+                <Button Text="Register an Account"
+                        x:Name="registerStartingBtn"
+                        Clicked="StartRegisteringBtnClicked"
+                        BackgroundColor="White"
+                        FontSize="16"/>
+
+                <Button Text="Register"
+                        x:Name="registerBtn"
+                        Clicked="RegisterBtnClicked"
+                        Style="{DynamicResource baseButtonStyle}"
+                        IsVisible="False"
+                        TranslationX="8"/>
+
             </VerticalStackLayout>
         </Border>
 

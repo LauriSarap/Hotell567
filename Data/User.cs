@@ -1,11 +1,7 @@
-﻿using SQLite;
-
-namespace Hotell567.Data
+﻿namespace Hotell567.Data
 {
-    [Table("users")]
     public class User
     {
-        [AutoIncrement, PrimaryKey]
         public int user_id { get; set; }
         public int user_type { get; set; }
         public string username { get; set; }

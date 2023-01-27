@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hotell567.MVVM.AdminPage"
+             Title="AdminPage"
+             BackgroundColor="White">
+
+    <StackLayout>
+        <Label Text="Admin Page"
+               Style="{DynamicResource baseTitleStyle}"/>
+
+        <Button Text="Update User List"
+                Clicked="UpdateUserListBtn"
+                Style="{DynamicResource baseButtonStyle}"/>
+
+        <ListView x:Name="UsersListView"
+                  ItemSelected="OnUserSelected"
+                  HasUnevenRows="True"
+                  ItemsSource="{Binding Users}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding user_id}"
+                                   Style="{DynamicResource baseTextStyle}"
+                                   FontAttributes="Bold"/>
+                            <Label Text="{Binding username}"
+                                   Style="{DynamicResource baseTextStyle}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+
+</ContentPage>

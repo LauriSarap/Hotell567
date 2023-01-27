@@ -1,6 +1,4 @@
-﻿using SQLite;
-
-namespace Hotell567.Data;
+﻿namespace Hotell567.Data;
 
 
 public class Room

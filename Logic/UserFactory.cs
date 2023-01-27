@@ -3,6 +3,38 @@
 {
     public class UserFactory
     {
+        private const int minimumUsernameLength = 4;
+        private const int minimumPasswordLength = 8;
+
+
+        public bool CheckIfCredentialsAreCorrect(string username, string password)
+        {
+            var user = AppManager.userDatabase.CheckDBForUser(username);
+
+            if (user.username == username && user.password == password)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool CheckIfUsernameExists(string username)
+        {
+            var user = AppManager.userDatabase.CheckDBForUser(username);
+
+            if (user.username == username)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool CheckIfAccountFieldsAreValid(string username, string password, string email)
         {
             if (IsValidUsername(username) == false)
@@ -40,7 +72,7 @@
         {
             if (string.IsNullOrEmpty(password)) return false;
 
-            if (password.Length < 8)
+            if (password.Length < minimumPasswordLength)
             {
                 return false;
             }
@@ -54,7 +86,7 @@
         {
             if (string.IsNullOrEmpty(username)) return false;
 
-            if (username.Length < 4)
+            if (username.Length < minimumUsernameLength)
             {
                 return false;
             }

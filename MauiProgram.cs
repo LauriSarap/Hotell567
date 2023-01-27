@@ -1,4 +1,6 @@
-﻿namespace Hotell567;
+﻿using Hotell567.Logic;
+
+namespace Hotell567;
 
 public static class MauiProgram
 {
@@ -12,8 +14,10 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		// Associate the pages with eachother
-		// Create a new page every time
+        AppManager.isInitialized = true;
+
+        // Associate the pages with eachother
+        // Create a new page every time
         builder.Services.AddTransient<MVVM.RoomsPage>();
         builder.Services.AddTransient<Models.RoomViewModel>();
 
