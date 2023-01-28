@@ -25,17 +25,17 @@
                        Padding="10"/>
 
                 <Entry x:Name="usernameEntry"
-                       Placeholder="Enter name" 
+                       Placeholder="Username" 
+                       Style="{DynamicResource baseTextStyle}"/>
+
+                <Entry x:Name="passwordEntry"
+                       Placeholder="Password" 
                        Style="{DynamicResource baseTextStyle}"/>
 
                 <Entry x:Name="emailEntry"
-                       Placeholder="Enter Email" 
+                       Placeholder="Email" 
                        Style="{DynamicResource baseTextStyle}"
                        IsVisible="False"/>
-
-                <Entry x:Name="passwordEntry"
-                       Placeholder="Enter password" 
-                       Style="{DynamicResource baseTextStyle}"/>
 
                 <Button Text="Login"
                         x:Name="loginBtn"
@@ -50,7 +50,8 @@
                         x:Name="registerStartingBtn"
                         Clicked="StartRegisteringBtnClicked"
                         BackgroundColor="White"
-                        FontSize="16"/>
+                        FontSize="16"
+                        HorizontalOptions="Start"/>
 
                 <Button Text="Register"
                         x:Name="registerBtn"
