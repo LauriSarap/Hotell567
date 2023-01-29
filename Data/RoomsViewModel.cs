@@ -19,8 +19,6 @@ public partial class RoomsViewModel : BaseViewModel
     {
         if (IsBusy) return;
 
-        Debug.Write("GetRoomsAsync called!");
-
         try
         {
             IsBusy = true;

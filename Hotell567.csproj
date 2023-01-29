@@ -41,11 +41,12 @@
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
 		<!-- Images -->
-    <MauiFont Include="Resources\Fonts\*" />
+    <MauiImage Include="Resources\Images\**\*" />
 
-    <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
-		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-	</ItemGroup>
+    <!-- Fonts -->
+    <MauiFont Include="Resources\Fonts\*" />		  
+
+  </ItemGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
@@ -80,5 +81,5 @@
 
   <ItemGroup>
 	  <None Remove="CommunityToolkit.Mvvm" />
-	</ItemGroup>
+  </ItemGroup>
 </Project>

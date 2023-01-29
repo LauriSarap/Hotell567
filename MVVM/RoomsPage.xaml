@@ -4,10 +4,12 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:data="clr-namespace:Hotell567.Data"
+    xmlns:logic="using:Hotell567.Logic"
+
     BackgroundColor="{DynamicResource PrimaryBackground}"
     x:DataType="data:RoomsViewModel"
     Title="{Binding Title}">
-    
+
     <Grid ColumnDefinitions="250, *"
           ColumnSpacing="0"
           RowDefinitions="*, *"
@@ -44,7 +46,8 @@
                     <Grid Padding="10">
                         <Frame HeightRequest="125" Style="{DynamicResource BaseFrameStyle}">
                             <Grid Padding="0" ColumnDefinitions="125,*">
-                                <Image Aspect="AspectFill" Source="{Binding room_image_name}"
+                                <Image Aspect="AspectFill" 
+                                       Source="{Binding room_image_name, StringFormat='{0}.jpg'}"
                                        WidthRequest="125"
                                        HeightRequest="125"/>
                                 <VerticalStackLayout
