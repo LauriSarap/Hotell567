@@ -4,10 +4,10 @@
              x:Class="Hotell567.MVVM.AccountSettings"
              xmlns:da="clr-namespace:Hotell567.Logic"
              Title="AccountSettings"
-             BackgroundColor="Gray">
+             BackgroundColor="{DynamicResource PrimaryBackground}">
     <StackLayout>
         <StackLayout>
-            <Label Text="Account Settings" FontSize="Large" HorizontalOptions="Center" />
+            <Label Text="Account Settings" Style="{DynamicResource MediumLabel}"/>
         </StackLayout>
 
         <ListView x:Name="AccountSettingsView"
@@ -18,32 +18,32 @@
                     <ViewCell>
                         <StackLayout Padding="10">
                             <Label Text="{Binding user_id}"
-                                   Style="{DynamicResource baseTextStyle}"
+                                   Style="{DynamicResource SmallLabel}"
                                    FontAttributes="Bold"/>
                             <Label Text="{Binding username}"
-                                   Style="{DynamicResource baseTextStyle}"/>
+                                   Style="{DynamicResource SmallLabel}"/>
                             <Label Text="{Binding first_name}"
-                                   Style="{DynamicResource baseTextStyle}"/>
+                                   Style="{DynamicResource SmallLabel}"/>
                             <Label Text="{Binding last_name}"
-                                   Style="{DynamicResource baseTextStyle}"/>
+                                   Style="{DynamicResource SmallLabel}"/>
                             <Label Text="{Binding email}"
-                                   Style="{DynamicResource baseTextStyle}"/>
+                                   Style="{DynamicResource SmallLabel}"/>
                             <Label Text="{Binding phone_number}"
-                                   Style="{DynamicResource baseTextStyle}"/>
+                                   Style="{DynamicResource SmallLabel}"/>
                             <Label Text="{Binding date_of_birth}"
-                                   Style="{DynamicResource baseTextStyle}"/>
+                                   Style="{DynamicResource SmallLabel}"/>
                             <Label Text="{Binding address_line_1}"
-                                   Style="{DynamicResource baseTextStyle}"/>
+                                   Style="{DynamicResource SmallLabel}"/>
                             <Label Text="{Binding address_line_2}"
-                                   Style="{DynamicResource baseTextStyle}"/>
+                                   Style="{DynamicResource SmallLabel}"/>
                             <Label Text="{Binding city}"
-                                   Style="{DynamicResource baseTextStyle}"/>
+                                   Style="{DynamicResource SmallLabel}"/>
                             <Label Text="{Binding state}"
-                                   Style="{DynamicResource baseTextStyle}"/>
+                                   Style="{DynamicResource SmallLabel}"/>
                             <Label Text="{Binding postal_code}"
-                                   Style="{DynamicResource baseTextStyle}"/>
+                                   Style="{DynamicResource SmallLabel}"/>
                             <Label Text="{Binding country}"
-                                   Style="{DynamicResource baseTextStyle}"/>
+                                   Style="{DynamicResource SmallLabel}"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

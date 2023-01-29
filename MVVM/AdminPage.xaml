@@ -3,15 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Hotell567.MVVM.AdminPage"
              Title="AdminPage"
-             BackgroundColor="White">
+             BackgroundColor="{DynamicResource PrimaryBackground}">
 
     <StackLayout>
         <Label Text="Admin Page"
-               Style="{DynamicResource baseTitleStyle}"/>
+               Style="{DynamicResource MediumLabel}"/>
 
         <Button Text="Update User List"
                 Clicked="UpdateUserListBtn"
-                Style="{DynamicResource baseButtonStyle}"/>
+                Style="{DynamicResource BaseButtonStyle}"/>
 
         <ListView x:Name="UsersListView"
                   ItemSelected="OnUserSelected"
@@ -22,10 +22,10 @@
                     <ViewCell>
                         <StackLayout Padding="10">
                             <Label Text="{Binding user_id}"
-                                   Style="{DynamicResource baseTextStyle}"
+                                   Style="{DynamicResource SmallLabel}"
                                    FontAttributes="Bold"/>
                             <Label Text="{Binding username}"
-                                   Style="{DynamicResource baseTextStyle}"/>
+                                   Style="{DynamicResource SmallLabel}"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

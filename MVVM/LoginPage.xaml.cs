@@ -55,6 +55,8 @@ public partial class LoginPage : ContentPage
         registerStartingBtn.IsVisible = false;
         emailEntry.IsVisible = true;
         registerBtn.IsVisible = true;
+
+        loginBoxTitle.Text = "Register an Account!";
     }
 
     private void RegisterBtnClicked(object sender, EventArgs e)
@@ -98,6 +100,7 @@ public partial class LoginPage : ContentPage
         registerStartingBtn.IsVisible = true;
         emailEntry.IsVisible = false;
         registerBtn.IsVisible = false;
+        loginBoxTitle.Text = "Login to Your Account!";
         Shell.Current.GoToAsync("//RoomsPage");
     }
 }

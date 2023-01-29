@@ -1,7 +1,7 @@
 ﻿
 namespace Hotell567.Models
 {
-    public partial class RoomViewModel
+    public partial class RoomsViewModel
     {
         
     }

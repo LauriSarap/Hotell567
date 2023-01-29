@@ -20,6 +20,8 @@ namespace Hotell567.Logic
         public static UserDatabase userDatabase;
         public static UserFactory userFactory;
 
+        public static RoomDatabase roomDatabase;
+
         // User data
         public static User currentUser;
 
@@ -27,7 +29,14 @@ namespace Hotell567.Logic
         {
             Debug.WriteLine("AppManager created");
 
-            Debug.WriteLine("dbPatch is: " + dbFilePath);
+            if (File.Exists(dbFilePath))
+            {
+                Debug.WriteLine("Found database at: " + dbFilePath);
+            }
+            else
+            {
+                Debug.WriteLine("Failed to find database!");
+            }
 
 
             // User logic setup
@@ -35,6 +44,7 @@ namespace Hotell567.Logic
             userFactory = new UserFactory();
 
             // Room logic setup
+            roomDatabase = new RoomDatabase();
         }
 
         public static void InitializePermissions(int permissionLevel)

@@ -3,39 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Hotell567.MVVM.LoginPage"
              Title="LoginPage"
-             BackgroundColor="White">
+             BackgroundColor="{DynamicResource PrimaryBackground}">
 
     <VerticalStackLayout VerticalOptions="Center">
 
-        <Border Stroke="Black"
+        <Border Stroke="{DynamicResource DarkTextColor}"
                 StrokeThickness="2"
-                Background="White"
-                Padding="50,50,50,50"
+                Background="{DynamicResource Primary}"
+                Padding="25,0,25,25"
                 HorizontalOptions="Center"
-                WidthRequest="500"
-                HeightRequest="500">
+                WidthRequest="420"
+                HeightRequest="550">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="5" />
             </Border.StrokeShape>
 
-            <VerticalStackLayout VerticalOptions="Center" Spacing="10">
+            <VerticalStackLayout VerticalOptions="Center" Spacing="20">
                 <Label Text="Login to Your Account"
-                       Style="{DynamicResource baseTitleStyle}"
+                       Style="{DynamicResource MediumLabel}"
                        HorizontalOptions="Start"
-                       Padding="10"/>
-
-                <Entry x:Name="usernameEntry"
-                       Placeholder="Username" 
-                       Style="{DynamicResource baseTextStyle}"/>
-
-                <Entry x:Name="passwordEntry"
-                       Placeholder="Password" 
-                       Style="{DynamicResource baseTextStyle}"/>
+                       Padding="5"
+                       HorizontalTextAlignment="Start"
+                       x:Name="loginBoxTitle"/>
 
                 <Entry x:Name="emailEntry"
                        Placeholder="Email" 
-                       Style="{DynamicResource baseTextStyle}"
+                       Style="{DynamicResource BaseEntryStyle}"
                        IsVisible="False"/>
+
+                <Entry x:Name="usernameEntry"
+                       Placeholder="Username" 
+                       Style="{DynamicResource BaseEntryStyle}"
+                       WidthRequest="330"/>
+
+                <Entry x:Name="passwordEntry"
+                       Placeholder="Password" 
+                       Style="{DynamicResource BaseEntryStyle}"
+                       WidthRequest="330"/>
 
                 <Button Text="Login"
                         x:Name="loginBtn"
@@ -43,20 +47,20 @@
                         FontSize="16"
                         WidthRequest="160"
                         HorizontalOptions="Start"
-                        TranslationX="10"
-                        Style="{DynamicResource baseButtonStyle}"/>
+                        Style="{DynamicResource BaseButtonStyle}"/>
 
                 <Button Text="Register an Account"
                         x:Name="registerStartingBtn"
                         Clicked="StartRegisteringBtnClicked"
                         BackgroundColor="White"
                         FontSize="16"
-                        HorizontalOptions="Start"/>
+                        HorizontalOptions="Start"
+                        Style="{DynamicResource MicroLabel}"/>
 
                 <Button Text="Register"
                         x:Name="registerBtn"
                         Clicked="RegisterBtnClicked"
-                        Style="{DynamicResource baseButtonStyle}"
+                        Style="{DynamicResource SmallButtonStyle}"
                         IsVisible="False"
                         TranslationX="8"/>
 

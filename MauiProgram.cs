@@ -15,11 +15,10 @@ public static class MauiProgram
 			});
 
         AppManager.isInitialized = true;
-
-        // Associate the pages with eachother
-        // Create a new page every time
+        
+		
         builder.Services.AddTransient<MVVM.RoomsPage>();
-        builder.Services.AddTransient<Models.RoomViewModel>();
+        builder.Services.AddTransient<Data.RoomsViewModel>();
 
         return builder.Build();
 	}

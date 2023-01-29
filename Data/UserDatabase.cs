@@ -9,16 +9,7 @@ namespace Hotell567.Data
     {
         public UserDatabase()
         {
-            Debug.WriteLine("UserDatabase created");
-
-            if (File.Exists(AppManager.dbFilePath))
-            {
-                Debug.WriteLine("Found database!");
-            }
-            else
-            {
-                Debug.WriteLine("Failed to find database!");
-            }
+            Debug.WriteLine("UserDatabase connector created");
         }
 
         // List users

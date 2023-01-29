@@ -8,8 +8,6 @@ public partial class AppShell : Shell
     {
         InitializeComponent();
         appShellSingleton = this;
-
-        Routing.RegisterRoute(nameof(MVVM.RoomsPage), typeof(MVVM.RoomsPage));
     }
     public static AppShell GetSingleton
     {

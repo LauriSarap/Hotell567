@@ -5,32 +5,33 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Hotell567.MVVM"
-    FlyoutBehavior="Disabled">
+    FlyoutBehavior="Disabled"
+    BackgroundColor="{DynamicResource PrimaryBackground}">
 
     <Shell.Resources>
-        <Style x:Key="basePageHeaderStyle" TargetType="Tab">
-            <Setter Property="Shell.BackgroundColor" Value="Black" />
-            <Setter Property="Shell.TitleColor" Value="White"/>
-            <Setter Property="Shell.TabBarBackgroundColor" Value="White"/>
+        <Style x:Key="BasePageHeaderStyle" TargetType="Tab">
+            <Setter Property="Shell.BackgroundColor" Value="{DynamicResource Secondary}" />
+            <Setter Property="Shell.TitleColor" Value="{DynamicResource DarkTextColor}"/>
+            <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource Secondary}"/>
             <Setter Property="Shell.TabBarUnselectedColor" Value="DarkGray"/>
             <Setter Property="Shell.TabBarForegroundColor" Value="Black"/>
         </Style>
     </Shell.Resources>
 
     <TabBar>
-        <Tab Title="Home" Style="{DynamicResource basePageHeaderStyle}" Route="HomePage">
+        <Tab Title="Home" Style="{DynamicResource BasePageHeaderStyle}" Route="HomePage">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
-        <Tab Title="Login" Style="{DynamicResource basePageHeaderStyle}" Route="LoginPage">
+        <Tab Title="Login" Style="{DynamicResource BasePageHeaderStyle}" Route="LoginPage">
             <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
         </Tab>
-        <Tab Title="Rooms" Style="{DynamicResource basePageHeaderStyle}" Route="RoomsPage">
+        <Tab Title="Rooms" Style="{DynamicResource BasePageHeaderStyle}" Route="RoomsPage">
             <ShellContent ContentTemplate="{DataTemplate local:RoomsPage}"/>
         </Tab>
-        <Tab Title="Admin" Style="{DynamicResource basePageHeaderStyle}" Route="AdminPage" x:Name="adminTab" IsVisible="False">
+        <Tab Title="Admin" Style="{DynamicResource BasePageHeaderStyle}" Route="AdminPage" x:Name="adminTab" IsVisible="False">
             <ShellContent ContentTemplate="{DataTemplate local:AdminPage}"/>
         </Tab>
-        <Tab Title="Account" Style="{DynamicResource basePageHeaderStyle}" Route="AccountSettings" x:Name="accountTab" IsVisible="False">
+        <Tab Title="Account" Style="{DynamicResource BasePageHeaderStyle}" Route="AccountSettings" x:Name="accountTab" IsVisible="False">
             <ShellContent ContentTemplate="{DataTemplate local:AccountSettings}"/>
         </Tab>
     </TabBar>
