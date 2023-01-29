@@ -1,4 +1,7 @@
-﻿namespace Hotell567.Logic
+﻿using System.Diagnostics;
+using Hotell567.Data;
+
+namespace Hotell567.Logic
 
 {
     public class UserFactory
@@ -33,6 +36,12 @@
             {
                 return false;
             }
+        }
+
+        public int CheckAuthorityLevel(string username)
+        {
+            User user = AppManager.userDatabase.CheckDBForUserType(username);
+            return user.user_type;
         }
 
         public bool CheckIfAccountFieldsAreValid(string username, string password, string email)

@@ -25,7 +25,21 @@ public partial class LoginPage : ContentPage
         //Check if user exists in the database, if does, log in
         if (AppManager.userFactory.CheckIfCredentialsAreCorrect(usernameEntry.Text, passwordEntry.Text) == true)
         {
-            DisplayAlert("Success!", "Logged in successfully", "OK");
+            DisplayAlert("Success!", "Welcome " + usernameEntry.Text + "!", "OK");
+
+            if (AppManager.userFactory.CheckAuthorityLevel(usernameEntry.Text) == 0)
+            {
+                AppManager.InitializePermissions(0);
+            }
+            else if (AppManager.userFactory.CheckAuthorityLevel(usernameEntry.Text) == 1)
+            {
+                AppManager.InitializePermissions(1);
+            }
+
+            int userId = AppManager.userDatabase.CheckDBForUser(usernameEntry.Text).user_id;
+            User user = AppManager.userDatabase.GetUserById(userId);
+
+            AppManager.InitializeUserData(user);
 
             Shell.Current.GoToAsync("//RoomsPage");
         }

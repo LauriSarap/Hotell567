@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hotell567.MVVM.AccountSettings"
+             xmlns:da="clr-namespace:Hotell567.Logic"
+             Title="AccountSettings"
+             BackgroundColor="Gray">
+    <StackLayout>
+        <StackLayout>
+            <Label Text="Account Settings" FontSize="Large" HorizontalOptions="Center" />
+        </StackLayout>
+
+        <ListView x:Name="AccountSettingsView"
+                  HasUnevenRows="True"
+                  ItemsSource="{Binding CurrentUser}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding user_id}"
+                                   Style="{DynamicResource baseTextStyle}"
+                                   FontAttributes="Bold"/>
+                            <Label Text="{Binding username}"
+                                   Style="{DynamicResource baseTextStyle}"/>
+                            <Label Text="{Binding first_name}"
+                                   Style="{DynamicResource baseTextStyle}"/>
+                            <Label Text="{Binding last_name}"
+                                   Style="{DynamicResource baseTextStyle}"/>
+                            <Label Text="{Binding email}"
+                                   Style="{DynamicResource baseTextStyle}"/>
+                            <Label Text="{Binding phone_number}"
+                                   Style="{DynamicResource baseTextStyle}"/>
+                            <Label Text="{Binding date_of_birth}"
+                                   Style="{DynamicResource baseTextStyle}"/>
+                            <Label Text="{Binding address_line_1}"
+                                   Style="{DynamicResource baseTextStyle}"/>
+                            <Label Text="{Binding address_line_2}"
+                                   Style="{DynamicResource baseTextStyle}"/>
+                            <Label Text="{Binding city}"
+                                   Style="{DynamicResource baseTextStyle}"/>
+                            <Label Text="{Binding state}"
+                                   Style="{DynamicResource baseTextStyle}"/>
+                            <Label Text="{Binding postal_code}"
+                                   Style="{DynamicResource baseTextStyle}"/>
+                            <Label Text="{Binding country}"
+                                   Style="{DynamicResource baseTextStyle}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout >
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Username" />
+                <Entry x:Name="usernameEntry" Text="{Binding currentUser.user_name}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Email" />
+                <Entry x:Name="emailEntry" Text="{Binding Email}" Keyboard="Email" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Password" />
+                <Entry x:Name="passwordEntry" Text="{Binding Password}" IsPassword="True" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Confirm Password" />
+                <Entry x:Name="confirmPasswordEntry" Text="{Binding ConfirmPassword}" IsPassword="True" />
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout>
+            <Button Text="Save" Clicked="SaveBtnClicked" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

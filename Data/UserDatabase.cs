@@ -96,8 +96,28 @@ namespace Hotell567.Data
                 {
                     u.username = reader["username"].ToString();
                     u.password = reader["password"].ToString();
+                    u.user_id = reader["user_id"].GetHashCode();
                 }
-                Debug.Write("Returning user: " + u.username);
+                return u;
+            }
+        }
+
+        public User CheckDBForUserType(string username)
+        {
+            using (SQLiteConnection _connection = new SQLiteConnection(AppManager.connectionString))
+            {
+                _connection.Open();
+                User u = new User();
+
+                var command = new SQLiteCommand("SELECT * FROM Users WHERE username = @username", _connection);
+                command.Parameters.AddWithValue("@username", username);
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    u.username = reader["username"].ToString();
+                    u.user_type = reader["user_type"].GetHashCode();
+                }
                 return u;
             }
         }
