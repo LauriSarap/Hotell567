@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
 using Hotell567.Logic;
+using Hotell567.MVVM;
 
 namespace Hotell567.Data;
 
@@ -41,4 +42,5 @@ public partial class RoomsViewModel : BaseViewModel
             IsBusy = false;
         }
     }
+
 }

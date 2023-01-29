@@ -1,5 +1,6 @@
 ﻿using Hotell567.Data;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace Hotell567.MVVM;
 
@@ -13,10 +14,17 @@ public partial class RoomsPage : ContentPage
 		BindingContext = viewModel;
 	}
 
-	
-    /*async void TapGestureRecognizer_Tapped(System.Object sender, System.EventArgs e)
+    private async void LearnMoreBtnClicked(object sender, EventArgs e)
     {
-		await Shell.Current.GoToAsync(nameof(RoomsPage));
-		//DisplayAlert("Alert", "This function works", "OK");
-    }*/
+        var room = ((VisualElement)sender).BindingContext as Room;
+
+        Debug.Write("Opening room: " + room.room_type + "!");
+
+        if (room == null) return;
+
+        await Shell.Current.GoToAsync(nameof(RoomDetailPage), true, new Dictionary<string, object>
+        {
+            {"Room", room}
+        });
+    }
 }

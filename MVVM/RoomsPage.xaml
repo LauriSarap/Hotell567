@@ -5,7 +5,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:data="clr-namespace:Hotell567.Data"
     xmlns:logic="using:Hotell567.Logic"
-
     BackgroundColor="{DynamicResource PrimaryBackground}"
     x:DataType="data:RoomsViewModel"
     Title="{Binding Title}">
@@ -13,9 +12,10 @@
     <Grid ColumnDefinitions="250, *"
           ColumnSpacing="0"
           RowDefinitions="*, *"
-          RowSpacing="0">
+          RowSpacing="0"
+          Margin="0, 0, 150, 0">
 
-        <Button Text="Get Rooms" 
+        <Button Text="Search rooms" 
                 Command="{Binding GetRoomsCommand}"
                 IsEnabled="{Binding IsNotBusy}"
                 Style="{DynamicResource BaseButtonStyle}"
@@ -40,16 +40,20 @@
             Grid.RowSpan="2"
             Grid.Column="1"
             ItemsSource="{Binding Rooms}"
-            SelectionMode="None">
-            <CollectionView.ItemTemplate>
+            SelectionMode="None"
+            Margin="0,0,0,30">
+            <CollectionView.ItemTemplate >
                 <DataTemplate x:DataType="data:Room">
-                    <Grid Padding="10">
-                        <Frame HeightRequest="125" Style="{DynamicResource BaseFrameStyle}">
-                            <Grid Padding="0" ColumnDefinitions="125,*">
-                                <Image Aspect="AspectFill" 
-                                       Source="{Binding room_image_name, StringFormat='{0}.jpg'}"
-                                       WidthRequest="125"
-                                       HeightRequest="125"/>
+                    <Grid Padding="10" HeightRequest="400" >
+                        <Frame HeightRequest="380" Style="{DynamicResource BaseFrameStyle}" VerticalOptions="Start">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LearnMoreBtnClicked"/>
+                            </Frame.GestureRecognizers>
+
+                            <Grid Padding="0" ColumnDefinitions="300,700,*">
+                                <Image Aspect="AspectFill"
+                                       Source="{Binding room_image_name, StringFormat='{0}.jpg'}"/>
+
                                 <VerticalStackLayout
                                     VerticalOptions="Start"
                                     Grid.Column="1"
@@ -59,7 +63,18 @@
                                            HorizontalOptions="Start"/>
                                     <Label Style="{DynamicResource SmallLabel}" 
                                            Text="{Binding room_description}" />
+                                    <Label Style="{DynamicResource SmallLabel}"
+                                           Text="{Binding room_price_per_night, StringFormat='Price per night: {0}€' }"/>
                                 </VerticalStackLayout>
+
+                                <Button Grid.Column="2"
+                                        Style="{DynamicResource BaseButtonStyle}"
+                                        Text="Book"
+                                        FontSize="{DynamicResource MediumFontSize}"
+                                        VerticalOptions="Fill"
+                                        HorizontalOptions="Fill"
+                                        Clicked="LearnMoreBtnClicked" >
+                                </Button>
                             </Grid>
                         </Frame>
                     </Grid>
