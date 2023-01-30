@@ -81,5 +81,9 @@
 
   <ItemGroup>
 	  <None Remove="CommunityToolkit.Mvvm" />
+	  <None Remove="Resources\Images\Rooms\double_room_1.jpg" />
+	  <None Remove="Resources\Images\Rooms\double_room_2.jpg" />
+	  <None Remove="Resources\Images\Rooms\single_room_2.jpg" />
+	  <None Remove="Resources\Images\Rooms\twin_room_1.jpg" />
   </ItemGroup>
 </Project>

@@ -16,6 +16,7 @@ public partial class RoomsPage : ContentPage
 
     private async void LearnMoreBtnClicked(object sender, EventArgs e)
     {
+        /*
         var room = ((VisualElement)sender).BindingContext as Room;
 
         Debug.Write("Opening room: " + room.room_type + "!");
@@ -26,5 +27,6 @@ public partial class RoomsPage : ContentPage
         {
             {"Room", room}
         });
+        */
     }
 }
