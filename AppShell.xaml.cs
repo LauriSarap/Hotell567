@@ -1,4 +1,6 @@
-﻿namespace Hotell567;
+﻿using Hotell567.MVVM;
+
+namespace Hotell567;
 
 public partial class AppShell : Shell
 {
@@ -8,6 +10,8 @@ public partial class AppShell : Shell
     {
         InitializeComponent();
         appShellSingleton = this;
+
+        Routing.RegisterRoute(nameof(RoomDetailPage), typeof(RoomDetailPage));
     }
     public static AppShell GetSingleton
     {

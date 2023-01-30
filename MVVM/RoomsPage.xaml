@@ -4,7 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:data="clr-namespace:Hotell567.Data"
-    xmlns:logic="using:Hotell567.Logic"
+    xmlns:models="clr-namespace:Hotell567.Models"
     BackgroundColor="{DynamicResource PrimaryBackground}"
     x:DataType="data:RoomsViewModel"
     Title="{Binding Title}">
@@ -43,11 +43,13 @@
             SelectionMode="None"
             Margin="0,0,0,30">
             <CollectionView.ItemTemplate >
-                <DataTemplate x:DataType="data:Room">
+                <DataTemplate x:DataType="models:Room">
                     <Grid Padding="10" HeightRequest="400" >
                         <Frame HeightRequest="380" Style="{DynamicResource BaseFrameStyle}" VerticalOptions="Start">
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="LearnMoreBtnClicked"/>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type data:RoomsViewModel}}, Path=GoToDetailsCommand}"
+                                    CommandParameter="{Binding .}"/>
                             </Frame.GestureRecognizers>
 
                             <Grid Padding="0" ColumnDefinitions="300,500,*">
@@ -55,16 +57,19 @@
                                        Source="{Binding room_image_name, StringFormat='{0}.jpg'}"/>
 
                                 <VerticalStackLayout
-                                    VerticalOptions="Start"
                                     Grid.Column="1"
-                                    Padding="10">
+                                    Padding="10"
+                                    VerticalOptions="Fill">
                                     <Label Style="{DynamicResource MediumLabel}" 
                                            Text="{Binding room_type}" 
-                                           HorizontalOptions="Start"/>
+                                           HorizontalOptions="Start"
+                                           FontAttributes="Bold"/>
                                     <Label Style="{DynamicResource SmallLabel}" 
                                            Text="{Binding room_description}" />
                                     <Label Style="{DynamicResource SmallLabel}"
-                                           Text="{Binding room_price_per_night, StringFormat='Price per night: {0}€' }"/>
+                                           Text="{Binding room_price_per_night, StringFormat='Price per night: {0}€' }"
+                                           Padding="0, 0, 0, 0"
+                                           VerticalOptions="End"/>
                                 </VerticalStackLayout>
 
                                 <Button Grid.Column="2"

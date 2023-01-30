@@ -2,7 +2,7 @@ using Hotell567.Logic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
-using Hotell567.Data;
+using Hotell567.Models;
 
 namespace Hotell567.MVVM;
 

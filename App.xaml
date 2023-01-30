@@ -92,6 +92,13 @@
                 <Setter Property="CornerRadius" Value="10"/>
                 <Setter Property="IsClippedToBounds" Value="True"/>
             </Style>
+
+            <!-- Border styling -->
+            <Style x:Key="BaseBorderStyle" TargetType="Border">
+                <Setter Property="Stroke" Value="{DynamicResource Secondary}"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Background" Value="{DynamicResource Primary}"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

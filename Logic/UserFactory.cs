@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using Hotell567.Data;
+﻿using Hotell567.Models;
 
 namespace Hotell567.Logic
 

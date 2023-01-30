@@ -1,4 +1,6 @@
 ﻿using Hotell567.Logic;
+using Hotell567.Data;
+using Hotell567.MVVM;
 
 namespace Hotell567;
 
@@ -17,8 +19,11 @@ public static class MauiProgram
         AppManager.isInitialized = true;
         
 		
-        builder.Services.AddTransient<MVVM.RoomsPage>();
-        builder.Services.AddTransient<Data.RoomsViewModel>();
+        builder.Services.AddTransient<RoomsPage>();
+        builder.Services.AddTransient<RoomsViewModel>();
+
+        builder.Services.AddTransient<RoomDetailPage>();
+        builder.Services.AddTransient<RoomDetailViewModel>();
 
         return builder.Build();
 	}

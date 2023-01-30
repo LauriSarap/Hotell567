@@ -5,12 +5,56 @@
              xmlns:data="clr-namespace:Hotell567.Data"
              BackgroundColor="{DynamicResource PrimaryBackground}"
              x:DataType="data:RoomDetailViewModel"
-             Title="{Binding DetailRoom.room_type}">
-    <ScrollView>
-        <VerticalStackLayout>
-            <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="300, Auto">
+             Title="{Binding Room.room_type, StringFormat='{0} room'}">
+    <VerticalStackLayout VerticalOptions="Center">
+        <Grid ColumnDefinitions="650, *">
 
+            <Frame
+                Style="{DynamicResource BaseFrameStyle}"
+                HeightRequest="600"
+                WidthRequest="500">
+                <Image Aspect="Fill"
+                       Source="{Binding Room.room_image_name, StringFormat='{0}.jpg'}"/>
+            </Frame>
+
+            <Grid Grid.Column="1" ColumnDefinitions="*, *">
+                <VerticalStackLayout Padding="15" 
+                                     Spacing="10"
+                                     Grid.Column="0">
+                    <Label Style="{DynamicResource LargeLabel}" 
+                           FontAttributes="Bold"
+                           Text="{Binding Room.room_type}" 
+                           VerticalOptions="Start"
+                           HorizontalOptions="Start"/>
+
+                    <Label Style="{DynamicResource MediumLabel}" 
+                           Text="{Binding Room.room_description}" 
+                           HorizontalOptions="Start"
+                           VerticalOptions="Start"
+                           FontAttributes="Bold"/>
+
+                    <Label Style="{DynamicResource SmallLabel}" 
+                           Text="{Binding Room.room_price_per_night, StringFormat='Average cost per night: {0}€'}" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Padding="15" 
+                                     Spacing="10"
+                                     Grid.Column="1">
+                    <Border Style="{DynamicResource BaseBorderStyle}"
+                            VerticalOptions="Center"
+                            HeightRequest="500">
+                        <VerticalStackLayout>
+                            <Label Text="Book"
+                                   FontSize="48"
+                                   Style="{DynamicResource MediumLabel}"/>
+                            <DatePicker TextColor="Black" 
+                                        BackgroundColor="{DynamicResource Primary}"
+                                        FontSize="{DynamicResource MediumFontSize}">
+                            </DatePicker>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
             </Grid>
-        </VerticalStackLayout>
-    </ScrollView>
+        </Grid>
+    </VerticalStackLayout>
 </ContentPage>

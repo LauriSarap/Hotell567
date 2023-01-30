@@ -1,7 +1,6 @@
 ﻿using Hotell567.Data;
 using System.Diagnostics;
-using CommunityToolkit.Mvvm.ComponentModel;
-using Hotell567.MVVM;
+using Hotell567.Models;
 
 namespace Hotell567.Logic
 {

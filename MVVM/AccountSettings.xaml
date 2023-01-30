@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Hotell567.MVVM.AccountSettings"
-             xmlns:da="clr-namespace:Hotell567.Logic"
              Title="AccountSettings"
              BackgroundColor="{DynamicResource PrimaryBackground}">
     <StackLayout>

@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
-using System.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
 using Hotell567.Logic;
+using Hotell567.Models;
 using Hotell567.MVVM;
 
 namespace Hotell567.Data;
@@ -13,6 +13,18 @@ public partial class RoomsViewModel : BaseViewModel
     public RoomsViewModel()
     {
         Title = "Rooms";
+    }
+
+    [RelayCommand]
+    private async Task GoToDetails(Room room)
+    {
+        if (room == null)
+            return;
+
+        await Shell.Current.GoToAsync(nameof(RoomDetailPage), true, new Dictionary<string, object>
+        {
+            {"Room", room }
+        });
     }
 
     [RelayCommand]
@@ -34,7 +46,7 @@ public partial class RoomsViewModel : BaseViewModel
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            Console.WriteLine($"Unable to get rooms: {e.Message}");
             throw;
         }
         finally

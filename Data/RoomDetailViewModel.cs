@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Hotell567.Models;
 
 namespace Hotell567.Data
 {
@@ -7,10 +8,10 @@ namespace Hotell567.Data
     {
         public RoomDetailViewModel()
         {
-
+            
         }
 
         [ObservableProperty]
-        public Room detailRoom;
+        Room room;
     }
 }

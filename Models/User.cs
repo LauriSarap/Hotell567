@@ -1,4 +1,4 @@
-﻿namespace Hotell567.Data
+﻿namespace Hotell567.Models
 {
     public class User
     {

@@ -35,34 +35,5 @@
             <ShellContent ContentTemplate="{DataTemplate local:AccountSettings}"/>
         </Tab>
     </TabBar>
-
-    <!--
-    <FlyoutItem Title="Home">
-        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" 
-                      Route="MainPage" 
-                      Style="{DynamicResource PageHeaderStyle}"/>
-    </FlyoutItem>
-
-    <FlyoutItem Title="Login">
-        <ShellContent ContentTemplate="{DataTemplate local:LoginPage}" 
-                      Route="LoginPage"
-                      Style="{DynamicResource PageHeaderStyle}"/>
-    </FlyoutItem>
-
-    <FlyoutItem Title="Rooms">
-        <ShellContent ContentTemplate="{DataTemplate local:RoomsPage}" 
-                      Route="RoomsPage"
-                      Style="{DynamicResource PageHeaderStyle}"/>
-    </FlyoutItem>
-
-    <FlyoutItem Title="Admin">
-        <ShellContent ContentTemplate="{DataTemplate local:AdminPage}" 
-                      Route="AdminPage"
-                      Style="{DynamicResource PageHeaderStyle}"/>
-    </FlyoutItem>
-
-    <MenuItem Text="Information" />
-
-    -->
 </Shell>
 

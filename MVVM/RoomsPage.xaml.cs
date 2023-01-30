@@ -1,6 +1,7 @@
 ﻿using Hotell567.Data;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using Hotell567.Models;
 
 namespace Hotell567.MVVM;
 
@@ -16,10 +17,10 @@ public partial class RoomsPage : ContentPage
 
     private async void LearnMoreBtnClicked(object sender, EventArgs e)
     {
-        /*
+        
         var room = ((VisualElement)sender).BindingContext as Room;
 
-        Debug.Write("Opening room: " + room.room_type + "!");
+        Debug.WriteLine("Opening room: " + room.room_type + "!");
 
         if (room == null) return;
 
@@ -27,6 +28,6 @@ public partial class RoomsPage : ContentPage
         {
             {"Room", room}
         });
-        */
+        
     }
 }
