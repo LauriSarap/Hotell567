@@ -21,6 +21,9 @@ namespace Hotell567.Logic
 
         public static RoomDatabase roomDatabase;
 
+        public static ReservationDatabase reservationDatabase;
+        public static ReservationFactory reservationFactory;
+
         // User data
         public static User currentUser;
 
@@ -44,6 +47,10 @@ namespace Hotell567.Logic
 
             // Room logic setup
             roomDatabase = new RoomDatabase();
+
+            // Reservation logic setup
+            reservationDatabase = new ReservationDatabase();
+            reservationFactory = new ReservationFactory();
         }
 
         public static void InitializePermissions(int permissionLevel)

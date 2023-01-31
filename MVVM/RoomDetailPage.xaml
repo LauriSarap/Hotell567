@@ -47,10 +47,14 @@
                             <Label Text="Book"
                                    FontSize="48"
                                    Style="{DynamicResource MediumLabel}"/>
-                            <DatePicker TextColor="Black" 
-                                        BackgroundColor="{DynamicResource Primary}"
-                                        FontSize="{DynamicResource MediumFontSize}">
-                            </DatePicker>
+                            <DatePicker x:Name="CheckInDate"
+                                        Style="{DynamicResource BaseDatePickerStyle}"/>
+                            <DatePicker x:Name="CheckOutDate"
+                                        Style="{DynamicResource BaseDatePickerStyle}"/>
+                            <Button Text="Book"
+                                    Style="{DynamicResource BaseButtonStyle}"
+                                    Clicked="BookBtnClicked"/>
+
                         </VerticalStackLayout>
                     </Border>
                 </VerticalStackLayout>

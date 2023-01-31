@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Hotell567.Models;
+using Hotell567.MVVM;
 
 namespace Hotell567.Data
 {

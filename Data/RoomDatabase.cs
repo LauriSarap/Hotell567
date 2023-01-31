@@ -40,5 +40,30 @@ namespace Hotell567.Data
             }
         }
 
+        // Get room by room id
+        public async Task<Room> GetRoomById(int room_id)
+        {
+            using (SQLiteConnection _connection = new SQLiteConnection(AppManager.connectionString))
+            {
+                _connection.Open();
+                var command = new SQLiteCommand("SELECT * FROM Rooms WHERE room_id = @room_id", _connection);
+                command.Parameters.AddWithValue("@room_id", room_id);
+                var reader = await command.ExecuteReaderAsync();
+                var room = new Room();
+
+                while (await reader.ReadAsync())
+                {
+                    room.room_id = reader["room_id"].GetHashCode();
+                    room.room_type = reader["room_type"].ToString();
+                    room.room_image_name = reader["room_image_name"].ToString();
+                    room.room_description = reader["room_description"].ToString();
+                    room.room_availability = reader["room_availability"].ToString();
+                    room.room_price_per_night = reader["room_price_per_night"].GetHashCode();
+                }
+
+                Debug.Write("Room found from database: " + room.room_id);
+                return room;
+            }
+        }
     }
 }
