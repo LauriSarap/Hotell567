@@ -37,7 +37,7 @@ namespace Hotell567.Data
                         res_user_id = reader["res_user_id"].GetHashCode(),
                         res_check_in_date = DateTime.Parse(reader["res_check_in_date"].ToString()),
                         res_check_out_date = DateTime.Parse(reader["res_check_out_date"].ToString()),
-                        res_total_price = reader["res_total_price"].GetHashCode()
+                        res_total_price = decimal.Parse(reader["res_total_price"].ToString())
                     });
                 }
 

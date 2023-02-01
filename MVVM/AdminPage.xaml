@@ -1,37 +1,72 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage x:Class="Hotell567.MVVM.AdminPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Hotell567.MVVM.AdminPage"
+             xmlns:models="clr-namespace:Hotell567.Models"
+             xmlns:mvvm="using:Hotell567.MVVM"
+             x:DataType="mvvm:AdminPage"
              Title="AdminPage"
              BackgroundColor="{DynamicResource PrimaryBackground}">
 
-    <StackLayout>
-        <Label Text="Admin Page"
-               Style="{DynamicResource MediumLabel}"/>
+    <Grid ColumnDefinitions="250, *"
+          ColumnSpacing="0"
+          RowDefinitions="*, *"
+          RowSpacing="0"
+          Margin="0, 0, 150, 0">
 
-        <Button Text="Update User List"
-                Clicked="UpdateUserListBtn"
-                Style="{DynamicResource BaseButtonStyle}"/>
+        <Button Text="Search reservations" 
+                Command="{Binding GetReservationsCommand}"
+                Style="{DynamicResource BaseButtonStyle}"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="10"
+                WidthRequest="240"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"/>
 
-        <ListView x:Name="UsersListView"
-                  ItemSelected="OnUserSelected"
-                  HasUnevenRows="True"
-                  ItemsSource="{Binding Users}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding user_id}"
-                                   Style="{DynamicResource SmallLabel}"
-                                   FontAttributes="Bold"/>
-                            <Label Text="{Binding username}"
-                                   Style="{DynamicResource SmallLabel}"/>
-                        </StackLayout>
-                    </ViewCell>
+        <CollectionView
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Grid.Column="1"
+            ItemsSource="{Binding Reservations}"
+            SelectionMode="Single"
+            Margin="0,0,0,30">
+            <CollectionView.ItemTemplate >
+                <DataTemplate x:DataType="models:Reservation">
+                    <Grid Padding="10" HeightRequest="400" >
+                        <Frame HeightRequest="380" Style="{DynamicResource BaseFrameStyle}" VerticalOptions="Start">
+                            <Grid Padding="0" ColumnDefinitions="500,Auto">
+                                <VerticalStackLayout
+                                    Grid.Column="0"
+                                    Padding="10"
+                                    VerticalOptions="Fill">
+                                    <Label Style="{DynamicResource MediumLabel}" 
+                                           Text="{Binding res_id}"
+                                           HorizontalOptions="Start"
+                                           FontAttributes="Bold"/>
+                                    <Label Style="{DynamicResource SmallLabel}" 
+                                           Text="{Binding res_room_id, StringFormat='Room id: {0}'}" />
+                                    <Label Style="{DynamicResource SmallLabel}"
+                                           Text="{Binding res_total_price, StringFormat='Total reservation cost: {0}€' }"
+                                           Padding="0, 0, 0, 0"
+                                           VerticalOptions="End"/>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout
+                                    Grid.Column="1"
+                                    Padding="10"
+                                    VerticalOptions="Fill">
+                                    <Label Style="{DynamicResource SmallLabel}"
+                                           Text="{Binding res_user_id, StringFormat='Belongs to user with ID: {0}'}"
+                                           HorizontalOptions="Start">
+                                    </Label>
+
+                                    <Label Text="{Binding GetReservationUser}" />
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </Grid>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
-
-
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

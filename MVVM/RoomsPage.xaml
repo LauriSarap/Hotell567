@@ -26,15 +26,6 @@
                 VerticalOptions="Start"
                 HorizontalOptions="Center"/>
 
-        <!--<ActivityIndicator IsVisible="{Binding IsBusy}"
-                           IsRunning="{Binding IsBusy}"
-                           HorizontalOptions="Fill"
-                           VerticalOptions="Center"
-                           Color="{StaticResource Secondary}"
-                           Grid.RowSpan="2"
-                           Grid.ColumnSpan="2"/>
-        -->
-
         <CollectionView
             Grid.Row="0"
             Grid.RowSpan="2"
@@ -87,87 +78,4 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
     </Grid>
-
-
-    <!--PREVIOUS VERSION
-
-    <CollectionView x:Name="roomsCollectionView"
-                    VerticalScrollBarVisibility="Always"
-                    SelectionMode="None">
-
-        
-        <CollectionView.ItemsSource>
-
-            <x:Array Type="{x:Type data:Room}">
-                <data:Room
-                    room_number="1"
-                    room_description="Description.."/>
-                <data:Room
-                    room_number="2"
-                    room_description="Description.."/>
-                <data:Room
-                    room_number="3"
-                    room_description="Description.."/>
-                <data:Room
-                    room_number="4"
-                    room_description="Description.."/>
-                <data:Room
-                    room_number="5"
-                    room_description="Description.."/>
-                <data:Room
-                    room_number="6"
-                    room_description="Description.."/>
-            </x:Array>
-
-        </CollectionView.ItemsSource>
-
-        
-        <CollectionView.ItemsLayout>
-            <GridItemsLayout Orientation="Vertical"
-                             Span="2"
-                             VerticalItemSpacing="20"/>
-        </CollectionView.ItemsLayout>
-
-        
-        <CollectionView.ItemTemplate>
-
-            
-            <DataTemplate x:DataType="data:Room">
-
-                <Frame Background="White">
-                    <Grid ColumnDefinitions="*, 20">
-                        <StackLayout Orientation="Horizontal">
-
-                            <StackLayout Orientation="Vertical">
-
-                                <Label Text="{Binding room_number, StringFormat='Room number: {0:F0}'}"
-                                       TextColor="Black"
-                                       FontSize="20"/>
-
-                                <Image Source="{Binding room_image_name}"
-                                       HorizontalOptions="Start"/>
-
-                                <Label Text="{Binding room_description}"
-                                       TextColor="Black"
-                                       FontSize="20"/>
-
-                            </StackLayout>
-
-                            <Button Text="Learn more"
-                                    TextColor="Black"
-                                    BorderWidth="2"                          
-                                    BorderColor="Gray"
-                                    BackgroundColor="White"
-                                    CornerRadius="20"
-                                    VerticalOptions="Center"
-                                    HorizontalOptions="EndAndExpand"
-                                    Margin="5"
-                                    Clicked="TapGestureRecognizer_Tapped"/>
-                        </StackLayout>
-                    </Grid>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
-    -->
 </ContentPage>

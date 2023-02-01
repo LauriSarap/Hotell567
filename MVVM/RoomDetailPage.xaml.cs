@@ -38,7 +38,10 @@ public partial class RoomDetailPage : ContentPage
         }
 
         AppManager.reservationFactory.CreateReservation(CheckInDate.Date, CheckOutDate.Date, viewModel.Room.room_id, AppManager.currentUser.user_id);
-        DisplayAlert("Success", $"Reservation from {CheckInDate.Date.ToString()} until {CheckOutDate.Date.ToString()} created", "OK");
+        DisplayAlert(
+            "Success", 
+            $"Reservation from {CheckInDate.Date} until {CheckOutDate.Date} created", 
+            "OK");
         return;
     }
 }
