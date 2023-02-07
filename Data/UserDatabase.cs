@@ -32,7 +32,15 @@ namespace Hotell567.Data
                         last_name = reader["last_name"].ToString(),
                         username = reader["username"].ToString(),
                         password = reader["password"].ToString(),
-                        email = reader["email"].ToString()
+                        email = reader["email"].ToString(),
+                        phone_number = reader["phone_number"].GetHashCode(),
+                        date_of_birth = reader["date_of_birth"].ToString(),
+                        address_line_1 = reader["address_line_1"].ToString(),
+                        address_line_2 = reader["address_line_2"].ToString(),
+                        city = reader["city"].ToString(),
+                        state = reader["state"].ToString(),
+                        postal_code = reader["postal_code"].GetHashCode(),
+                        country = reader["country"].ToString()
                     });
                 }
                 return users;

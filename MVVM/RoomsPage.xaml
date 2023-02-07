@@ -15,16 +15,29 @@
           RowSpacing="0"
           Margin="0, 0, 150, 0">
 
-        <Button Text="Search rooms" 
-                Command="{Binding GetRoomsCommand}"
-                IsEnabled="{Binding IsNotBusy}"
-                Style="{DynamicResource BaseButtonStyle}"
-                Grid.Row="0"
-                Grid.Column="0"
-                Margin="10"
-                WidthRequest="240"
-                VerticalOptions="Start"
-                HorizontalOptions="Center"/>
+        <VerticalStackLayout Grid.Row="0"
+                             Grid.Column="0">
+
+            <Button Text="Search rooms" 
+                    Style="{DynamicResource BaseButtonStyle}"
+                    Margin="10"
+                    WidthRequest="240"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"/>
+
+            <Button Text="Search rooms" 
+                    Command="{Binding GetRoomsCommand}"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Style="{DynamicResource BaseButtonStyle}"
+                    Margin="10"
+                    WidthRequest="240"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"/>
+            <Picker BackgroundColor="MediumVioletRed" Style="{DynamicResource baseApplicationStyle}">
+
+            </Picker>
+
+        </VerticalStackLayout  >
 
         <CollectionView
             Grid.Row="0"

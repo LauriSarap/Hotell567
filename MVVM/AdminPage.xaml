@@ -8,11 +8,12 @@
              Title="AdminPage"
              BackgroundColor="{DynamicResource PrimaryBackground}">
 
-    <Grid ColumnDefinitions="250, *"
+    <Grid ColumnDefinitions="Auto, *"
           ColumnSpacing="0"
-          RowDefinitions="*, *"
-          RowSpacing="0"
-          Margin="0, 0, 150, 0">
+          RowDefinitions="Auto, *"
+          RowSpacing="10"
+          Margin="0, 0, 0, 0"
+          HorizontalOptions="Fill">
 
         <Button Text="Search reservations" 
                 Command="{Binding GetReservationsCommand}"
@@ -21,21 +22,21 @@
                 Grid.Column="0"
                 Margin="10"
                 WidthRequest="240"
-                VerticalOptions="Start"
+                VerticalOptions="Center"
                 HorizontalOptions="Center"/>
 
         <CollectionView
-            Grid.Row="0"
-            Grid.RowSpan="2"
-            Grid.Column="1"
+            Grid.Row="1"
+            Grid.RowSpan="1"
+            Grid.Column="0"
             ItemsSource="{Binding Reservations}"
             SelectionMode="Single"
-            Margin="0,0,0,30">
+            Margin="0,0,0,0">
             <CollectionView.ItemTemplate >
                 <DataTemplate x:DataType="models:Reservation">
-                    <Grid Padding="10" HeightRequest="400" >
-                        <Frame HeightRequest="380" Style="{DynamicResource BaseFrameStyle}" VerticalOptions="Start">
-                            <Grid Padding="0" ColumnDefinitions="500,Auto">
+                    <Grid Padding="10" HeightRequest="180" >
+                        <Frame HeightRequest="150" Style="{DynamicResource BaseFrameStyle}" VerticalOptions="Start">
+                            <Grid Padding="0" ColumnDefinitions="*,300">
                                 <VerticalStackLayout
                                     Grid.Column="0"
                                     Padding="10"
@@ -51,22 +52,45 @@
                                            Padding="0, 0, 0, 0"
                                            VerticalOptions="End"/>
                                 </VerticalStackLayout>
-                                <VerticalStackLayout
-                                    Grid.Column="1"
-                                    Padding="10"
-                                    VerticalOptions="Fill">
-                                    <Label Style="{DynamicResource SmallLabel}"
-                                           Text="{Binding res_user_id, StringFormat='Belongs to user with ID: {0}'}"
-                                           HorizontalOptions="Start">
-                                    </Label>
-
-                                    <Label Text="{Binding GetReservationUser}" />
-                                </VerticalStackLayout>
+                                <Button Style="{DynamicResource BaseButtonStyle}"
+                                        x:Name="SeeUserInfoBtn"
+                                        Grid.Column="1"
+                                        HorizontalOptions="Fill"
+                                        VerticalOptions="Fill"
+                                        Text="{Binding res_user_id, StringFormat='Click to see user {0} details'}"
+                                        Clicked="SelectUser">
+                                </Button>
                             </Grid>
                         </Frame>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <Button Text="Search rooms" 
+                Command="{Binding GetRoomsCommand}"
+                Style="{DynamicResource BaseButtonStyle}"
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="10"
+                WidthRequest="240"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"/>
+
+        <ListView ItemsSource="{Binding Rooms}"
+                  Grid.Column="1"
+                  Grid.Row="1">
+            <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Room">
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Style="{DynamicResource SmallLabel}" Text="{Binding room_id, StringFormat='Id: {0}'}" FontAttributes="Bold"/>
+                                <Label Style="{DynamicResource SmallLabel}" Text="{Binding room_type, StringFormat='Type: {0}'}" />
+                                <Label Style="{DynamicResource SmallLabel}" Text="{Binding room_price_per_night, StringFormat='Price per night: {0}€'}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </ContentPage>
