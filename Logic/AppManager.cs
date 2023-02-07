@@ -20,6 +20,10 @@ namespace Hotell567.Logic
         public static UserFactory userFactory;
 
         public static RoomDatabase roomDatabase;
+        //TODO Implement later
+        // public static RoomFactory roomFactory;
+        public static RoomFiltering roomFiltering;
+
 
         public static ReservationDatabase reservationDatabase;
         public static ReservationFactory reservationFactory;
@@ -48,6 +52,8 @@ namespace Hotell567.Logic
             // Room logic setup
             roomDatabase = new RoomDatabase();
 
+            roomFiltering = new RoomFiltering();
+
             // Reservation logic setup
             reservationDatabase = new ReservationDatabase();
             reservationFactory = new ReservationFactory();
@@ -58,12 +64,12 @@ namespace Hotell567.Logic
             if (permissionLevel == 0)
             {
                 // User
-                Debug.Write("Default Permissions!");
+                Debug.WriteLine("Default Permissions!");
             }
             else if (permissionLevel == 1)
             {
                 // Admin
-                Debug.Write("Admin Permissions!");
+                Debug.WriteLine("Admin Permissions!");
                 AppShell.GetSingleton.ShowPagesAfterLogin();
             }
         }

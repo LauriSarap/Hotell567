@@ -33,10 +33,14 @@
                     WidthRequest="240"
                     VerticalOptions="Start"
                     HorizontalOptions="Center"/>
-            <Picker BackgroundColor="MediumVioletRed" Style="{DynamicResource baseApplicationStyle}">
-
+            <Picker BackgroundColor="MediumVioletRed" 
+                    Style="{DynamicResource baseApplicationStyle}"
+                    x:Name="RoomTypePicker">
+                <Picker.Items>
+                    <x:String>Single</x:String>
+                    <x:String>Double</x:String>
+                </Picker.Items>
             </Picker>
-
         </VerticalStackLayout  >
 
         <CollectionView

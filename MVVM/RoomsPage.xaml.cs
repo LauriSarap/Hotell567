@@ -2,6 +2,8 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using Hotell567.Models;
+using CommunityToolkit.Mvvm.Input;
+using Hotell567.Logic;
 
 namespace Hotell567.MVVM;
 
@@ -9,11 +11,26 @@ public partial class RoomsPage : ContentPage
 {
     public ObservableCollection<Room> Rooms { get; set; } = new ObservableCollection<Room>();
 
+    private string roomTypeFilter;
+    private string roomPricePerNightFilter;
+    private string 
+
+
     public RoomsPage(RoomsViewModel viewModel)
 	{
 		InitializeComponent();
 		BindingContext = viewModel;
 	}
+
+    /* [RelayCommand]
+    private async Task GetRoomsAsync()
+    {
+        // Filter the rooms
+        Rooms.Clear();
+        AppManager.roomFiltering.UpdateRoomAndReservationList();
+
+        RoomTypePicker.SelectedItem
+    }*/
 
     private async void LearnMoreBtnClicked(object sender, EventArgs e)
     {

@@ -30,6 +30,14 @@ public partial class RoomsViewModel : BaseViewModel
     [RelayCommand]
     private async Task GetRoomsAsync()
     {
+        // Filter the rooms
+        /*Rooms.Clear();
+        AppManager.roomFiltering.UpdateRoomAndReservationList();
+
+        List<Room> filteredRooms;
+        filteredRooms.Ad = AppManager.roomFiltering.
+        */
+
         if (IsBusy) return;
 
         try
