@@ -12,8 +12,10 @@ public partial class RoomsPage : ContentPage
     public ObservableCollection<Room> Rooms { get; set; } = new ObservableCollection<Room>();
 
     private string roomTypeFilter;
-    private string roomPricePerNightFilter;
-    private string 
+    private string roomPricePerNightMinFilter;
+    private string roomPricePerNightMaxFilter;
+    private string roomStartDateFilter;
+    private string roomEndDateFilter;
 
 
     public RoomsPage(RoomsViewModel viewModel)
@@ -45,6 +47,11 @@ public partial class RoomsPage : ContentPage
         {
             {"Room", room}
         });
+        
+    }
+
+    private void OnSelectedIndexChanged(object sender, EventArgs e)
+    {
         
     }
 }

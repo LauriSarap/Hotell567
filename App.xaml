@@ -109,6 +109,15 @@
                 <Setter Property="TextColor" Value="{DynamicResource DarkTextColor}"/>
                 <Setter Property="Format" Value="dd/MM/yy"/>
             </Style>
+
+            <!-- Picker styling -->
+            <Style x:Key="BasePickerStyle" TargetType="Picker">
+                <Setter Property="BackgroundColor" Value="{DynamicResource Secondary}"/>
+                <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="{DynamicResource DarkTextColor}"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

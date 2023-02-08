@@ -9,23 +9,20 @@
     x:DataType="data:RoomsViewModel"
     Title="{Binding Title}">
 
-    <Grid ColumnDefinitions="250, *"
-          ColumnSpacing="0"
+    <Grid ColumnDefinitions="300, *"
+          ColumnSpacing="10"
           RowDefinitions="*, *"
           RowSpacing="0"
           Margin="0, 0, 150, 0">
 
-        <VerticalStackLayout Grid.Row="0"
-                             Grid.Column="0">
+        <Frame Style="{DynamicResource BaseFrameStyle}"
+               HorizontalOptions="Start"
+               Margin="5, 5, 5, 5"
+               WidthRequest="260"
+               Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
+            <VerticalStackLayout VerticalOptions="Start">
 
-            <Button Text="Search rooms" 
-                    Style="{DynamicResource BaseButtonStyle}"
-                    Margin="10"
-                    WidthRequest="240"
-                    VerticalOptions="Start"
-                    HorizontalOptions="Center"/>
-
-            <Button Text="Search rooms" 
+                <Button Text="Search rooms" 
                     Command="{Binding GetRoomsCommand}"
                     IsEnabled="{Binding IsNotBusy}"
                     Style="{DynamicResource BaseButtonStyle}"
@@ -33,15 +30,49 @@
                     WidthRequest="240"
                     VerticalOptions="Start"
                     HorizontalOptions="Center"/>
-            <Picker BackgroundColor="MediumVioletRed" 
-                    Style="{DynamicResource baseApplicationStyle}"
-                    x:Name="RoomTypePicker">
-                <Picker.Items>
-                    <x:String>Single</x:String>
-                    <x:String>Double</x:String>
-                </Picker.Items>
-            </Picker>
-        </VerticalStackLayout  >
+
+                <Grid ColumnDefinitions="Auto, *"
+                  ColumnSpacing="5"
+                  RowDefinitions="Auto, Auto, Auto, Auto"
+                  RowSpacing="5"
+                  Margin="10"
+                  HorizontalOptions="Center">
+
+                    <Label Style="{DynamicResource SmallLabel}" Grid.Column="0" Grid.ColumnSpan="2"
+                       Text="Room Type"/>
+
+                    <Picker x:Name="RoomTypePicker" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
+                        Style="{DynamicResource BasePickerStyle}"
+                        TextColor="Black"
+                        SelectedIndexChanged="OnSelectedIndexChanged"
+                        HorizontalOptions="Start"
+                        WidthRequest="240">
+                        <Picker.Items>
+                            <x:String>Single</x:String>
+                            <x:String>Double</x:String>
+                            <x:String>Family</x:String>
+                            <x:String>Twin</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Entry x:Name="MinPrice" Grid.Column="0" Grid.Row="2"
+                       Style="{DynamicResource BaseEntryStyle}"
+                       BackgroundColor="{DynamicResource Secondary}"/>
+                    <Entry x:Name="MaxPrice" Grid.Column="1" Grid.Row="2"
+                       Style="{DynamicResource BaseEntryStyle}"
+                       BackgroundColor="{DynamicResource Secondary}"/>
+
+                    <DatePicker x:Name="StartDate" Grid.Column="0" Grid.Row="3"
+                            Style="{DynamicResource BaseDatePickerStyle}"
+                            BackgroundColor="{DynamicResource Secondary}"
+                            FontSize="{DynamicResource DefaultFontSize}"/>
+                    <DatePicker x:Name="EndDate" Grid.Column="1" Grid.Row="3"
+                            Style="{DynamicResource BaseDatePickerStyle}"
+                            BackgroundColor="{DynamicResource Secondary}"
+                            FontSize="{DynamicResource DefaultFontSize}"/>
+                </Grid>
+            </VerticalStackLayout  >
+        </Frame>
 
         <CollectionView
             Grid.Row="0"
