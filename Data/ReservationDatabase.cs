@@ -41,7 +41,6 @@ namespace Hotell567.Data
                     });
                 }
 
-                Debug.Write("Reservations found from database: " + reservations.Count);
                 return reservations;
             }
         }

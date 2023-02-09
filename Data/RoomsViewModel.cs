@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
 using Hotell567.Logic;
 using Hotell567.Models;
@@ -27,17 +28,22 @@ public partial class RoomsViewModel : BaseViewModel
         });
     }
 
+    public void AddRoomsToList(List<Room> roomsToAdd)
+    {
+        if (Rooms.Count != 0) Rooms.Clear();
+
+        foreach (var room in roomsToAdd)
+        {
+            Debug.WriteLine($"Added room {room.room_id} to the list on the rooms page!");
+            Rooms.Add(room);
+        }
+        Debug.WriteLine("Rooms on the page: " + Rooms.Count);
+    }
+
+    /*
     [RelayCommand]
     private async Task GetRoomsAsync()
     {
-        // Filter the rooms
-        /*Rooms.Clear();
-        AppManager.roomFiltering.UpdateRoomAndReservationList();
-
-        List<Room> filteredRooms;
-        filteredRooms.Ad = AppManager.roomFiltering.
-        */
-
         if (IsBusy) return;
 
         try
@@ -61,6 +67,5 @@ public partial class RoomsViewModel : BaseViewModel
         {
             IsBusy = false;
         }
-    }
-
+    }*/
 }

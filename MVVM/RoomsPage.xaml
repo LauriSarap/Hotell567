@@ -23,13 +23,13 @@
             <VerticalStackLayout VerticalOptions="Start">
 
                 <Button Text="Search rooms" 
-                    Command="{Binding GetRoomsCommand}"
-                    IsEnabled="{Binding IsNotBusy}"
-                    Style="{DynamicResource BaseButtonStyle}"
-                    Margin="10"
-                    WidthRequest="240"
-                    VerticalOptions="Start"
-                    HorizontalOptions="Center"/>
+                        IsEnabled="{Binding IsNotBusy}"
+                        Style="{DynamicResource BaseButtonStyle}"
+                        Margin="10"
+                        WidthRequest="240"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Center"
+                        Clicked="GetRooms"/>
 
                 <Grid ColumnDefinitions="Auto, *"
                   ColumnSpacing="5"
@@ -46,8 +46,10 @@
                         TextColor="Black"
                         SelectedIndexChanged="OnSelectedIndexChanged"
                         HorizontalOptions="Start"
-                        WidthRequest="240">
+                        WidthRequest="240"
+                        SelectedItem="Any">
                         <Picker.Items>
+                            <x:String>Any</x:String>
                             <x:String>Single</x:String>
                             <x:String>Double</x:String>
                             <x:String>Family</x:String>
