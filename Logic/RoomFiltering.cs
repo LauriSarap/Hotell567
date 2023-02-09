@@ -34,14 +34,23 @@ namespace Hotell567.Logic
             }
 
             // Filter the rooms by room price
-            List<Room> filteredRoomsByPrice = new List<Room>();
-            if (minPrice != 0 && maxPrice != 0)
+            if (maxPrice == 0)
             {
-                filteredRoomsByPrice = FilterByRoomPrice(filteredRoomsByType, minPrice, maxPrice);
+                FilterByRoomPrice(filteredRoomsByType, minPrice, 9999999);
             }
-            else if (minPrice == 0 && maxPrice == 0)
+            else
             {
-                filteredRoomsByPrice = filteredRoomsByType;
+                filteredRoomsByType = FilterByRoomPrice(filteredRoomsByType, minPrice, maxPrice);
+            }
+
+            // Filter the rooms by date
+            if (startDate == DateTime.Today && endDate == DateTime.Today)
+            {
+                return filteredRoomsByType;
+            }
+            else
+            {
+                filteredRoomsByType = FilterByAvailability(filteredRoomsByType, startDate, endDate);
             }
 
             return filteredRoomsByType;
@@ -61,11 +70,11 @@ namespace Hotell567.Logic
             return filteredRooms;
         }
 
-        public List<Room> FilterByAvailability(DateTime startDate, DateTime endDate)
+        public List<Room> FilterByAvailability(List<Room> alreadyFilteredRooms, DateTime startDate, DateTime endDate)
         {
             List<Room> filteredRooms = new List<Room>();
             
-            foreach (var room in Rooms)
+            foreach (var room in alreadyFilteredRooms)
             {
                 foreach (var reservation in Reservations)
                 {

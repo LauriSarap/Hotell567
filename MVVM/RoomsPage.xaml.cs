@@ -11,12 +11,6 @@ public partial class RoomsPage : ContentPage
 {
     public ObservableCollection<Room> Rooms { get; set; } = new ObservableCollection<Room>();
 
-    private string roomTypeFilter;
-    private string roomPricePerNightMinFilter;
-    private string roomPricePerNightMaxFilter;
-    private string roomStartDateFilter;
-    private string roomEndDateFilter;
-
 
     public RoomsPage(RoomsViewModel viewModel)
 	{
@@ -24,15 +18,52 @@ public partial class RoomsPage : ContentPage
 		BindingContext = viewModel;
 	}
 
-    /* [RelayCommand]
+    [RelayCommand]
     private async Task GetRoomsAsync()
     {
         // Filter the rooms
         Rooms.Clear();
         AppManager.roomFiltering.UpdateRoomAndReservationList();
 
-        RoomTypePicker.SelectedItem
-    }*/
+        string roomType = RoomTypePicker.SelectedItem.ToString();
+        int minPrice;
+        int maxPrice;
+        DateTime startDate;
+        DateTime endDate;
+
+        int minResult;
+        if (int.TryParse(MinPrice.Text, out minResult))
+        {
+            Debug.WriteLine("Min price: " + minResult);
+            minPrice = minResult;
+        }
+        else
+        {
+            DisplayAlert("Error", "Enter a proper minimum price", "Okay");
+            return;
+        }
+
+        int maxResult;
+        if (int.TryParse(MaxPrice.Text, out maxResult))
+        {
+            Debug.WriteLine("Max price: " + maxResult);
+            maxPrice = maxResult;
+        }
+        else
+        {
+            DisplayAlert("Error", "Enter a proper maximum price", "Okay");
+            return;
+        }
+
+        startDate = StartDate.Date;
+        endDate = EndDate.Date;
+
+        List<Room> filteredRooms = AppManager.roomFiltering.FilterRooms(roomType, minPrice, maxPrice, startDate, endDate);
+        foreach (var room in filteredRooms)
+        {
+            Rooms.Add(room);
+        }
+    }
 
     private async void LearnMoreBtnClicked(object sender, EventArgs e)
     {
