@@ -35,14 +35,13 @@ public partial class RoomsPage : ContentPage
         
     }
 
-    private void OnSelectedIndexChanged(object sender, EventArgs e)
-    {
-        
-    }
 
     private void GetRooms(object sender, EventArgs e)
     {
         // Filter the rooms
+        if (roomsViewModel.IsBusy) return;
+
+        roomsViewModel.IsBusy = true;
         AppManager.roomFiltering.UpdateRoomAndReservationList();
 
         string roomType = RoomTypePicker.SelectedItem.ToString();
@@ -64,6 +63,7 @@ public partial class RoomsPage : ContentPage
         else
         {
             DisplayAlert("Error", "Enter a proper minimum price", "Okay");
+            roomsViewModel.IsBusy = false;
             return;
         }
 
@@ -79,13 +79,22 @@ public partial class RoomsPage : ContentPage
         }
         else
         {
-            DisplayAlert("Error", "Enter a proper maximum price", "Okay");
+            DisplayAlert("Error", "Enter a proper maximum price", "Oopsie");
+            roomsViewModel.IsBusy = false;
+            return;
+        }
+
+        if (StartDate.Date <= DateTime.Today || EndDate.Date <= DateTime.Today)
+        {
+            DisplayAlert("Dates are in the past!", "Check-in or check-out dates cannot be in the past! You also can't book for today!", "I am very sorry..");
+            roomsViewModel.IsBusy = false;
             return;
         }
 
         if (EndDate.Date < StartDate.Date)
         {
-            DisplayAlert("Error", "Check-out date can't be before check-in date!", "Okay");
+            DisplayAlert("Error", "Check-out date can't be before check-in date!", "Sorry, I'm dumb..");
+            roomsViewModel.IsBusy = false;
             return;
         }
 
@@ -93,7 +102,10 @@ public partial class RoomsPage : ContentPage
         endDate = EndDate.Date;
 
         Debug.WriteLine($"Searching rooms with type {roomType}, minimum price of {minPrice}, maximum price of {maxPrice}, starting from {StartDate.Date} and ending at {EndDate.Date}!");
+
         List<Room> filteredRooms = AppManager.roomFiltering.FilterRooms(roomType, minPrice, maxPrice, startDate, endDate);
+
         roomsViewModel.AddRoomsToList(filteredRooms);
+        roomsViewModel.IsBusy = false;
     }
 }

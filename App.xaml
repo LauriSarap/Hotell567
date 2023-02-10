@@ -102,8 +102,7 @@
 
             <!-- DatePicker styling -->
             <Style x:Key="BaseDatePickerStyle" TargetType="DatePicker">
-                <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryBackground}"/>
-                <Setter Property="Background" Value="{DynamicResource Primary}"/>
+                <Setter Property="Background" Value="{DynamicResource Secondary}"/>
                 <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="TextColor" Value="{DynamicResource DarkTextColor}"/>

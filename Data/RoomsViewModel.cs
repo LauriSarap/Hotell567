@@ -39,33 +39,4 @@ public partial class RoomsViewModel : BaseViewModel
         }
         Debug.WriteLine("Rooms on the page: " + Rooms.Count);
     }
-
-    /*
-    [RelayCommand]
-    private async Task GetRoomsAsync()
-    {
-        if (IsBusy) return;
-
-        try
-        {
-            IsBusy = true;
-            List<Room> rooms = await AppManager.roomDatabase.ListRooms();
-
-            if (Rooms.Count != 0) Rooms.Clear();
-
-            foreach (Room room in rooms)
-            {
-                Rooms.Add(room);
-            }
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine($"Unable to get rooms: {e.Message}");
-            throw;
-        }
-        finally
-        {
-            IsBusy = false;
-        }
-    }*/
 }
