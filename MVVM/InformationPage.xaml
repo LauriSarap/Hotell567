@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hotell567.MVVM.InformationPage"
+             Title="Information"
+             BackgroundColor="{DynamicResource PrimaryBackground}">
+    <VerticalStackLayout>
+
+        <Image Source="mc_hotel.jpg"
+               Aspect="AspectFill" />
+
+        <VerticalStackLayout Padding="15">
+            <Label Text="The Richman Hotel"
+                   Style="{DynamicResource MediumLabel}"/>
+            <Label Text="2 Whitehall Ct, London SW1A 2EJ, United Kingdom"
+                   Style="{DynamicResource SmallLabel}"
+                   FontAttributes="Italic" />
+            <Label Text="+372 997 567" 
+                   Style="{DynamicResource SmallLabel}"/>
+            <Label Text="Stay in style at The Richman Hotel, where you'll be treated to top-notch amenities and exceptional service. Relax and unwind in a luxurious setting designed for your ultimate comfort and enjoyment." 
+                   Style="{DynamicResource SmallLabel}"/>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

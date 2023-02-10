@@ -34,6 +34,9 @@
         <Tab Title="Account" Style="{DynamicResource BasePageHeaderStyle}" Route="AccountSettings" x:Name="accountTab" IsVisible="False">
             <ShellContent ContentTemplate="{DataTemplate local:AccountSettings}"/>
         </Tab>
+        <Tab Title="Information" Style="{DynamicResource BasePageHeaderStyle}" Route="InformationPage">
+            <ShellContent ContentTemplate="{DynamicResource local:InformationPage}"/>
+        </Tab>
     </TabBar>
 </Shell>
 
