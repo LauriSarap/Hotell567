@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Hotell567.Data;
 using Hotell567.Logic;
 
@@ -19,13 +20,13 @@ public partial class RoomDetailPage : ContentPage
     {
         if (AppManager.reservationFactory.IsCheckInDateValid(CheckInDate.Date) == false)
         {
-            DisplayAlert("Error", "Check-in date must be in the future", "OK");
+            await DisplayAlert("Error", "Check-in date must be in the future", "OK");
             return;
         }
 
         if (AppManager.reservationFactory.AreDatesValid(CheckInDate.Date, CheckOutDate.Date) == false)
         {
-            DisplayAlert("Error", "Check-out date must be after check-in date", "OK");
+            await DisplayAlert("Error", "Check-out date must be after check-in date", "OK");
             return;
         }
 
@@ -33,15 +34,74 @@ public partial class RoomDetailPage : ContentPage
 
         if (isRoomAvailable == false)
         {
-            DisplayAlert("Error", "Room is not available for the selected dates", "OK");
+            await DisplayAlert("Error", "Room is not available for the selected dates", "OK");
+            return;
+        }
+
+        if (AppManager.currentUser == null)
+        {
+            DisplayAlert("Error", "You must log in to make a reservation!", "Okay, I will");
             return;
         }
 
         AppManager.reservationFactory.CreateReservation(CheckInDate.Date, CheckOutDate.Date, viewModel.Room.room_id, AppManager.currentUser.user_id);
-        DisplayAlert(
-            "Success", 
-            $"Reservation from {CheckInDate.Date} until {CheckOutDate.Date} created", 
-            "OK");
-        return;
+
+        await DisplayAlert("Success", $"Reservation from {CheckInDate.Date} until {CheckOutDate.Date} created", "OK");
+    }
+
+    private void CheckInDateChanged(object sender, EventArgs e)
+    {
+        if (CheckInDate == null) return;
+
+        Debug.WriteLine("CheckInDateChanged");
+
+        if (CheckInDate.Date == DateTime.Today || CheckOutDate.Date == DateTime.Today)
+        {
+            return;
+        }
+
+        if (CheckInDate.Date > CheckOutDate.Date)
+        { 
+            return;
+        }
+
+        if (CheckInDate.Date == CheckOutDate.Date)
+        {
+            return;
+        }
+
+        NumberOfNightsText.Text = $"Number of nights: {(CheckOutDate.Date - CheckInDate.Date).Days}";
+
+        decimal price = AppManager.reservationFactory.CalculateReservationTotalPrice(CheckInDate.Date, CheckOutDate.Date, viewModel.Room.room_id).Result;
+
+        ExpectedPriceText.Text = $"Total price: {price}€";
+    }
+
+    private void CheckOutDateChanged(object sender, EventArgs e)
+    {
+        if (CheckOutDate == null) return;
+
+        Debug.WriteLine("CheckOutDateChanged");
+
+        if (CheckInDate.Date == DateTime.Today || CheckOutDate.Date == DateTime.Today)
+        {
+            return;
+        }
+
+        if (CheckInDate.Date > CheckOutDate.Date)
+        {
+            return;
+        }
+
+        if (CheckInDate.Date == CheckOutDate.Date)
+        {
+            return;
+        }
+
+        NumberOfNightsText.Text = $"Number of nights: {(CheckOutDate.Date - CheckInDate.Date).Days}";
+
+        decimal price = AppManager.reservationFactory.CalculateReservationTotalPrice(CheckInDate.Date, CheckOutDate.Date, viewModel.Room.room_id).Result;
+
+        ExpectedPriceText.Text = $"Total price: {price}€";
     }
 }

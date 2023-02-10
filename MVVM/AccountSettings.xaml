@@ -4,51 +4,36 @@
              x:Class="Hotell567.MVVM.AccountSettings"
              Title="AccountSettings"
              BackgroundColor="{DynamicResource PrimaryBackground}">
-    <StackLayout>
-        <StackLayout>
-            <Label Text="Account Settings" Style="{DynamicResource MediumLabel}"/>
-        </StackLayout>
+    <Frame Style="{DynamicResource BaseFrameStyle}" Margin="100">
+            <VerticalStackLayout>
+                <Label Text="Account Info" Style="{DynamicResource MediumLabel}"/>
+                <ListView x:Name="AccountSettingsView" 
+                          HasUnevenRows="True" 
+                          ItemsSource="{Binding CurrentUser}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <VerticalStackLayout Padding="10">
+                                    <HorizontalStackLayout>
+                                        <Entry Text="{Binding username}" 
+                                               Style="{DynamicResource BaseEntryStyle}"/>
+                                        <Entry Text="{Binding password}" 
+                                               Style="{DynamicResource BaseEntryStyle}"/>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-        <ListView x:Name="AccountSettingsView"
-                  HasUnevenRows="True"
-                  ItemsSource="{Binding CurrentUser}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding user_id}"
-                                   Style="{DynamicResource SmallLabel}"
-                                   FontAttributes="Bold"/>
-                            <Label Text="{Binding username}"
-                                   Style="{DynamicResource SmallLabel}"/>
-                            <Label Text="{Binding first_name}"
-                                   Style="{DynamicResource SmallLabel}"/>
-                            <Label Text="{Binding last_name}"
-                                   Style="{DynamicResource SmallLabel}"/>
-                            <Label Text="{Binding email}"
-                                   Style="{DynamicResource SmallLabel}"/>
-                            <Label Text="{Binding phone_number}"
-                                   Style="{DynamicResource SmallLabel}"/>
-                            <Label Text="{Binding date_of_birth}"
-                                   Style="{DynamicResource SmallLabel}"/>
-                            <Label Text="{Binding address_line_1}"
-                                   Style="{DynamicResource SmallLabel}"/>
-                            <Label Text="{Binding address_line_2}"
-                                   Style="{DynamicResource SmallLabel}"/>
-                            <Label Text="{Binding city}"
-                                   Style="{DynamicResource SmallLabel}"/>
-                            <Label Text="{Binding state}"
-                                   Style="{DynamicResource SmallLabel}"/>
-                            <Label Text="{Binding postal_code}"
-                                   Style="{DynamicResource SmallLabel}"/>
-                            <Label Text="{Binding country}"
-                                   Style="{DynamicResource SmallLabel}"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Button Text="Reset" Style="{DynamicResource BaseButtonStyle}"/>
+                    <Button Text="Save" Style="{DynamicResource BaseButtonStyle}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
 
+        <!--
         <StackLayout >
             <StackLayout Orientation="Horizontal">
                 <Label Text="Username" />
@@ -74,5 +59,5 @@
         <StackLayout>
             <Button Text="Save" Clicked="SaveBtnClicked" />
         </StackLayout>
-    </StackLayout>
+        -->
 </ContentPage>

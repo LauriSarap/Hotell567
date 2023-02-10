@@ -29,7 +29,7 @@ public partial class AccountSettings : ContentPage
             return accountSettingsSingleton;
         }
     }
-
+    /*
     private async void SaveBtnClicked(object sender, EventArgs e)
     {
         if (string.IsNullOrEmpty(usernameEntry.Text))
@@ -65,6 +65,5 @@ public partial class AccountSettings : ContentPage
         {
             await DisplayAlert("Error", ex.Message, "OK");
         }
-    }
-
+    }*/
 }

@@ -7,7 +7,7 @@
              x:DataType="data:RoomDetailViewModel"
              Title="{Binding Room.room_type, StringFormat='{0} room'}">
     <VerticalStackLayout VerticalOptions="Center">
-        <Grid ColumnDefinitions="650, *">
+        <Grid ColumnDefinitions="550, *">
 
             <Frame
                 Style="{DynamicResource BaseFrameStyle}"
@@ -19,7 +19,7 @@
 
             <Grid Grid.Column="1" ColumnDefinitions="*, *">
                 <VerticalStackLayout Padding="15" 
-                                     Spacing="10"
+                                     Spacing="15"
                                      Grid.Column="0">
                     <Label Style="{DynamicResource LargeLabel}" 
                            FontAttributes="Bold"
@@ -37,23 +37,56 @@
                            Text="{Binding Room.room_price_per_night, StringFormat='Average cost per night: {0}€'}" />
                 </VerticalStackLayout>
 
-                <VerticalStackLayout Padding="15" 
+                <VerticalStackLayout Padding="30" 
                                      Spacing="10"
                                      Grid.Column="1">
                     <Border Style="{DynamicResource BaseBorderStyle}"
                             VerticalOptions="Center"
                             HeightRequest="500">
-                        <VerticalStackLayout>
+                        <VerticalStackLayout VerticalOptions="Fill" Padding="30" Spacing="10">
                             <Label Text="Book"
                                    FontSize="48"
                                    Style="{DynamicResource MediumLabel}"/>
-                            <DatePicker x:Name="CheckInDate"
-                                        Style="{DynamicResource BaseDatePickerStyle}"/>
-                            <DatePicker x:Name="CheckOutDate"
-                                        Style="{DynamicResource BaseDatePickerStyle}"/>
+                            <Label Text="Dates"
+                                   Style="{DynamicResource MediumLabel}"
+                                   HorizontalOptions="Start"
+                                   FontSize="40"/>
+
+                            <Grid ColumnDefinitions="Auto, Auto, *" 
+                                  HorizontalOptions="Fill" 
+                                  ColumnSpacing="10"
+                                  Margin="0, 0, 0, 10">
+                                <DatePicker x:Name="CheckInDate"
+                                            Grid.Column="0"
+                                            Style="{DynamicResource BaseDatePickerStyle}"
+                                            HorizontalOptions="Fill"
+                                            FontSize="25"
+                                            PropertyChanged="CheckInDateChanged"/>
+
+                                <Label Style="{DynamicResource MediumLabel}" Text="---" Grid.Column="1"/>
+
+                                <DatePicker x:Name="CheckOutDate"
+                                            Grid.Column="2"
+                                            Style="{DynamicResource BaseDatePickerStyle}"
+                                            HorizontalOptions="Fill"
+                                            FontSize="25"
+                                            PropertyChanged="CheckOutDateChanged"/>
+                            </Grid>
+
+                            <Label x:Name="NumberOfNightsText"
+                                   Text="Number of nights: "
+                                   Style="{DynamicResource SmallLabel}"
+                                   HorizontalOptions="Start"/>
+                            <Label x:Name="ExpectedPriceText"
+                                   Text="Expected price: "
+                                   Style="{DynamicResource SmallLabel}"
+                                   HorizontalOptions="Start"/>
+
                             <Button Text="Book"
                                     Style="{DynamicResource BaseButtonStyle}"
-                                    Clicked="BookBtnClicked"/>
+                                    Clicked="BookBtnClicked"
+                                    VerticalOptions="End"
+                                    Margin="0, 100, 0, 0"/>
 
                         </VerticalStackLayout>
                     </Border>

@@ -70,7 +70,7 @@ namespace Hotell567.Logic
             return specificRoomReservations;
         }
         
-        private async Task<decimal> CalculateReservationTotalPrice(DateTime checkInDate, DateTime checkOutDate, int roomId)
+        public async Task<decimal> CalculateReservationTotalPrice(DateTime checkInDate, DateTime checkOutDate, int roomId)
         {
             decimal totalPrice = 0;
 
