@@ -10,15 +10,13 @@ public partial class AccountSettings : ContentPage
 {
     private static AccountSettings accountSettingsSingleton;
 
-    public ObservableCollection<User> CurrentUser { get; set; } = new ObservableCollection<User>();
+    public User CurrentUser { get; set; }
 
     public AccountSettings()
 	{
 		InitializeComponent();
         accountSettingsSingleton = this;
-
-        CurrentUser.Add(AppManager.currentUser);
-
+        UpdateCurrentUser();
         BindingContext = this;
     }
 
@@ -29,10 +27,15 @@ public partial class AccountSettings : ContentPage
             return accountSettingsSingleton;
         }
     }
-    /*
-    private async void SaveBtnClicked(object sender, EventArgs e)
+
+    public void UpdateCurrentUser()
     {
-        if (string.IsNullOrEmpty(usernameEntry.Text))
+        CurrentUser = AppManager.currentUser;
+    }
+
+    private void SaveBtnClicked(object sender, EventArgs e)
+    {
+        /*if (string.IsNullOrEmpty())
         {
             await DisplayAlert("Error", "Please enter a username", "OK");
             return;
@@ -64,6 +67,6 @@ public partial class AccountSettings : ContentPage
         catch (Exception ex)
         {
             await DisplayAlert("Error", ex.Message, "OK");
-        }
-    }*/
+        }*/
+    }
 }

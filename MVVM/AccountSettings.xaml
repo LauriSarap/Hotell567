@@ -1,39 +1,120 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Hotell567.Models"
+             xmlns:mvvm="clr-namespace:Hotell567.MVVM"
              x:Class="Hotell567.MVVM.AccountSettings"
+             x:DataType="mvvm:AccountSettings"
              Title="AccountSettings"
              BackgroundColor="{DynamicResource PrimaryBackground}">
-    <Frame Style="{DynamicResource BaseFrameStyle}" Margin="100">
-            <VerticalStackLayout>
+
+    <Frame Style="{DynamicResource BaseFrameStyle}" Margin="50">
+        <VerticalStackLayout>
+            <Label Text="Account Info" Style="{DynamicResource MediumLabel}"/>
+            <Grid ColumnDefinitions="300, 300"
+                  ColumnSpacing="20"
+                  Padding="10">
+
+                <Grid ColumnDefinitions="Auto, Auto"
+                      RowDefinitions="Auto, Auto, Auto"
+                      RowSpacing="20"
+                      ColumnSpacing="10">
+                    <Label Text="Username:" Style="{DynamicResource AccountLabel}" Grid.Column="0" Grid.Row="0" FontAttributes="Bold"/>
+                    <Entry x:Name="Username" Text="" Style="{DynamicResource AccountEntryStyle}" Grid.Column="1" Grid.Row="0" />
+                </Grid>
+            
+
+            </Grid>
+        </VerticalStackLayout>
+    </Frame>
+
+
+    <!--
+    <Frame Style="{DynamicResource BaseFrameStyle}" Margin="50">
+        <Grid ColumnDefinitions="Auto, Auto"
+              ColumnSpacing="50">
+            
+            <VerticalStackLayout HorizontalOptions="Start">
                 <Label Text="Account Info" Style="{DynamicResource MediumLabel}"/>
-                <ListView x:Name="AccountSettingsView" 
-                          HasUnevenRows="True" 
-                          ItemsSource="{Binding CurrentUser}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <VerticalStackLayout Padding="10">
-                                    <HorizontalStackLayout>
-                                        <Entry Text="{Binding username}" 
-                                               Style="{DynamicResource BaseEntryStyle}"/>
-                                        <Entry Text="{Binding password}" 
-                                               Style="{DynamicResource BaseEntryStyle}"/>
-                                    </HorizontalStackLayout>
-                                </VerticalStackLayout>
-                            </ViewCell>
+                <CollectionView SelectionMode="None" HorizontalOptions="Center" Margin="30" ItemsSource="{Binding CurrentUser}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:User">
+                            <Grid ColumnDefinitions="300, 300"
+                                  ColumnSpacing="20"
+                                  Padding="10">
+
+                                
+                                <Grid Grid.Column="0"
+                                  ColumnDefinitions="Auto, *"
+                                  RowDefinitions="Auto, Auto, Auto"
+                                  RowSpacing="20"
+                                  ColumnSpacing="10">
+                                    
+                                    <Label Text="Username:" Style="{DynamicResource AccountLabel}" Grid.Column="0" Grid.Row="0" FontAttributes="Bold"/>
+                                    <Label Text="{Binding username}" Style="{DynamicResource SmallLabel}"
+                                       Grid.Column="1" Grid.Row="0" />
+                                    
+                                    <Label Text="First name:" Style="{DynamicResource AccountLabel}" Grid.Column="0" Grid.Row="1" />
+                                    <Label Text="{Binding first_name}" Style="{DynamicResource SmallLabel}"
+                                           Grid.Column="1" Grid.Row="1" />
+                                </Grid>
+
+                                
+                                <Grid Grid.Column="1"
+                                  ColumnDefinitions="Auto, *"
+                                  RowDefinitions="Auto, Auto, Auto"
+                                  RowSpacing="20">
+                                    
+                                    <Label Text="Password:" Style="{DynamicResource AccountLabel}" Grid.Column="0" Grid.Row="0" />
+                                    <Label Text="{Binding password}" Style="{DynamicResource SmallLabel}"
+                                           Grid.Column="1" />
+                                    
+                                    <Label Text="Last name:" Style="{DynamicResource AccountLabel}" Grid.Column="0" Grid.Row="1" />
+                                    <Label x:Name="LastNameField" BindingContext="{x:Reference Name=LastNameField}"  Text="{Binding last_name}" Style="{DynamicResource SmallLabel}"
+                                           Grid.Column="1" Grid.Row="1" />
+                                </Grid>
+                            </Grid>
                         </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout Grid.Column="1">
+                <Label Text="Change account details" Style="{DynamicResource MediumLabel}"/>
+
+                <Grid ColumnDefinitions="300, 300"
+                      ColumnSpacing="20"
+                      Padding="10"
+                      BackgroundColor="{DynamicResource PrimaryBackground}">
+                    
+                    <Grid Grid.Column="0"
+                          ColumnDefinitions="Auto, *"
+                          RowDefinitions="Auto, Auto, Auto"
+                          RowSpacing="20"
+                          ColumnSpacing="10">
+                        
+                        <Label Text="Username:" Style="{DynamicResource AccountLabel}" Grid.Column="0" Grid.Row="0" FontAttributes="Bold"/>
+                        <Label x:Name="UsernameField" Text="{Binding username}" Style="{DynamicResource SmallLabel}"
+                               Grid.Column="1" Grid.Row="0" />
+                        
+                        <Label Text="First name:" Style="{DynamicResource AccountLabel}" Grid.Column="0" Grid.Row="1" />
+                        <Label x:Name="FirstNameField" Text="{Binding first_name}" Style="{DynamicResource SmallLabel}"
+                               Grid.Column="1" Grid.Row="1" />
+                    </Grid>
+
+                </Grid>
 
                 <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
-                    <Button Text="Reset" Style="{DynamicResource BaseButtonStyle}"/>
-                    <Button Text="Save" Style="{DynamicResource BaseButtonStyle}"/>
+                    <Button Text="Reset" Style="{DynamicResource BaseButtonStyle}" />
+                    <Button Text="Save" Style="{DynamicResource BaseButtonStyle}" Clicked="SaveBtnClicked" />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
-        </Frame>
 
-        <!--
+        </Grid>
+    </Frame> -->
+
+    <!--
         <StackLayout >
             <StackLayout Orientation="Horizontal">
                 <Label Text="Username" />

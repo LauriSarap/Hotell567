@@ -65,12 +65,13 @@ namespace Hotell567.Logic
             {
                 // User
                 Debug.WriteLine("Default Permissions!");
+                AppShell.GetSingleton.ShowPagesAfterLogin(permissionLevel);
             }
             else if (permissionLevel == 1)
             {
                 // Admin
                 Debug.WriteLine("Admin Permissions!");
-                AppShell.GetSingleton.ShowPagesAfterLogin();
+                AppShell.GetSingleton.ShowPagesAfterLogin(permissionLevel);
             }
         }
 

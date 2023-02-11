@@ -1,4 +1,5 @@
-﻿using Hotell567.MVVM;
+﻿using Hotell567.Logic;
+using Hotell567.MVVM;
 
 namespace Hotell567;
 
@@ -21,10 +22,17 @@ public partial class AppShell : Shell
         }
     }
 
-    public void ShowPagesAfterLogin()
+    public void ShowPagesAfterLogin(int permLevel)
     {
-        adminTab.IsVisible = true;
-        accountTab.IsVisible = true;
+        if (permLevel == 0)
+        {
+            accountTab.IsVisible = true;
+        }
+        else if (permLevel == 1)
+        {
+            adminTab.IsVisible = true;
+            accountTab.IsVisible = true;
+        }
     }
 
     public void HidePagesAfterLogout()

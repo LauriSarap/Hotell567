@@ -58,6 +58,10 @@
                 <Setter Property="HorizontalOptions" Value="Center"/>
             </Style>
 
+            <Style x:Key="AccountLabel" BasedOn="{StaticResource SmallLabel}" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
             <!-- Button styling -->
             <Style x:Key="BaseButtonStyle" TargetType="Button" BasedOn="{StaticResource baseApplicationStyle}">
                 <Setter Property="BackgroundColor" Value="{DynamicResource Secondary}"/>
@@ -81,6 +85,12 @@
                 <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}"/>
                 <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryBackground}"/>
                 <Setter Property="TextColor" Value="{DynamicResource DarkTextColor}"/>
+            </Style>
+
+            <Style x:Key="AccountEntryStyle" TargetType="Entry" BasedOn="{StaticResource BaseEntryStyle}">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
             </Style>
 
             <!-- Frame styling -->

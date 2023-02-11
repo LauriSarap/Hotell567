@@ -4,17 +4,19 @@
              x:Class="Hotell567.MVVM.InformationPage"
              Title="Information"
              BackgroundColor="{DynamicResource PrimaryBackground}">
-    <Frame Style="{DynamicResource BaseFrameStyle}" WidthRequest="700" Margin="0, 100, 0, 100">
+    <Frame Style="{DynamicResource BaseFrameStyle}" WidthRequest="700" Margin="0, 50, 0, 50" MaximumHeightRequest="700">
             <VerticalStackLayout VerticalOptions="Start">
                 <Image Source="mc_hotel.jpg"
-                       Aspect="Center" />
+                       Aspect="AspectFill"
+                       MaximumHeightRequest="350"/>
 
-                <VerticalStackLayout Padding="15" Spacing="15" HorizontalOptions="Center">
+                <VerticalStackLayout Padding="15" Spacing="10" HorizontalOptions="Center">
                     <Label Text="The Richman Hotel"
                            Style="{DynamicResource MediumLabel}"
                            FontAttributes="Bold"/>
                     <Label Text="Stay in style at The Richman Hotel, where you'll be treated to top-notch amenities and exceptional service. Relax and unwind in a luxurious setting designed for your ultimate comfort and enjoyment." 
-                           Style="{DynamicResource SmallLabel}"/>
+                           Style="{DynamicResource SmallLabel}"
+                           FontSize="20"/>
                     <Label Text="2 Whitehall Ct, London SW1A 2EJ, United Kingdom"
                            Style="{DynamicResource SmallLabel}"
                            FontAttributes="Italic" 
