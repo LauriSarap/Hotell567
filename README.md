@@ -1,6 +1,7 @@
 # Hotel Room Reservation Desktop Application
 
-The main goal of the competition was to create an application that meets certain expected features and restrictions, with additional points available for creative and additional features and restrictions.
+This application was built for the ASI Karikas 2023 competition. One of the goals of the competition was to build a hotel room reservation application.
+https://asikarikas.ee/
 
 
 # Information
