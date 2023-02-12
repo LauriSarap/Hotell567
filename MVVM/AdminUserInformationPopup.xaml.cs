@@ -17,7 +17,7 @@ public partial class AdminUserInformationPopup : Popup
         UserNameLabel.Text = "Username: " + selectedUser.username;
         FirstNameLabel.Text = "First name: " + selectedUser.first_name;
         LastNameLabel.Text = "Last name: " + selectedUser.last_name;
-        DateOfBirthLabel.Text = "Date of birth: " + selectedUser.date_of_birth;
+        //DateOfBirthLabel.Text = "Date of birth: " + selectedUser.date_of_birth;
         EmailLabel.Text = "Email: " + selectedUser.email;
         PhoneNumberLabel.Text = "Phone: " + selectedUser.phone_number;
         AddressLabel.Text = "Address: " + selectedUser.address_line_1 + " " + selectedUser.address_line_2;

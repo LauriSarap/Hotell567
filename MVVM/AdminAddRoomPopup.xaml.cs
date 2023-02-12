@@ -41,10 +41,17 @@ public partial class AdminAddRoomPopup : Popup
             return;
         }
 
+        if (AppManager.roomFactory.IsValidRoomNumber(RoomNumber.Text).Result == false)
+        {
+            Status.Text = "Failed: Room number invalid or already in use!";
+            return;
+        }
+
         Room newRoom = new Room
         {
             room_type = RoomTypePicker.SelectedItem.ToString(),
             room_image_name = chosenFileName,
+            room_number = int.Parse(RoomNumber.Text),
             room_description = Description.Text,
             room_price_per_night = decimal.Parse(PricePerNight.Text)
         };
@@ -53,8 +60,13 @@ public partial class AdminAddRoomPopup : Popup
         {
             AppManager.roomDatabase.AddRoom(newRoom);
 
-            var imagePath = Path.Combine(AppManager.imageFolder, "chosenFileName.jpg");
-            File.WriteAllBytes(imagePath, bytes);
+            var imagePath = Path.Combine(AppManager.imageFolder, chosenFileName);
+
+            using (var stream = new FileStream(imagePath, FileMode.Create, FileAccess.Write))
+            {
+                stream.Write(bytes, 0, bytes.Length);
+            }
+
             Close();
         }
         catch (Exception exception)

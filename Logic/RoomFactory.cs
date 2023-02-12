@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using Hotell567.Models;
 
 namespace Hotell567.Logic
 {
@@ -12,6 +8,29 @@ namespace Hotell567.Logic
         public RoomFactory()
         {
             Debug.WriteLine("RoomFactory connector created");
+        }
+
+        public async Task<bool> IsValidRoomNumber(string roomNumber)
+        {
+            if (int.TryParse(roomNumber, out int roomNumberAsInt))
+            {
+                if (roomNumberAsInt > 0)
+                {
+                    List<Room> rooms = await AppManager.roomDatabase.ListRooms();
+
+                    foreach (var room in rooms)
+                    {
+                        if (room.room_number == roomNumberAsInt)
+                        {
+                            return false;
+                        }
+                    }
+
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public bool IsValidDescription(string description)

@@ -28,6 +28,7 @@ namespace Hotell567.Data
                     {
                         room_id = reader["room_id"].GetHashCode(),
                         room_type = reader["room_type"].ToString(),
+                        room_number = reader["room_number"].GetHashCode(),
                         room_image_name = reader["room_image_name"].ToString(),
                         room_description = reader["room_description"].ToString(),
                         room_availability = reader["room_availability"].ToString(),
@@ -55,6 +56,7 @@ namespace Hotell567.Data
                 {
                     room.room_id = reader["room_id"].GetHashCode();
                     room.room_type = reader["room_type"].ToString();
+                    room.room_number = reader["room_number"].GetHashCode();
                     room.room_image_name = reader["room_image_name"].ToString();
                     room.room_description = reader["room_description"].ToString();
                     room.room_availability = reader["room_availability"].ToString();
@@ -72,11 +74,12 @@ namespace Hotell567.Data
             using (SQLiteConnection _connection = new SQLiteConnection(AppManager.connectionString))
             {
                 _connection.Open();
-                var command = new SQLiteCommand("INSERT INTO Rooms (room_type, room_image_name, room_description, room_price_per_night) VALUES (@room_type, @room_image_name, @room_description, @room_price_per_night)", _connection);
+                var command = new SQLiteCommand("INSERT INTO Rooms (room_type, room_image_name, room_description, room_price_per_night, room_number) VALUES (@room_type, @room_image_name, @room_description, @room_price_per_night, @room_number)", _connection);
                 command.Parameters.AddWithValue("@room_type", room.room_type);
                 command.Parameters.AddWithValue("@room_image_name", room.room_image_name);
                 command.Parameters.AddWithValue("@room_description", room.room_description);
                 command.Parameters.AddWithValue("@room_price_per_night", room.room_price_per_night);
+                command.Parameters.AddWithValue("@room_number", room.room_number);
                 await command.ExecuteNonQueryAsync();
 
                 Debug.Write("Room added to database: " + room.room_id);

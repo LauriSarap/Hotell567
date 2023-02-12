@@ -78,8 +78,6 @@ public partial class AdminPage : ContentPage
     }
 
 
-    // Users stuff if comes some day
-
     private void UpdateUserListBtn(object sender, EventArgs e)
     {
         UpdateUserList();
@@ -113,6 +111,18 @@ public partial class AdminPage : ContentPage
     private async void DeleteRoomBtnClicked(object sender, EventArgs e)
     {
         Room selectedRoom = (Room)((Button)sender).BindingContext;
+
+        try
+        {
+            var imagePath = Path.Combine(AppManager.imageFolder, selectedRoom.room_image_name);
+            File.Delete(imagePath);
+            Debug.WriteLine("Successfully deleted image!");
+        }
+        catch (Exception exception)
+        {
+            Debug.WriteLine("Failed to delete image: " + exception);
+            throw;
+        }
 
         AppManager.roomDatabase.RemoveRoom(selectedRoom);
         await GetRoomsAsync();

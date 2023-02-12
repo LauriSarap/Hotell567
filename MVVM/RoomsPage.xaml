@@ -119,6 +119,8 @@
                                            Text="{Binding room_type}" 
                                            HorizontalOptions="Start"
                                            FontAttributes="Bold"/>
+                                    <Label Style="{DynamicResource SmallLabel}"
+                                           Text="{Binding room_number, StringFormat='Room number: {0}'}"/>
                                     <Label Style="{DynamicResource SmallLabel}" 
                                            Text="{Binding room_description}" />
                                     <Label Style="{DynamicResource SmallLabel}"

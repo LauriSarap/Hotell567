@@ -52,7 +52,7 @@ public partial class RoomDetailPage : ContentPage
 
         AppManager.reservationFactory.CreateReservation(CheckInDate.Date, CheckOutDate.Date, viewModel.Room.room_id, AppManager.currentUser.user_id);
 
-        await DisplayAlert("Success", $"Reservation from {CheckInDate.Date} until {CheckOutDate.Date} created", "OK");
+        await DisplayAlert("Success", $"Reservation from {CheckInDate.Date.Date} until {CheckOutDate.Date.Date} created", "OK");
     }
 
     private void CheckInDateChanged(object sender, EventArgs e)

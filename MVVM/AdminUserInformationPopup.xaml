@@ -4,7 +4,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              CanBeDismissedByTappingOutsideOfPopup="True"
-             Color="{DynamicResource Secondary}">
+             Color="{DynamicResource Secondary}"
+             Size="700, 500">
 
     <VerticalStackLayout Padding="5"
                          HorizontalOptions="Center"
@@ -17,7 +18,7 @@
                     <VerticalStackLayout HorizontalOptions="Start">
                         <Label Style="{DynamicResource SmallLabel}" FontSize="16" x:Name="UserIdLabel" Text="user_id"/>
                         <Label Style="{DynamicResource SmallLabel}" FontSize="16" x:Name="FirstNameLabel" Text="first_name"/>
-                        <Label Style="{DynamicResource SmallLabel}" FontSize="16" x:Name="DateOfBirthLabel" Text="date_of_birth"/>
+                        <!--<Label Style="{DynamicResource SmallLabel}" FontSize="16" x:Name="DateOfBirthLabel" Text="date_of_birth"/>-->
                         <Label Style="{DynamicResource SmallLabel}" FontSize="16" x:Name="EmailLabel" Text="email"/>
                         <Label Style="{DynamicResource SmallLabel}" FontSize="16" x:Name="AddressLabel" Text="address_line_1"/>
                         <Label Style="{DynamicResource SmallLabel}" FontSize="16" x:Name="StateLabel" Text="state"/>

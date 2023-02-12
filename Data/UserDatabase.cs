@@ -67,13 +67,31 @@ namespace Hotell567.Data
                     u.username = reader["username"].ToString();
                     u.password = reader["password"].ToString();
                     u.email = reader["email"].ToString();
-                    u.phone_number = reader["phone_number"].GetHashCode();
+
+                    if (reader["phone_number"] != DBNull.Value)
+                    {
+                        u.phone_number = reader["phone_number"].GetHashCode();
+                    }
+                    else
+                    {
+                        u.phone_number = 0;
+                    }
+
                     u.date_of_birth = reader["date_of_birth"].ToString();
                     u.address_line_1 = reader["address_line_1"].ToString();
                     u.address_line_2 = reader["address_line_2"].ToString();
                     u.city = reader["city"].ToString();
                     u.state = reader["state"].ToString();
-                    u.postal_code = reader["postal_code"].GetHashCode();
+
+                    if (reader["postal_code"] != DBNull.Value)
+                    {
+                        u.postal_code = reader["postal_code"].GetHashCode();
+                    }
+                    else
+                    {
+                        u.postal_code = 0;
+                    }
+
                     u.country = reader["country"].ToString();
                 }
                 return u;

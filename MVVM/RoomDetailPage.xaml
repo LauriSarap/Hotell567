@@ -14,7 +14,7 @@
                 HeightRequest="600"
                 WidthRequest="500">
                 <Image Aspect="Fill"
-                       Source="{Binding Room.room_image_name, StringFormat='{0}.jpg'}"/>
+                       Source="{Binding Room.room_image_name, StringFormat='{0}'}"/>
             </Frame>
 
             <Grid Grid.Column="1" ColumnDefinitions="*, *">
@@ -63,7 +63,7 @@
                                             FontSize="25"
                                             PropertyChanged="CheckInDateChanged"/>
 
-                                <Label Style="{DynamicResource MediumLabel}" Text="---" Grid.Column="1"/>
+                                <Label Style="{DynamicResource MediumLabel}" Text="--" Grid.Column="1"/>
 
                                 <DatePicker x:Name="CheckOutDate"
                                             Grid.Column="2"
