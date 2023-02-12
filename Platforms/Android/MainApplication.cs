@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Hotell567;
+namespace MauiApp1;
 
 [Application]
 public class MainApplication : MauiApplication

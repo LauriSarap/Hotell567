@@ -82,13 +82,13 @@ public partial class AdminPage : ContentPage
         UpdateUserList();
     }
 
-    public async void UpdateUserList()
+    public void UpdateUserList()
     {
         var usersFromDb = AppManager.userDatabase.ListUsers();
 
         foreach (var user in usersFromDb)
         {
-            if (!Users.Any(u => u.user_id == user.user_id))
+            if (Users.All(u => u.user_id != user.user_id))
             {
                 Debug.WriteLine("Didn't find " + user.username + " and added it");
                 Users.Add(user);
@@ -126,6 +126,4 @@ public partial class AdminPage : ContentPage
         AppManager.roomDatabase.RemoveRoom(selectedRoom);
         await GetRoomsAsync();
     }
-
-
 }

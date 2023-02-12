@@ -83,32 +83,32 @@ namespace Hotell567.Logic
                     {
                         if (startDate >= reservation.res_check_in_date && endDate <= reservation.res_check_out_date)
                         {
-                            Console.WriteLine($"Room {room.room_id} is not available on these dates!");
+                            Debug.WriteLine($"Room {room.room_id} is not available on these dates!");
                             isAvailable = false;
                             break;
                         }
                         if (endDate >= reservation.res_check_in_date && endDate <= reservation.res_check_out_date)
                         {
-                            Console.WriteLine($"Room {room.room_id} is not available on these dates!");
+                            Debug.WriteLine($"Room {room.room_id} is not available on these dates!");
                             isAvailable = false;
                             break;
                         }
                         if (startDate >= reservation.res_check_in_date && startDate <= reservation.res_check_out_date)
                         {
-                            Console.WriteLine($"Room {room.room_id} is not available on these dates!");
+                            Debug.WriteLine($"Room {room.room_id} is not available on these dates!");
                             isAvailable = false;
                             break;
                         }
                         if (startDate <= reservation.res_check_in_date && endDate >= reservation.res_check_out_date)
                         {
-                            Console.WriteLine($"Room {room.room_id} is not available on these dates!");
+                            Debug.WriteLine($"Room {room.room_id} is not available on these dates!");
                             isAvailable = false;
                             break;
                         }
 
                         if (startDate <= reservation.res_check_in_date && endDate >= reservation.res_check_in_date)
                         {
-                            Console.WriteLine($"Room {room.room_id} is not available on these dates!");
+                            Debug.WriteLine($"Room {room.room_id} is not available on these dates!");
                             isAvailable = false;
                             break;
                         }
@@ -117,7 +117,7 @@ namespace Hotell567.Logic
 
                 if (isAvailable)
                 {
-                    Console.WriteLine($"Room {room.room_id} is available on these dates!");
+                    Debug.WriteLine($"Room {room.room_id} is available on these dates!");
                     filteredRooms.Add(room);
                 }
             }

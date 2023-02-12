@@ -6,8 +6,6 @@ namespace Hotell567.MVVM;
 
 public partial class LoginPage : ContentPage
 {
-    private User lastSelection;
-
     public LoginPage()
     {
         InitializeComponent();
@@ -109,6 +107,5 @@ public partial class LoginPage : ContentPage
         emailEntry.IsVisible = false;
         registerBtn.IsVisible = false;
         loginBoxTitle.Text = "Login to Your Account!";
-        Shell.Current.GoToAsync("//RoomsPage");
     }
 }

@@ -11,7 +11,7 @@ namespace Hotell567.Logic
 
         // Database configurations
         public static string dbFile = "hoteldatabase.db";
-        public static string solutionFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\"));
+        public static string solutionFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\Resources\\"));
         public static string dbFilePath = Path.Combine(solutionFolder, dbFile);
         public static string connectionString = $"Data Source={dbFilePath}";
 

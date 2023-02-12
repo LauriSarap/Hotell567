@@ -36,7 +36,6 @@ namespace Hotell567.Data
                     });
                 }
 
-                Debug.Write("Rooms found from database: " + rooms.Count);
                 return rooms;
             }
         }
@@ -63,7 +62,6 @@ namespace Hotell567.Data
                     room.room_price_per_night = reader["room_price_per_night"].GetHashCode();
                 }
 
-                Debug.Write("Room found from database: " + room.room_id);
                 return room;
             }
         }

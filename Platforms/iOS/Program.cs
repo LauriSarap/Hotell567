@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace Hotell567;
+namespace MauiApp1;
 
 public class Program
 {
