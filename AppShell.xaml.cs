@@ -33,11 +33,15 @@ public partial class AppShell : Shell
             adminTab.IsVisible = true;
             accountTab.IsVisible = true;
         }
+
+        loginTab.IsVisible = false;
     }
 
     public void HidePagesAfterLogout()
     {
         adminTab.IsVisible = false;
         accountTab.IsVisible = false;
+
+        loginTab.IsVisible = true;
     }
 }

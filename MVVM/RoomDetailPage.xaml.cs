@@ -18,6 +18,18 @@ public partial class RoomDetailPage : ContentPage
 
     public async void BookBtnClicked(object sender, EventArgs e)
     {
+        if (AppManager.currentUser == null)
+        {
+            await DisplayAlert("Error", "You must log in to make a reservation!", "Okay, I will");
+            return;
+        }
+
+        if (AppManager.userFactory.CheckIfUserCanBook() == false)
+        {
+            await DisplayAlert("Account not fully registered!", "You must fill out all fields in your account settings to make a reservation", "Okay, I will");
+            return;
+        }
+
         if (AppManager.reservationFactory.IsCheckInDateValid(CheckInDate.Date) == false)
         {
             await DisplayAlert("Error", "Check-in date must be in the future", "OK");
@@ -35,12 +47,6 @@ public partial class RoomDetailPage : ContentPage
         if (isRoomAvailable == false)
         {
             await DisplayAlert("Error", "Room is not available for the selected dates", "OK");
-            return;
-        }
-
-        if (AppManager.currentUser == null)
-        {
-            DisplayAlert("Error", "You must log in to make a reservation!", "Okay, I will");
             return;
         }
 

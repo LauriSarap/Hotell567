@@ -133,5 +133,30 @@ namespace Hotell567.Data
                 command.ExecuteNonQuery();
             }
         }
+
+        // Edit user
+        public void EditUser(User u)
+        {
+            using (SQLiteConnection _connection = new SQLiteConnection(AppManager.connectionString))
+            {
+                _connection.Open();
+                var command = new SQLiteCommand("UPDATE Users SET first_name = @first_name, last_name = @last_name, username = @username, password = @password, email = @email, phone_number = @phone_number, date_of_birth = @date_of_birth, address_line_1 = @address_line_1, address_line_2 = @address_line_2, city = @city, state = @state, postal_code = @postal_code, country = @country WHERE user_id = @user_id", _connection);
+                command.Parameters.AddWithValue("@user_id", u.user_id);
+                command.Parameters.AddWithValue("@first_name", u.first_name);
+                command.Parameters.AddWithValue("@last_name", u.last_name);
+                command.Parameters.AddWithValue("@username", u.username);
+                command.Parameters.AddWithValue("@password", u.password);
+                command.Parameters.AddWithValue("@email", u.email);
+                command.Parameters.AddWithValue("@phone_number", u.phone_number);
+                command.Parameters.AddWithValue("@date_of_birth", u.date_of_birth);
+                command.Parameters.AddWithValue("@address_line_1", u.address_line_1);
+                command.Parameters.AddWithValue("@address_line_2", u.address_line_2);
+                command.Parameters.AddWithValue("@city", u.city);
+                command.Parameters.AddWithValue("@state", u.state);
+                command.Parameters.AddWithValue("@postal_code", u.postal_code);
+                command.Parameters.AddWithValue("@country", u.country);
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }

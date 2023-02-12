@@ -67,27 +67,43 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <Button Text="Search rooms" 
-                Command="{Binding GetRoomsCommand}"
-                Style="{DynamicResource BaseButtonStyle}"
-                Grid.Row="0"
-                Grid.Column="1"
-                Margin="10"
-                WidthRequest="240"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"/>
+        <HorizontalStackLayout Grid.Row="0"
+                               Grid.Column="1">
+
+            <Button Text="Search rooms" 
+                    Command="{Binding GetRoomsCommand}"
+                    Style="{DynamicResource BaseButtonStyle}"
+                    Margin="10"
+                    WidthRequest="240"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
+
+            <Button Text="Add room"
+                    Style="{DynamicResource BaseButtonStyle}"
+                    Clicked="AddRoomBtnClicked"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="240"
+                    Margin="10"/>
+        </HorizontalStackLayout>
 
         <ListView ItemsSource="{Binding Rooms}"
                   Grid.Column="1"
-                  Grid.Row="1">
+                  Grid.Row="1"
+                  HorizontalOptions="Fill">
             <ListView.ItemTemplate>
                     <DataTemplate x:DataType="models:Room">
                         <ViewCell>
-                            <StackLayout Padding="10">
-                                <Label Style="{DynamicResource SmallLabel}" Text="{Binding room_id, StringFormat='Id: {0}'}" FontAttributes="Bold"/>
-                                <Label Style="{DynamicResource SmallLabel}" Text="{Binding room_type, StringFormat='Type: {0}'}" />
-                                <Label Style="{DynamicResource SmallLabel}" Text="{Binding room_price_per_night, StringFormat='Price per night: {0}€'}" />
-                            </StackLayout>
+                            <HorizontalStackLayout HorizontalOptions="Fill">
+                                <VerticalStackLayout Padding="10">
+                                    <Label Style="{DynamicResource SmallLabel}" Text="{Binding room_id, StringFormat='Id: {0}'}" FontAttributes="Bold"/>
+                                    <Label Style="{DynamicResource SmallLabel}" Text="{Binding room_type, StringFormat='Type: {0}'}" />
+                                    <Label Style="{DynamicResource SmallLabel}" Text="{Binding room_price_per_night, StringFormat='Price per night: {0}€'}" />
+                                </VerticalStackLayout>
+                                <VerticalStackLayout HorizontalOptions="End" Padding="10" VerticalOptions="Center">
+                                    <Button Text="Delete" Style="{DynamicResource BaseButtonStyle}" VerticalOptions="Center" Clicked="DeleteRoomBtnClicked"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
                         </ViewCell>
                     </DataTemplate>
             </ListView.ItemTemplate>

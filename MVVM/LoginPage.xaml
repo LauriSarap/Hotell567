@@ -39,7 +39,8 @@
                 <Entry x:Name="passwordEntry"
                        Placeholder="Password" 
                        Style="{DynamicResource BaseEntryStyle}"
-                       WidthRequest="330"/>
+                       WidthRequest="330"
+                       IsPassword="True"/>
 
                 <Button Text="Login"
                         x:Name="loginBtn"

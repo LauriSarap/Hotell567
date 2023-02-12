@@ -22,7 +22,7 @@
         <Tab Title="Home" Style="{DynamicResource BasePageHeaderStyle}" Route="HomePage">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
-        <Tab Title="Login" Style="{DynamicResource BasePageHeaderStyle}" Route="LoginPage">
+        <Tab Title="Login" Style="{DynamicResource BasePageHeaderStyle}" Route="LoginPage" x:Name="loginTab">
             <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
         </Tab>
         <Tab Title="Rooms" Style="{DynamicResource BasePageHeaderStyle}" Route="RoomsPage">

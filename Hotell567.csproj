@@ -58,6 +58,9 @@
 	  <MauiXaml Update="MVVM\AccountSettings.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="MVVM\AdminAddRoomPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MVVM\AdminPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -86,6 +89,7 @@
     <EmbeddedResource Include="hoteldatabase.db" />
   </ItemGroup>
 
+  <!--
   <ItemGroup>
 	  <None Remove="CommunityToolkit.Mvvm" />
 	  <None Remove="Resources\Images\mc_hotel.jpg" />
@@ -93,5 +97,5 @@
 	  <None Remove="Resources\Images\Rooms\double_room_2.jpg" />
 	  <None Remove="Resources\Images\Rooms\single_room_2.jpg" />
 	  <None Remove="Resources\Images\Rooms\twin_room_1.jpg" />
-  </ItemGroup>
+  </ItemGroup> -->
 </Project>

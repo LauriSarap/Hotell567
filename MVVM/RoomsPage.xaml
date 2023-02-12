@@ -51,8 +51,9 @@
                             <x:String>Any</x:String>
                             <x:String>Single</x:String>
                             <x:String>Double</x:String>
-                            <x:String>Family</x:String>
                             <x:String>Twin</x:String>
+                            <x:String>Family</x:String>
+                            <x:String>Sweet</x:String>
                         </Picker.Items>
                     </Picker>
 
@@ -108,7 +109,7 @@
 
                             <Grid Padding="0" ColumnDefinitions="300,500,*">
                                 <Image Aspect="AspectFill"
-                                       Source="{Binding room_image_name, StringFormat='{0}.jpg'}"/>
+                                       Source="{Binding room_image_name, StringFormat='{0}'}"/>
 
                                 <VerticalStackLayout
                                     Grid.Column="1"

@@ -19,6 +19,18 @@ public partial class LoginPage : ContentPage
         BindingContext = this;
     }
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        if (AppManager.currentUser != null)
+        {
+            usernameEntry.Text = String.Empty;
+            passwordEntry.Text = String.Empty;
+            emailEntry.Text = String.Empty;
+        }
+    }   
+
     // Adds to database
     private void LoginBtnClicked(object sender, EventArgs e)
     {
@@ -45,7 +57,7 @@ public partial class LoginPage : ContentPage
         }
         else
         {
-            DisplayAlert("Error", "Please enter a valid username, password and password", "OK");
+            DisplayAlert("Error", "Please enter a valid username and password!", "OK");
         }
     }
 

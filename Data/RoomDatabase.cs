@@ -66,21 +66,34 @@ namespace Hotell567.Data
             }
         }
 
-        // Add reservation
+        // Add room
         public async void AddRoom(Room room)
         {
             using (SQLiteConnection _connection = new SQLiteConnection(AppManager.connectionString))
             {
                 _connection.Open();
-                var command = new SQLiteCommand("INSERT INTO Rooms (room_type, room_image_name, room_description, room_availability, room_price_per_night) VALUES (@room_type, @room_image_name, @room_description, @room_availability, @room_price_per_night)", _connection);
+                var command = new SQLiteCommand("INSERT INTO Rooms (room_type, room_image_name, room_description, room_price_per_night) VALUES (@room_type, @room_image_name, @room_description, @room_price_per_night)", _connection);
                 command.Parameters.AddWithValue("@room_type", room.room_type);
                 command.Parameters.AddWithValue("@room_image_name", room.room_image_name);
                 command.Parameters.AddWithValue("@room_description", room.room_description);
-                command.Parameters.AddWithValue("@room_availability", room.room_availability);
                 command.Parameters.AddWithValue("@room_price_per_night", room.room_price_per_night);
                 await command.ExecuteNonQueryAsync();
 
                 Debug.Write("Room added to database: " + room.room_id);
+            }
+        }
+
+        // Remove room
+        public async void RemoveRoom(Room room)
+        {
+            using (SQLiteConnection _connection = new SQLiteConnection(AppManager.connectionString))
+            {
+                _connection.Open();
+                var command = new SQLiteCommand("DELETE FROM Rooms WHERE room_id = @room_id", _connection);
+                command.Parameters.AddWithValue("@room_id", room.room_id);
+                await command.ExecuteNonQueryAsync();
+
+                Debug.Write("Room removed from database: " + room.room_id);
             }
         }
     }

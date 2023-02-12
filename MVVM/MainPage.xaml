@@ -19,11 +19,13 @@
             HorizontalOptions="Center"/>
 
         <Label
+            x:Name="NameLabel"
             Text="The Richman Hotel"
             Style="{DynamicResource LargeLabel}"
             HorizontalOptions="Center"/>
 
         <Button
+            x:Name="AvailableListingsBtn"
             Text="See available listings"
             Clicked="SeeAvailableListings"
             Style="{DynamicResource BaseButtonStyle}"

@@ -102,4 +102,21 @@ public partial class AdminPage : ContentPage
             }
         }
     }
+
+    // Add room
+    private async void AddRoomBtnClicked(object sender, EventArgs e)
+    {
+        await this.ShowPopupAsync(new AdminAddRoomPopup());
+    }
+
+    // Delete room
+    private async void DeleteRoomBtnClicked(object sender, EventArgs e)
+    {
+        Room selectedRoom = (Room)((Button)sender).BindingContext;
+
+        AppManager.roomDatabase.RemoveRoom(selectedRoom);
+        await GetRoomsAsync();
+    }
+
+
 }

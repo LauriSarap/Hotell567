@@ -1,4 +1,5 @@
-﻿using Hotell567.Models;
+﻿using System.Diagnostics;
+using Hotell567.Models;
 
 namespace Hotell567.Logic
 
@@ -7,6 +8,26 @@ namespace Hotell567.Logic
     {
         private const int minimumUsernameLength = 4;
         private const int minimumPasswordLength = 8;
+        private const int minimumPhoneNumberLength = 5;
+
+        public bool CheckIfUserCanBook()
+        {
+            User u = AppManager.currentUser;
+
+            if (string.IsNullOrEmpty(u.username)) return false;
+            if (string.IsNullOrEmpty(u.first_name)) return false;
+            if (string.IsNullOrEmpty(u.last_name)) return false;
+            if (string.IsNullOrEmpty(u.email)) return false;
+            if (u.phone_number == 0) return false;
+            if (string.IsNullOrEmpty(u.address_line_1)) return false;
+            if (string.IsNullOrEmpty(u.address_line_2)) return false;
+            if (string.IsNullOrEmpty(u.city)) return false;
+            if (string.IsNullOrEmpty(u.state)) return false;
+            if (u.postal_code == 0) return false;
+            if (string.IsNullOrEmpty(u.country)) return false;
+
+            return true;
+        }
 
 
         public bool CheckIfCredentialsAreCorrect(string username, string password)
@@ -61,7 +82,7 @@ namespace Hotell567.Logic
             return true;
         }
 
-        private bool IsValidEmail(string email)
+        public bool IsValidEmail(string email)
         {
             if (string.IsNullOrEmpty(email)) return false;
 
@@ -76,7 +97,7 @@ namespace Hotell567.Logic
             }
         }
 
-        private bool IsValidPassword(string password)
+        public bool IsValidPassword(string password)
         {
             if (string.IsNullOrEmpty(password)) return false;
 
@@ -90,7 +111,7 @@ namespace Hotell567.Logic
             }
         }
 
-        private bool IsValidUsername(string username)
+        public bool IsValidUsername(string username)
         {
             if (string.IsNullOrEmpty(username)) return false;
 
@@ -103,5 +124,20 @@ namespace Hotell567.Logic
                 return true;
             }
         }
+
+        public bool IsValidPhoneNumber(string phoneNumber)
+        {
+            if (string.IsNullOrEmpty(phoneNumber)) return false;
+
+            string cleanedNumber = new string(Array.FindAll(phoneNumber.ToCharArray(), (c => (char.IsDigit(c)))));
+
+            Debug.WriteLine("Cleaned number is: "+ cleanedNumber);
+
+            if (cleanedNumber.Length < minimumPhoneNumberLength) return false;
+            
+            if (cleanedNumber.StartsWith("0")) return false;
+
+            return true;
+        }   
     }
 }

@@ -1,72 +1,153 @@
 using Hotell567.Logic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
-using CommunityToolkit.Mvvm.ComponentModel;
 using Hotell567.Models;
 
 namespace Hotell567.MVVM;
 
 public partial class AccountSettings : ContentPage
 {
-    private static AccountSettings accountSettingsSingleton;
-
     public User CurrentUser { get; set; }
 
     public AccountSettings()
 	{
 		InitializeComponent();
-        accountSettingsSingleton = this;
         UpdateCurrentUser();
         BindingContext = this;
     }
 
-    public static AccountSettings GetSingleton
+    protected override void OnAppearing()
     {
-        get
-        {
-            return accountSettingsSingleton;
-        }
+        base.OnAppearing();
+        UpdateCurrentUser();
     }
 
     public void UpdateCurrentUser()
     {
         CurrentUser = AppManager.currentUser;
+
+        Username.Text = CurrentUser.username;
+        Password.Text = CurrentUser.password;
+        Email.Text = CurrentUser.email;
+        FirstName.Text = CurrentUser.first_name;
+        LastName.Text = CurrentUser.last_name;
+        if (CurrentUser.phone_number != 0)
+        {
+            PhoneNumber.Text = CurrentUser.phone_number.ToString();
+        }
+        else
+        {
+            PhoneNumber.Text = String.Empty;
+        }
+        AddressLine1.Text = CurrentUser.address_line_1;
+        AddressLine2.Text = CurrentUser.address_line_2;
+        City.Text = CurrentUser.city;
+        State.Text = CurrentUser.state;
+        if (CurrentUser.postal_code != 0)
+        {
+            PostalCode.Text = CurrentUser.postal_code.ToString();
+        }
+        else
+        {
+            PostalCode.Text = String.Empty;
+        }
+        Country.Text = CurrentUser.country;
     }
 
     private void SaveBtnClicked(object sender, EventArgs e)
     {
-        /*if (string.IsNullOrEmpty())
-        {
-            await DisplayAlert("Error", "Please enter a username", "OK");
-            return;
-        }
+        if (CheckIfFieldsAreCorrect() == false) return;
 
-        if (string.IsNullOrEmpty(emailEntry.Text))
-        {
-            await DisplayAlert("Error", "Please enter an email address", "OK");
-            return;
-        }
-
-        if (string.IsNullOrEmpty(passwordEntry.Text))
-        {
-            await DisplayAlert("Error", "Please enter a password", "OK");
-            return;
-        }
-
-        if (passwordEntry.Text != confirmPasswordEntry.Text)
-        {
-            await DisplayAlert("Error", "Passwords do not match", "OK");
-            return;
-        }
-        
-        //update the account settings
+        //Update the account settings
         try
         {
-            await DisplayAlert("Account updated", "YAY", "OK");
+            User editedUser = new User
+            {
+                user_id = CurrentUser.user_id,
+                username = Username.Text,
+                password = Password.Text,
+                email = Email.Text,
+                first_name = FirstName.Text,
+                last_name = LastName.Text,
+                phone_number = int.Parse(PhoneNumber.Text),
+                address_line_1 = AddressLine1.Text,
+                address_line_2 = AddressLine2.Text,
+                city = City.Text,
+                state = State.Text,
+                postal_code = int.Parse(PostalCode.Text),
+                country = Country.Text
+            };
+
+            AppManager.userDatabase.EditUser(editedUser);
+
+            User updatedUser = AppManager.userDatabase.GetUserById(editedUser.user_id);
+            AppManager.InitializeUserData(updatedUser);
+            UpdateCurrentUser();
+
+            DisplayAlert("Account updated", "YAY", "OK");
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Error", ex.Message, "OK");
-        }*/
+            DisplayAlert("Error", "Failed to update account!", "OK");
+            Debug.WriteLine("Failed to update account: " + ex.Message);
+        }
+    }
+
+    private void LogOutBtnClicked(object sender, EventArgs e)
+    {
+        AppManager.LogUserOut();
+        Shell.Current.GoToAsync("//MainPage");
+    }
+
+    private bool CheckIfFieldsAreCorrect()
+    {
+        if (string.IsNullOrEmpty(Username.Text))
+        {
+            DisplayAlert("Error", "Please enter a username", "OK");
+            return false;
+        }
+
+        if (string.IsNullOrEmpty(Password.Text))
+        {
+            DisplayAlert("Error", "Please enter a password", "OK");
+            return false;
+        }
+
+        if (string.IsNullOrEmpty(Email.Text))
+        {
+            DisplayAlert("Error", "Please enter a proper email", "OK");
+            return false;
+        }
+
+        if (AppManager.userFactory.CheckIfUsernameExists(Username.Text) && Username.Text != CurrentUser.username)
+        {
+            DisplayAlert("Error", "This username already exists", "OK");
+            return false;
+        }
+
+        if (AppManager.userFactory.IsValidUsername(Username.Text) == false)
+        {
+            DisplayAlert("Error", "Your username has to be at least 4 characters long!", "Oopsie!");
+            return false;
+        }
+
+        if (AppManager.userFactory.IsValidPassword(Password.Text) == false)
+        {
+            DisplayAlert("Error", "Your password has to be at least 8 characters long!", "Oeh..");
+            return false;
+        }
+
+        if (AppManager.userFactory.IsValidEmail(Email.Text) == false)
+        {
+            DisplayAlert("Error", "Your email is not valid!", "Rrr..");
+            return false;
+        }
+
+        if (AppManager.userFactory.IsValidPhoneNumber(PhoneNumber.Text) == false)
+        {
+            DisplayAlert("Error", "Your phone number is not valid! It must be made of numbers and at least 5 digits long!", "Rrr..");
+            return false;
+        }
+
+        return true;
     }
 }
