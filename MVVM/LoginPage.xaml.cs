@@ -1,10 +1,6 @@
-using System.Reflection;
-using System.IO;
-using System.Collections.ObjectModel;
-using System;
-using System.Diagnostics;
 using Hotell567.Logic;
 using Hotell567.Models;
+using System.Diagnostics;
 
 namespace Hotell567.MVVM;
 
@@ -13,8 +9,8 @@ public partial class LoginPage : ContentPage
     private User lastSelection;
 
     public LoginPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
 
         BindingContext = this;
     }
@@ -29,7 +25,7 @@ public partial class LoginPage : ContentPage
             passwordEntry.Text = String.Empty;
             emailEntry.Text = String.Empty;
         }
-    }   
+    }
 
     // Adds to database
     private void LoginBtnClicked(object sender, EventArgs e)

@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using CommunityToolkit.Maui.Views;
 using Hotell567.Logic;
 using Hotell567.Models;
@@ -13,13 +12,13 @@ public partial class AdminAddRoomPopup : Popup
     private byte[] bytes;
 
     public AdminAddRoomPopup()
-	{
-		InitializeComponent();
-	}
+    {
+        InitializeComponent();
+    }
 
     private void CancelBtnClicked(object sender, EventArgs e)
     {
-		Close();
+        Close();
     }
 
     private void AddBtnClicked(object sender, EventArgs e)

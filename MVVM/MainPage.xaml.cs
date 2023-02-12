@@ -1,6 +1,4 @@
-﻿using CommunityToolkit.Maui.Animations;
-
-namespace Hotell567.MVVM;
+﻿namespace Hotell567.MVVM;
 
 public partial class MainPage : ContentPage
 {

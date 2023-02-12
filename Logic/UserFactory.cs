@@ -1,5 +1,5 @@
-﻿using System.Diagnostics;
-using Hotell567.Models;
+﻿using Hotell567.Models;
+using System.Diagnostics;
 
 namespace Hotell567.Logic
 
@@ -131,13 +131,13 @@ namespace Hotell567.Logic
 
             string cleanedNumber = new string(Array.FindAll(phoneNumber.ToCharArray(), (c => (char.IsDigit(c)))));
 
-            Debug.WriteLine("Cleaned number is: "+ cleanedNumber);
+            Debug.WriteLine("Cleaned number is: " + cleanedNumber);
 
             if (cleanedNumber.Length < minimumPhoneNumberLength) return false;
-            
+
             if (cleanedNumber.StartsWith("0")) return false;
 
             return true;
-        }   
+        }
     }
 }

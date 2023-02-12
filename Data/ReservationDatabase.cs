@@ -1,9 +1,8 @@
-﻿using System.Data.SQLite;
+﻿using Hotell567.Logic;
+using Hotell567.Models;
+using System.Data.SQLite;
 using System.Diagnostics;
 using System.Globalization;
-using System.Runtime.Serialization;
-using Hotell567.Logic;
-using Hotell567.Models;
 
 namespace Hotell567.Data
 {
@@ -14,7 +13,7 @@ namespace Hotell567.Data
         public ReservationDatabase()
         {
             dateTimeFormatInfo = new DateTimeFormatInfo();
-            
+
             Debug.WriteLine("ReservationDatabase connector created");
         }
 
@@ -44,7 +43,7 @@ namespace Hotell567.Data
                 return reservations;
             }
         }
-        
+
 
         // Add reservation
         public async void AddReservation(Reservation reservation)
@@ -56,7 +55,7 @@ namespace Hotell567.Data
                 command.Parameters.AddWithValue("@res_room_id", reservation.res_room_id);
                 command.Parameters.AddWithValue("@res_user_id", reservation.res_user_id);
                 command.Parameters.AddWithValue("@res_check_in_date", reservation.res_check_in_date.ToString("d"));
-                command.Parameters.AddWithValue("@res_check_out_date", reservation.res_check_out_date.ToString("d") );
+                command.Parameters.AddWithValue("@res_check_out_date", reservation.res_check_out_date.ToString("d"));
                 command.Parameters.AddWithValue("@res_total_price", reservation.res_total_price);
                 await command.ExecuteNonQueryAsync();
 

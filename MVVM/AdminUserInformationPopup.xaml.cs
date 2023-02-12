@@ -6,10 +6,10 @@ namespace Hotell567.MVVM;
 public partial class AdminUserInformationPopup : Popup
 {
     public User selectedUser { get; set; }
-	
-	public AdminUserInformationPopup(User user)
-	{
-		InitializeComponent();
+
+    public AdminUserInformationPopup(User user)
+    {
+        InitializeComponent();
 
         selectedUser = user;
 

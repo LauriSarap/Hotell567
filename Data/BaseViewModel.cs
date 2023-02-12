@@ -8,7 +8,7 @@ namespace Hotell567.Data
         [NotifyPropertyChangedFor(nameof(IsNotBusy))]
         private bool isBusy;
 
-        [ObservableProperty] 
+        [ObservableProperty]
         private string title;
 
         public bool IsNotBusy => !IsBusy;

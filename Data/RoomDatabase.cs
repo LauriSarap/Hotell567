@@ -1,7 +1,7 @@
-﻿using System.Data.SQLite;
-using System.Diagnostics;
-using Hotell567.Logic;
+﻿using Hotell567.Logic;
 using Hotell567.Models;
+using System.Data.SQLite;
+using System.Diagnostics;
 
 namespace Hotell567.Data
 {

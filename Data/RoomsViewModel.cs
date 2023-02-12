@@ -1,15 +1,14 @@
-﻿using System.Collections.ObjectModel;
-using System.Diagnostics;
-using CommunityToolkit.Mvvm.Input;
-using Hotell567.Logic;
+﻿using CommunityToolkit.Mvvm.Input;
 using Hotell567.Models;
 using Hotell567.MVVM;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace Hotell567.Data;
 
 public partial class RoomsViewModel : BaseViewModel
 {
-    public ObservableCollection<Room> Rooms { get; } = new ();
+    public ObservableCollection<Room> Rooms { get; } = new();
 
     public RoomsViewModel()
     {

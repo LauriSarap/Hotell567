@@ -1,11 +1,11 @@
-﻿using System.Diagnostics;
-using Hotell567.Models;
+﻿using Hotell567.Models;
+using System.Diagnostics;
 
 namespace Hotell567.Logic
 {
     public class RoomFiltering
     {
-        public List<Room> Rooms { get; set; } = new ();
+        public List<Room> Rooms { get; set; } = new();
         public List<Reservation> Reservations { get; set; } = new();
 
         public RoomFiltering()
@@ -72,7 +72,7 @@ namespace Hotell567.Logic
         public List<Room> FilterByAvailability(List<Room> alreadyFilteredRooms, DateTime startDate, DateTime endDate)
         {
             List<Room> filteredRooms = new List<Room>();
-            
+
             foreach (var room in alreadyFilteredRooms)
             {
                 bool isAvailable = true;

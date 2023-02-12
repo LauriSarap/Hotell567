@@ -1,13 +1,13 @@
-using System.Diagnostics;
 using Hotell567.Data;
 using Hotell567.Logic;
+using System.Diagnostics;
 
 namespace Hotell567.MVVM;
 
 public partial class RoomDetailPage : ContentPage
 {
     private RoomDetailViewModel viewModel;
-    
+
     public RoomDetailPage()
     {
         InitializeComponent();
@@ -67,7 +67,7 @@ public partial class RoomDetailPage : ContentPage
         }
 
         if (CheckInDate.Date > CheckOutDate.Date)
-        { 
+        {
             return;
         }
 

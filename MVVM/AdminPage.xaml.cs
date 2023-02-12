@@ -1,22 +1,21 @@
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.Diagnostics;
 using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.Input;
 using Hotell567.Logic;
 using Hotell567.Models;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace Hotell567.MVVM;
 
 public partial class AdminPage : ContentPage
 {
-    public ObservableCollection<User> Users { get; set; } = new ();
-    public ObservableCollection<Reservation> Reservations { get; set; } = new ();
+    public ObservableCollection<User> Users { get; set; } = new();
+    public ObservableCollection<Reservation> Reservations { get; set; } = new();
     public ObservableCollection<Room> Rooms { get; set; } = new();
 
     public AdminPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         UpdateUserList();
 
         BindingContext = this;

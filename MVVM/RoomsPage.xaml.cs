@@ -1,9 +1,7 @@
 ﻿using Hotell567.Data;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using Hotell567.Models;
-using CommunityToolkit.Mvvm.Input;
 using Hotell567.Logic;
+using Hotell567.Models;
+using System.Diagnostics;
 
 namespace Hotell567.MVVM;
 
@@ -13,15 +11,15 @@ public partial class RoomsPage : ContentPage
 
 
     public RoomsPage()
-	{
-		InitializeComponent();
-		BindingContext = roomsViewModel;
+    {
+        InitializeComponent();
+        BindingContext = roomsViewModel;
         RoomTypePicker.SelectedIndex = 0;
-	}
+    }
 
     private async void LearnMoreBtnClicked(object sender, EventArgs e)
     {
-        
+
         var room = ((VisualElement)sender).BindingContext as Room;
 
         Debug.WriteLine("Opening room: " + room.room_type + "!");
@@ -32,7 +30,7 @@ public partial class RoomsPage : ContentPage
         {
             {"Room", room}
         });
-        
+
     }
 
 

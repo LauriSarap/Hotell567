@@ -1,7 +1,7 @@
-﻿using System.Data.SQLite;
-using System.Diagnostics;
-using Hotell567.Logic;
+﻿using Hotell567.Logic;
 using Hotell567.Models;
+using System.Data.SQLite;
+using System.Diagnostics;
 
 namespace Hotell567.Data
 {
@@ -21,7 +21,7 @@ namespace Hotell567.Data
                 var command = new SQLiteCommand("SELECT * FROM Users", _connection);
                 var reader = command.ExecuteReader();
                 var users = new List<User>();
-                
+
                 while (reader.Read())
                 {
                     users.Add(new User

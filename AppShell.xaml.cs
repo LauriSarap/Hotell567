@@ -1,12 +1,11 @@
-﻿using Hotell567.Logic;
-using Hotell567.MVVM;
+﻿using Hotell567.MVVM;
 
 namespace Hotell567;
 
 public partial class AppShell : Shell
 {
     private static AppShell appShellSingleton;
-    
+
     public AppShell()
     {
         InitializeComponent();

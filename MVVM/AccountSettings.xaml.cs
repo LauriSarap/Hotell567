@@ -1,6 +1,6 @@
 using Hotell567.Logic;
-using System.Diagnostics;
 using Hotell567.Models;
+using System.Diagnostics;
 
 namespace Hotell567.MVVM;
 
@@ -9,8 +9,8 @@ public partial class AccountSettings : ContentPage
     public User CurrentUser { get; set; }
 
     public AccountSettings()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         UpdateCurrentUser();
         BindingContext = this;
     }

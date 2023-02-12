@@ -69,7 +69,7 @@ namespace Hotell567.Logic
 
             return specificRoomReservations;
         }
-        
+
         public async Task<decimal> CalculateReservationTotalPrice(DateTime checkInDate, DateTime checkOutDate, int roomId)
         {
             decimal totalPrice = 0;
@@ -78,7 +78,7 @@ namespace Hotell567.Logic
 
             for (var date = checkInDate; date < checkOutDate; date = date.AddDays(1))
             {
-                if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday) 
+                if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
                 {
                     totalPrice += 1.5m * room.room_price_per_night;
                 }
