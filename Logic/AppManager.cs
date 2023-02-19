@@ -8,7 +8,7 @@ namespace Hotell567.Logic
     {
         // AppManager status
         public static bool isInitialized = false;
-        public static bool isDebugging = false;
+        public static bool isDebugging = true;
 
         // Database configurations
         public static string dbFile = "hoteldatabase.db";
