@@ -35,25 +35,30 @@
             Margin="0,0,0,0">
                 <CollectionView.ItemTemplate >
                     <DataTemplate x:DataType="models:Reservation">
-                        <Grid Padding="10" HeightRequest="180" >
-                            <Frame HeightRequest="150" Style="{DynamicResource BaseFrameStyle}" VerticalOptions="Start">
+                        <Grid Padding="10" HeightRequest="200" >
+                            <Frame HeightRequest="180" Style="{DynamicResource BaseFrameStyle}" VerticalOptions="Start">
                                 <Grid Padding="0" ColumnDefinitions="*,300">
                                     <VerticalStackLayout
                                     Grid.Column="0"
                                     Padding="10"
                                     VerticalOptions="Fill">
                                         <Label Style="{DynamicResource MediumLabel}" 
-                                           Text="{Binding res_id}"
-                                           HorizontalOptions="Start"
-                                           FontAttributes="Bold"/>
+                                               Text="{Binding res_id}"
+                                               HorizontalOptions="Start"
+                                               FontAttributes="Bold"/>
                                         <Label Style="{DynamicResource SmallLabel}" 
-                                           Text="{Binding res_room_id, StringFormat='Room id: {0}'}" />
+                                               Text="{Binding res_room_id, StringFormat='Room id: {0}'}" />
                                         <Label Style="{DynamicResource SmallLabel}"
-                                           Text="{Binding res_total_price, StringFormat='Total reservation cost: {0}€' }"
-                                           Padding="0, 0, 0, 0"
-                                           VerticalOptions="End"/>
+                                               Text="{Binding res_total_price, StringFormat='Total reservation cost: {0}€' }"
+                                               Padding="0, 0, 0, 0"
+                                               VerticalOptions="End"/>
+                                        <Label Style="{DynamicResource SmallLabel}"
+                                               Text="{Binding res_check_in_date.Date, StringFormat='Check-in: {0}'}"/>
+                                        <Label Style="{DynamicResource SmallLabel}"
+                                               Text="{Binding res_check_out_date.Date, StringFormat='Check-out: {0}'}"/>
                                     </VerticalStackLayout>
-                                    <Button Style="{DynamicResource BaseButtonStyle}"
+                                    <Button 
+                                        Style="{DynamicResource BaseButtonStyle}"
                                         x:Name="SeeUserInfoBtn"
                                         Grid.Column="1"
                                         HorizontalOptions="Fill"

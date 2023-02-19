@@ -4,13 +4,13 @@
              x:Class="Hotell567.MVVM.InformationPage"
              Title="Information"
              BackgroundColor="{DynamicResource PrimaryBackground}">
-    <Frame Style="{DynamicResource BaseFrameStyle}" WidthRequest="700" Margin="0, 50, 0, 50" MaximumHeightRequest="700">
+    <Frame Style="{DynamicResource BaseFrameStyle}" WidthRequest="700" Margin="0, 5, 0, 50" MaximumHeightRequest="600">
             <VerticalStackLayout VerticalOptions="Start">
                 <Image Source="mc_hotel.jpg"
                        Aspect="AspectFill"
                        MaximumHeightRequest="350"/>
 
-                <VerticalStackLayout Padding="15" Spacing="10" HorizontalOptions="Center">
+                <VerticalStackLayout Padding="15" Spacing="6" HorizontalOptions="Center">
                     <Label Text="The Richman Hotel"
                            Style="{DynamicResource MediumLabel}"
                            FontAttributes="Bold"/>

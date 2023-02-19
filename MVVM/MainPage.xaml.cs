@@ -1,4 +1,6 @@
-﻿namespace Hotell567.MVVM;
+﻿using Hotell567.Logic;
+
+namespace Hotell567.MVVM;
 
 public partial class MainPage : ContentPage
 {
@@ -21,7 +23,14 @@ public partial class MainPage : ContentPage
 
     private void SeeAvailableListings(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("//LoginPage");
+        if (AppManager.currentUser == null)
+        {
+            Shell.Current.GoToAsync("//LoginPage");
+        }
+        else
+        {
+            Shell.Current.GoToAsync("//RoomsPage");
+        }
     }
 
     private async void TypewriterEffect()
