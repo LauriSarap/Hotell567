@@ -26,7 +26,7 @@ https://asikarikas.ee/
 # Usage
 * Download git for your computer
 * Download Visual Studio 2022
-	* Download .NET Maui
+	* Download .NET Maui using Visual Studio Installer
 	* Make sure that you have .NET 6.0 installed
 * Clone the repository by opening a command prompt in some random folder and typing:
  `git clone https://github.com/LauriSarap/Hotell567.git`
