@@ -1,6 +1,5 @@
 using Hotell567.Data;
 using Hotell567.Logic;
-using System.Diagnostics;
 
 namespace Hotell567.MVVM;
 
@@ -127,7 +126,7 @@ public partial class RoomDetailPage : ContentPage
 
         NumberOfNightsText.Text = $"Number of nights: {(CheckOutDate.Date - CheckInDate.Date).Days}";
 
-        if  (viewModel.Room == null) return;
+        if (viewModel.Room == null) return;
 
         decimal price = AppManager.reservationFactory.CalculateReservationTotalPrice(CheckInDate.Date, CheckOutDate.Date, viewModel.Room.room_id).Result;
 

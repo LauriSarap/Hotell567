@@ -1,6 +1,6 @@
 ﻿
-using System.Diagnostics;
 using Hotell567.Models;
+using System.Diagnostics;
 
 namespace Hotell567.Logic
 {
