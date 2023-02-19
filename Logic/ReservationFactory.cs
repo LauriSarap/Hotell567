@@ -1,10 +1,17 @@
 ﻿
+using System.Diagnostics;
 using Hotell567.Models;
 
 namespace Hotell567.Logic
 {
     public class ReservationFactory
     {
+        public ReservationFactory()
+        {
+            Debug.WriteLine("ReservationFactory created!");
+        }
+
+
         public async void CreateReservation(DateTime CheckInDate, DateTime CheckOutDate, int RoomId, int UserId)
         {
             decimal price = await CalculateReservationTotalPrice(CheckInDate, CheckOutDate, RoomId);

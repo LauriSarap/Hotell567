@@ -33,6 +33,10 @@
                            VerticalOptions="Start"
                            FontAttributes="Bold"/>
 
+                    <Label Style="{DynamicResource SmallLabel}"
+                           Text="Bed amount: 0"
+                           x:Name="BedAmountLabel"/>
+
                     <Label Style="{DynamicResource SmallLabel}" 
                            Text="{Binding Room.room_price_per_night, StringFormat='Average cost per night: {0}€'}" />
                 </VerticalStackLayout>

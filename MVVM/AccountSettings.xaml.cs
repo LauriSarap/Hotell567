@@ -98,6 +98,11 @@ public partial class AccountSettings : ContentPage
         Shell.Current.GoToAsync("//MainPage");
     }
 
+    private void ResetBtnClicked(object sender, EventArgs e)
+    {
+        UpdateCurrentUser();
+    }
+
     private bool CheckIfFieldsAreCorrect()
     {
         if (string.IsNullOrEmpty(Username.Text))
@@ -145,6 +150,24 @@ public partial class AccountSettings : ContentPage
         if (AppManager.userFactory.IsValidPhoneNumber(PhoneNumber.Text) == false)
         {
             DisplayAlert("Error", "Your phone number is not valid! It must be made of numbers and at least 5 digits long!", "Rrr..");
+            return false;
+        }
+
+        if (string.IsNullOrEmpty(City.Text))
+        {
+            DisplayAlert("Error", "Please enter a city", "OK");
+            return false;
+        }
+
+        if (string.IsNullOrEmpty(State.Text))
+        {
+            DisplayAlert("Error", "Please enter a state", "OK");
+            return false;
+        }
+
+        if (string.IsNullOrEmpty(Country.Text))
+        {
+            DisplayAlert("Error", "Please enter a country", "OK");
             return false;
         }
 

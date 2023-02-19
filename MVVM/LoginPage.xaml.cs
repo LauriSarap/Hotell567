@@ -62,6 +62,9 @@ public partial class LoginPage : ContentPage
         emailEntry.IsVisible = true;
         registerBtn.IsVisible = true;
 
+        usernameEntry.Text = String.Empty;
+        passwordEntry.Text = String.Empty;
+
         loginBoxTitle.Text = "Register an Account!";
     }
 
@@ -107,5 +110,7 @@ public partial class LoginPage : ContentPage
         emailEntry.IsVisible = false;
         registerBtn.IsVisible = false;
         loginBoxTitle.Text = "Login to Your Account!";
+
+        LoginBtnClicked(this, EventArgs.Empty);
     }
 }

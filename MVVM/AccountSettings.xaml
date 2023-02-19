@@ -57,7 +57,7 @@
                 </Grid>
             </Grid>
             <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
-                <Button Text="Reset" Style="{DynamicResource BaseButtonStyle}" />
+                <Button Text="Reset" Style="{DynamicResource BaseButtonStyle}" Clicked="ResetBtnClicked"/>
                 <Button Text="Save" Style="{DynamicResource BaseButtonStyle}" Clicked="SaveBtnClicked" />
             </HorizontalStackLayout>
             <Button Text="Log out" Style="{DynamicResource BaseButtonStyle}" Clicked="LogOutBtnClicked" HorizontalOptions="Center" Margin="10"/>

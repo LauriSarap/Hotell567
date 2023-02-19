@@ -61,6 +61,7 @@ public partial class AdminAddRoomPopup : Popup
 
             var imagePath = Path.Combine(AppManager.imageFolder, chosenFileName);
 
+
             using (var stream = new FileStream(imagePath, FileMode.Create, FileAccess.Write))
             {
                 stream.Write(bytes, 0, bytes.Length);

@@ -104,6 +104,10 @@ public partial class RoomsPage : ContentPage
         List<Room> filteredRooms = AppManager.roomFiltering.FilterRooms(roomType, minPrice, maxPrice, startDate, endDate);
 
         roomsViewModel.AddRoomsToList(filteredRooms);
+
+        AppManager.selectedCheckInDate = startDate;
+        AppManager.selectedCheckOutDate = endDate;
+
         roomsViewModel.IsBusy = false;
     }
 }

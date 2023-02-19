@@ -53,7 +53,7 @@
                             <x:String>Double</x:String>
                             <x:String>Twin</x:String>
                             <x:String>Family</x:String>
-                            <x:String>Sweet</x:String>
+                            <x:String>Suite</x:String>
                         </Picker.Items>
                     </Picker>
 

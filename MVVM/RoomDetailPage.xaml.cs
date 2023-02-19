@@ -12,6 +12,10 @@ public partial class RoomDetailPage : ContentPage
     {
         InitializeComponent();
         viewModel = new RoomDetailViewModel();
+
+        CheckInDate.Date = AppManager.selectedCheckInDate;
+        CheckOutDate.Date = AppManager.selectedCheckOutDate;
+
         BindingContext = viewModel;
     }
 
@@ -59,7 +63,6 @@ public partial class RoomDetailPage : ContentPage
     {
         if (CheckInDate == null) return;
 
-        Debug.WriteLine("CheckInDateChanged");
 
         if (CheckInDate.Date == DateTime.Today || CheckOutDate.Date == DateTime.Today)
         {
@@ -81,13 +84,31 @@ public partial class RoomDetailPage : ContentPage
         decimal price = AppManager.reservationFactory.CalculateReservationTotalPrice(CheckInDate.Date, CheckOutDate.Date, viewModel.Room.room_id).Result;
 
         ExpectedPriceText.Text = $"Total price: {price}€";
+
+        switch (viewModel.Room.room_type)
+        {
+            case "Single":
+                BedAmountLabel.Text = "1 bed";
+                break;
+            case "Double":
+                BedAmountLabel.Text = "1 bed";
+                break;
+            case "Twin":
+                BedAmountLabel.Text = "2 beds";
+                break;
+            case "Family":
+                BedAmountLabel.Text = "4 beds";
+                break;
+            case "Suite":
+                BedAmountLabel.Text = "5 beds";
+                break;
+        }
     }
 
     private void CheckOutDateChanged(object sender, EventArgs e)
     {
         if (CheckOutDate == null) return;
 
-        Debug.WriteLine("CheckOutDateChanged");
 
         if (CheckInDate.Date == DateTime.Today || CheckOutDate.Date == DateTime.Today)
         {
@@ -106,8 +127,29 @@ public partial class RoomDetailPage : ContentPage
 
         NumberOfNightsText.Text = $"Number of nights: {(CheckOutDate.Date - CheckInDate.Date).Days}";
 
+        if  (viewModel.Room == null) return;
+
         decimal price = AppManager.reservationFactory.CalculateReservationTotalPrice(CheckInDate.Date, CheckOutDate.Date, viewModel.Room.room_id).Result;
 
         ExpectedPriceText.Text = $"Total price: {price}€";
+
+        switch (viewModel.Room.room_type)
+        {
+            case "Single":
+                BedAmountLabel.Text = "1 bed";
+                break;
+            case "Double":
+                BedAmountLabel.Text = "1 bed";
+                break;
+            case "Twin":
+                BedAmountLabel.Text = "2 beds";
+                break;
+            case "Family":
+                BedAmountLabel.Text = "4 beds";
+                break;
+            case "Suite":
+                BedAmountLabel.Text = "5 beds";
+                break;
+        }
     }
 }
