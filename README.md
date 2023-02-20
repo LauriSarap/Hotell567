@@ -39,7 +39,7 @@ https://asikarikas.ee/
 
 <picture>
   <source media=srcset="https://user-images.githubusercontent.com/93860007/220038273-553c6866-77c8-4637-96cf-0a8fb3030559.PNG">
-  <img width="700" height="350" alt="Account info" src="https://user-images.githubusercontent.com/93860007/220038273-553c6866-77c8-4637-96cf-0a8fb3030559.PNG">
+  <img width="500" height="200" alt="Account info" src="https://user-images.githubusercontent.com/93860007/220038273-553c6866-77c8-4637-96cf-0a8fb3030559.PNG">
 </picture>
 
 
