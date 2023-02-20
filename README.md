@@ -15,7 +15,7 @@ https://asikarikas.ee/
 * The reserved room cannot be rebooked during the reserved period.
 * The rooms are categorized as types, and each type has its own amount of beds. All rooms have a price per night cost.
 * The customer can view the full price of their reservation, which is based on the price per night but with a 1.5 multiplier on weekends (Saturday-Sunday night and Sunday-Monday night).
-![Alt text](/GithubImages/login_page.png "Optional title")
+
 
 # Additonal Features
 * The customer can view the hotel's contact information and location.
@@ -28,7 +28,9 @@ https://asikarikas.ee/
 * Download git for your computer
 * Download Visual Studio 2022
 	* Download .NET Maui using Visual Studio Installer
-	* Make sure that you have .NET 6.0 installed
+	* Make sure that you have .NET 6.0 installed!
+[login_page](https://user-images.githubusercontent.com/93860007/220036530-5a36310d-3a03-4497-bfb2-91deadcc04c4.PNG)
+
 * Clone the repository by opening a command prompt in some random folder and typing:
  `git clone https://github.com/LauriSarap/Hotell567.git`
 * Open the solution in Visual Studio
