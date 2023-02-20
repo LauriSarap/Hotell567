@@ -28,6 +28,22 @@ https://asikarikas.ee/
   <source media=srcset="https://user-images.githubusercontent.com/93860007/220036530-5a36310d-3a03-4497-bfb2-91deadcc04c4.PNG">
   <img width="700" height="384" alt="Login Page" src="https://user-images.githubusercontent.com/93860007/220036530-5a36310d-3a03-4497-bfb2-91deadcc04c4.PNG">
 </picture>
+<picture>
+  <source media=srcset="https://user-images.githubusercontent.com/93860007/220038186-ab173853-24bc-426a-8f42-1cf6ff259ea6.PNG">
+  <img width="700" height="384" alt="Admin page" src="https://user-images.githubusercontent.com/93860007/220038186-ab173853-24bc-426a-8f42-1cf6ff259ea6.PNG">
+</picture>
+<picture>
+  <source media=srcset="https://user-images.githubusercontent.com/93860007/220038186-ab173853-24bc-426a-8f42-1cf6ff259ea6.PNG">
+  <img width="700" height="384" alt="Rooms page" src="https://user-images.githubusercontent.com/93860007/220038186-ab173853-24bc-426a-8f42-1cf6ff259ea6.PNG">
+</picture>
+
+![room_details_page](https://user-images.githubusercontent.com/93860007/220038186-ab173853-24bc-426a-8f42-1cf6ff259ea6.PNG)
+
+![rooms_page](https://user-images.gith![admin_page](https://user-images.githubusercontent.com/93860007/220038253-6650a012-b7e6-4a59-9cba-11ec98229623.PNG)
+
+![account_info_box](https://user-images.githubusercontent.com/93860007/220038273-553c6866-77c8-4637-96cf-0a8fb3030559.PNG)
+
+
 
 # Usage
 * Download git for your computer
