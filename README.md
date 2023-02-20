@@ -16,6 +16,13 @@ https://asikarikas.ee/
 * The rooms are categorized as types, and each type has its own amount of beds. All rooms have a price per night cost.
 * The customer can view the full price of their reservation, which is based on the price per night but with a 1.5 multiplier on weekends (Saturday-Sunday night and Sunday-Monday night).
 
+# Additonal Features
+* The customer can view the hotel's contact information and location.
+* The customer can search for rooms based on category, price, and dates.
+* The customer must enter their personal data to make a reservation.
+* The hotel employee/admin can view customer data related to the reservation, room data, and reservation time period.
+* The hotel employee/admin can add and delete rooms.
+
 # Usage
 * Download git for your computer
 * Download Visual Studio 2022
