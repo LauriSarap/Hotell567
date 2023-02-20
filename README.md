@@ -26,7 +26,7 @@ https://asikarikas.ee/
 # Images
 <picture>
   <source media=srcset="https://user-images.githubusercontent.com/93860007/220036530-5a36310d-3a03-4497-bfb2-91deadcc04c4.PNG">
-  <img width="342" height="192" alt="Login Page" src="https://user-images.githubusercontent.com/93860007/220036530-5a36310d-3a03-4497-bfb2-91deadcc04c4.PNG">
+  <img width="456" height="256" alt="Login Page" src="https://user-images.githubusercontent.com/93860007/220036530-5a36310d-3a03-4497-bfb2-91deadcc04c4.PNG">
 </picture>
 
 # Usage
