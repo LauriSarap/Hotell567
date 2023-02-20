@@ -23,13 +23,14 @@ https://asikarikas.ee/
 * The customer must enter their personal data to make a reservation.
 * The hotel employee/admin can view customer data related to the reservation, room data, and reservation time period.
 * The hotel employee/admin can add and delete rooms.
+# Images
+[login_page](https://user-images.githubusercontent.com/93860007/220036530-5a36310d-3a03-4497-bfb2-91deadcc04c4.PNG)
 
 # Usage
 * Download git for your computer
 * Download Visual Studio 2022
 	* Download .NET Maui using Visual Studio Installer
 	* Make sure that you have .NET 6.0 installed!
-[login_page](https://user-images.githubusercontent.com/93860007/220036530-5a36310d-3a03-4497-bfb2-91deadcc04c4.PNG)
 
 * Clone the repository by opening a command prompt in some random folder and typing:
  `git clone https://github.com/LauriSarap/Hotell567.git`
