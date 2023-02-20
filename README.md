@@ -30,16 +30,16 @@ https://asikarikas.ee/
 </picture>
 <picture>
   <source media=srcset="https://user-images.githubusercontent.com/93860007/220038253-6650a012-b7e6-4a59-9cba-11ec98229623.PNG">
-  <img width="700" height="300" alt="Rooms page" src="https://user-images.githubusercontent.com/93860007/220038253-6650a012-b7e6-4a59-9cba-11ec98229623.PNG">
+  <img width="700" height="350" alt="Rooms page" src="https://user-images.githubusercontent.com/93860007/220038253-6650a012-b7e6-4a59-9cba-11ec98229623.PNG">
 </picture>
 <picture>
   <source media=srcset="https://user-images.githubusercontent.com/93860007/220038186-ab173853-24bc-426a-8f42-1cf6ff259ea6.PNG">
-  <img width="700" height="300" alt="Rooms page" src="https://user-images.githubusercontent.com/93860007/220038186-ab173853-24bc-426a-8f42-1cf6ff259ea6.PNG">
+  <img width="700" height="350" alt="Rooms page" src="https://user-images.githubusercontent.com/93860007/220038186-ab173853-24bc-426a-8f42-1cf6ff259ea6.PNG">
 </picture>
 
 <picture>
   <source media=srcset="https://user-images.githubusercontent.com/93860007/220038273-553c6866-77c8-4637-96cf-0a8fb3030559.PNG">
-  <img width="700" height="300" alt="Account info" src="https://user-images.githubusercontent.com/93860007/220038273-553c6866-77c8-4637-96cf-0a8fb3030559.PNG">
+  <img width="700" height="350" alt="Account info" src="https://user-images.githubusercontent.com/93860007/220038273-553c6866-77c8-4637-96cf-0a8fb3030559.PNG">
 </picture>
 
 
