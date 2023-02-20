@@ -23,6 +23,19 @@ https://asikarikas.ee/
 * The hotel employee/admin can view customer data related to the reservation, room data, and reservation time period.
 * The hotel employee/admin can add and delete rooms.
 
+# Usage
+1. Login or register an account
+2. Search for a room
+3. Finish account credentials
+3. Book a room
+5. Log out
+6. Login as admin
+	* Username: admin
+	* Password: kasutajalego
+7. View reservations and rooms
+8. Create new rooms and delete old ones
+9. For new room images to get refreshed, restart the application
+
 # Installation
 * WINDOWS 10 ONLY!
 * Download git for your computer
