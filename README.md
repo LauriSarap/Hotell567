@@ -24,17 +24,17 @@ https://asikarikas.ee/
 * The hotel employee/admin can view customer data related to the reservation, room data, and reservation time period.
 * The hotel employee/admin can add and delete rooms.
 # Images
----
+
 <picture>
   <source media=srcset="https://user-images.githubusercontent.com/93860007/220036530-5a36310d-3a03-4497-bfb2-91deadcc04c4.PNG">
   <img width="700" height="340" alt="Login Page" src="https://user-images.githubusercontent.com/93860007/220036530-5a36310d-3a03-4497-bfb2-91deadcc04c4.PNG">
 </picture>
----
+
 <picture>
   <source media=srcset="https://user-images.githubusercontent.com/93860007/220038253-6650a012-b7e6-4a59-9cba-11ec98229623.PNG">
   <img width="700" height="350" alt="Rooms page" src="https://user-images.githubusercontent.com/93860007/220038253-6650a012-b7e6-4a59-9cba-11ec98229623.PNG">
 </picture>
----
+
 <picture>
   <source media=srcset="https://user-images.githubusercontent.com/93860007/220038186-ab173853-24bc-426a-8f42-1cf6ff259ea6.PNG">
   <img width="700" height="350" alt="Rooms page" src="https://user-images.githubusercontent.com/93860007/220038186-ab173853-24bc-426a-8f42-1cf6ff259ea6.PNG">
