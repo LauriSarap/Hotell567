@@ -23,7 +23,8 @@ https://asikarikas.ee/
 * The hotel employee/admin can view customer data related to the reservation, room data, and reservation time period.
 * The hotel employee/admin can add and delete rooms.
 
-# Usage
+# Installation
+* WINDOWS 10 ONLY!
 * Download git for your computer
 * Download Visual Studio 2022
 	* Download .NET Maui using Visual Studio Installer
@@ -32,7 +33,7 @@ https://asikarikas.ee/
 * Clone the repository by opening a command prompt in some random folder and typing:
  `git clone https://github.com/LauriSarap/Hotell567.git`
 * Open the solution in Visual Studio
-* Run the application through Visual Studio
+* Run the application through Visual Studio !Wait a bit before starting as VS needs to download Nuget packages!
 
 # Images
 <picture>
